@@ -1,8 +1,21 @@
+import React, { useState } from 'react';
 import BigButton from '../BigButton/BigButton';
 import BigTitle from '../BigTitle/BigTitle';
 import styles from './AllTasks.module.css';
 
 export default function AllTasks() {
+
+    const [expandedRows, setExpandedRows] = useState(new Set());
+
+    const toggleRow = (index) => {
+        const newSet = new Set(expandedRows);
+        if (newSet.has(index)) {
+            newSet.delete(index);
+        } else {
+            newSet.add(index);
+        }
+        setExpandedRows(newSet);
+    };
 
     const tasks = [
         {
@@ -77,19 +90,28 @@ export default function AllTasks() {
                 </thead>
                 <tbody>
                     {tasks.map((task, index) => (
-                        <tr key={index} className={styles.tableRow}>
-                            <td>
-                                <div className={styles.cellContent}>
-                                    <input type="checkbox" className={styles.tableCheckbox} />
-                                    <span className={styles.purpleIcon}><i className={task.icon}></i></span>
-                                    <span>{task.title}</span>
-                                </div>
-                            </td>
-                            <td>{task.taskCreated}</td>
-                            <td>{task.duoDate}</td>
-                            <td>{task.lastActivity}</td>
-                            <td><i className="fa-solid fa-ellipsis-vertical"></i></td>
-                        </tr>
+                        <React.Fragment key={index}>
+                            <tr className={styles.tableRow} onClick={() => toggleRow(index)}>
+                                <td>
+                                    <div className={styles.cellContent}>
+                                        <input type="checkbox" className={styles.tableCheckbox} onClick={(e) => e.stopPropagation()} />
+                                        <span className={styles.purpleIcon}><i className={task.icon}></i></span>
+                                        <span>{task.title}</span>
+                                    </div>
+                                </td>
+                                <td>{task.taskCreated}</td>
+                                <td>{task.duoDate}</td>
+                                <td>{task.lastActivity}</td>
+                                <td><i className="fa-solid fa-ellipsis-vertical"></i></td>
+                            </tr>
+                            {expandedRows.has(index) && (
+                                <tr className={styles.accordionRow}>
+                                    <td colSpan={5}>
+                                        <p className={styles.accordionContent}>{task.description}</p>
+                                    </td>
+                                </tr>
+                            )}
+                        </React.Fragment>
                     ))}
                 </tbody>
             </table>
