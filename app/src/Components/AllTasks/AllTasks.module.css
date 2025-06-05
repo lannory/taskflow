@@ -10,7 +10,6 @@
     border-collapse: collapse;
     width: 100%;
     max-width: 1124px;
-    background-color: #fff;
 }
 
 .colTitle {
@@ -33,6 +32,12 @@
     line-height: 20px;
     color: #101828;
     cursor: pointer;
+    background-color: #fff;
+}
+
+.tableRow:hover {
+    background-color: #F9FAFB;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 /* Колір для першого стовпця tbody */

@@ -6,6 +6,8 @@ import styles from './AllTasks.module.css';
 export default function AllTasks() {
 
     const [expandedRows, setExpandedRows] = useState(new Set());
+    const [selectedRows, setSelectedRows] = useState(new Set());
+
 
     const toggleRow = (index) => {
         const newSet = new Set(expandedRows);
@@ -16,6 +18,26 @@ export default function AllTasks() {
         }
         setExpandedRows(newSet);
     };
+
+    const toggleSelectAll = () => {
+        if (selectedRows.size === tasks.length) {
+            setSelectedRows(new Set());
+        } else {
+            setSelectedRows(new Set(tasks.map((_, i) => i)));
+        }
+    };
+
+    const toggleSingleRow = (index) => {
+        const newSet = new Set(selectedRows);
+        if (newSet.has(index)) {
+            newSet.delete(index);
+        } else {
+            newSet.add(index);
+        }
+        setSelectedRows(newSet);
+    };
+
+
 
     const tasks = [
         {
@@ -78,7 +100,12 @@ export default function AllTasks() {
                     <tr className={styles.tableHeadRow}>
                         <td>
                             <div className={styles.cellContent}>
-                                <input type="checkbox" className={styles.tableCheckbox} />
+                                <input
+                                    type="checkbox"
+                                    className={styles.tableCheckbox}
+                                    checked={selectedRows.size === tasks.length}
+                                    onChange={toggleSelectAll}
+                                />
                                 Task name
                             </div>
                         </td>
@@ -91,10 +118,18 @@ export default function AllTasks() {
                 <tbody>
                     {tasks.map((task, index) => (
                         <React.Fragment key={index}>
-                            <tr className={styles.tableRow} onClick={() => toggleRow(index)}>
+                            <tr className={styles.tableRow}
+                                onClick={() => toggleRow(index)}
+                                style={expandedRows.size !== 0 && !expandedRows.has(index) ? { backgroundColor: 'transparent' } : {}}>
                                 <td>
                                     <div className={styles.cellContent}>
-                                        <input type="checkbox" className={styles.tableCheckbox} onClick={(e) => e.stopPropagation()} />
+                                        <input
+                                            type="checkbox"
+                                            className={styles.tableCheckbox}
+                                            onClick={(e) => e.stopPropagation()}
+                                            checked={selectedRows.has(index)}
+                                            onChange={() => toggleSingleRow(index)}
+                                        />
                                         <span className={styles.purpleIcon}><i className={task.icon}></i></span>
                                         <span>{task.title}</span>
                                     </div>
@@ -102,7 +137,7 @@ export default function AllTasks() {
                                 <td>{task.taskCreated}</td>
                                 <td>{task.duoDate}</td>
                                 <td>{task.lastActivity}</td>
-                                <td><i className="fa-solid fa-ellipsis-vertical"></i></td>
+                                <td><i className="fa-solid fa-ellipsis-vertical" onClick={(e) => e.stopPropagation()}></i></td>
                             </tr>
                             {expandedRows.has(index) && (
                                 <tr className={styles.accordionRow}>
