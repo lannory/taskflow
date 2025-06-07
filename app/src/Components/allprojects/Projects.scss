@@ -1,0 +1,154 @@
+
+*{
+	font-family: "Plus Jakarta Sans";
+	color: #141522;
+}
+
+.projects-nav{
+	display: flex;
+	align-items: center;
+	column-gap: 28px;
+
+	form{
+		position: relative;
+	}
+	padding-left:28px;
+	margin: 20px 0 31px;
+}
+
+.nav-btns {
+	display: flex;
+	column-gap: 24px;
+	align-items: center;
+}
+.category-btn {
+}
+.btn {
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+
+
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: -0.24px;
+	
+	border-radius: 10px;
+	border: 1px solid #F5F5F7;
+	padding: 14px 28px;
+}
+.search-input {
+	border-radius: 10px;
+	border: 1px solid #F5F5F7;
+	padding: 14px 28px;
+	min-width: 480px;
+
+	&::placeholder{
+		color: var(--Secondary-400, #54577A);
+
+		font-size: 12px;
+		letter-spacing: -0.12px;	
+	}
+}
+.search-btn {
+	position: absolute;
+	top: 25%;
+	right: 28px;
+}
+
+
+.project {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+	background-color: #fff !important;
+	padding: 24px;
+	border-radius: 10px;
+}
+.project-banner {
+}
+.project-desc {
+	
+}
+.project-title {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 150%; /* 24px */
+	letter-spacing: -0.32px;
+	margin-bottom: 4px;
+}
+.project-subtitle {
+	color: #54577A;
+
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: -0.24px;
+}
+.project-progress {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 150%; /* 24px */
+	letter-spacing: -0.32px;
+	
+}
+.progress-desc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+.progress-text {
+	
+}
+.progress {
+	color: #546FFF;
+}
+.project-deadline {
+	
+}
+.deadline {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 150%; /* 24px */
+	letter-spacing: -0.32px;
+}
+
+.slider-wrapper {
+	padding-left: 38px;
+	margin-bottom: 16px;
+}
+.projects-title {
+	font-size: 24px;
+
+	font-weight: 600;
+	line-height: 150%; /* 36px */
+	letter-spacing: -0.72px;
+	margin-bottom: 18px;
+}
+.slider {
+	display: flex;
+	column-gap: 32px;
+	align-items: center;
+}
+
+.slider-desc {
+	display: flex;
+	align-items: center;
+	max-width: 870px;
+	justify-content: space-between;
+}
+.projects-title {
+}
+.slider-controls {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+.prev {
+}
+.next {
+}
