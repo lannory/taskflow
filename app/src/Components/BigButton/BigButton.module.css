@@ -1,0 +1,29 @@
+.purpleButton {
+  background-color: #5577FF;
+}
+
+.purpleButton:hover {
+  background-color: #3e5ed6; /* темніший синьо-фіолетовий */
+}
+
+.redButton {
+  background-color: #EE201C;
+}
+
+.redButton:hover {
+  background-color: #c41816; /* темніший червоний */
+}
+
+
+.BigButton{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 8px 42px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}

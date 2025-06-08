@@ -1,0 +1,116 @@
+.allTasksTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end; 
+    gap: 36px;
+    margin-bottom: 42px;
+}
+
+.tasksTable {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1124px;
+}
+
+.colTitle {
+    width: 528px;
+}
+
+.colDate {
+    width: 176px;
+}
+
+.colAction {
+    width: 68px;
+}
+
+.tableRow {
+    height: 60px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #101828;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.tableRow:hover {
+    background-color: #F9FAFB;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Колір для першого стовпця tbody */
+tbody tr td:first-child {
+    color: #101828;
+}
+
+/* Колір для всіх інших стовпців tbody */
+tbody tr td:not(:first-child) {
+    color: #475467;
+}
+
+.tableHeadRow {
+    height: 44px;
+    background-color: #F9FAFB;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #475467;
+}
+
+.tableRow td,
+.tableHeadRow td {
+    vertical-align: middle;
+    padding: 0 0 0 24px;
+    border-bottom: solid 1px #E4E7EC;
+}
+
+.tableCheckbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border-radius: 6px;
+    border: 1px solid #D0D5DD;
+    cursor: pointer;
+}
+
+.cellContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.purpleIcon {
+    width: 40px;
+    height: 40px;
+    background-color: #F4EBFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purpleIcon i {
+    width: 15px;
+    height: 15px;
+    color: #7F56D9;
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+}
+
+.accordionRow{
+    background-color: #fff;
+    border-bottom: solid 1px #E4E7EC;
+}
+
+.accordionContent {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #667085;
+    padding: 45px 11px;
+    margin: 0;
+}
