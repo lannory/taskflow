@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectsNavigation from '../Components/allprojects/ProjectsNavigation';
-import './AllProjects-module.scss'
+import './AllProjects.module.scss'
 import ProjectsSlider from '../Components/allprojects/ProjectsSlider';
 
 function AllProjects() {

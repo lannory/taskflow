@@ -17,10 +17,12 @@ function ProjectsNavigation() {
 				</button>
 			</form>
 			<div className="nav-btns">
-				<button className="category-btn btn">
-					<img src="../../../public/category.svg" alt="" />
-					Category
-				</button>
+				<div className="category-menu">
+					<button className="category-btn btn">
+						<img src="../../../public/category.svg" alt="" />
+						Category
+					</button>
+				</div>
 				<button className="sort-btn btn">
 					<img src="../../../public/category.svg" alt="" />
 					Sort By : Deadline
