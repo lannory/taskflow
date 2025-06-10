@@ -1,0 +1,11 @@
+.headerContainer{
+    display: flex;
+    gap: 46px;
+    width: max-content;
+    margin-top: 32px;
+}
+
+.headerLeft{
+    padding-left: 32px;
+    border-bottom: solid 1px #F5F5F7;
+}
