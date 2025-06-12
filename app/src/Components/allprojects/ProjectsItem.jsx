@@ -26,7 +26,7 @@ function ProjectsItem({obj}) {
 							<path fillRule="evenodd" clipRule="evenodd" d="M19.25 10.001C19.25 15.11 15.109 19.251 10 19.251C4.891 19.251 0.75 15.11 0.75 10.001C0.75 4.89198 4.891 0.750977 10 0.750977C15.109 0.750977 19.25 4.89198 19.25 10.001Z" stroke="#54577A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 							<path d="M13.4311 12.9437L9.66113 10.6947V5.84766" stroke="#54577A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 						</svg>
-						{obj.deadline} Days Left
+						{obj.deadline} left
 					</div>
 				</div>
 			

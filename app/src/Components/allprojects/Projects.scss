@@ -21,8 +21,7 @@
 	column-gap: 24px;
 	align-items: center;
 }
-.category-btn {
-}
+
 .btn {
 	display: flex;
 	align-items: center;
@@ -58,18 +57,17 @@
 
 
 .project {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	row-gap: 16px;
-	background-color: #fff !important;
+	background-color: #fff;
 	padding: 24px;
 	border-radius: 10px;
+	max-width: 328px; 
+	flex-shrink: 0;
 }
-.project-banner {
-}
-.project-desc {
-	
-}
+
 .project-title {
 	font-size: 16px;
 	font-style: normal;
@@ -98,14 +96,9 @@
 	justify-content: space-between;
 	margin-bottom: 12px;
 }
-.progress-text {
-	
-}
+
 .progress {
 	color: #546FFF;
-}
-.project-deadline {
-	
 }
 .deadline {
 	display: flex;
@@ -129,26 +122,29 @@
 	letter-spacing: -0.72px;
 	margin-bottom: 18px;
 }
-.slider {
-	display: flex;
-	column-gap: 32px;
-	align-items: center;
-}
+.projects-slider {
+	max-width: 1156px;
+}	
 
 .slider-desc {
 	display: flex;
 	align-items: center;
-	max-width: 870px;
+	max-width: 1124px;
 	justify-content: space-between;
 }
-.projects-title {
-}
+
 .slider-controls {
 	display: flex;
 	align-items: center;
 	column-gap: 10px;
 }
-.prev {
+
+.slick-slide > div {
+  padding: 0 12px;
+  box-sizing: border-box;
 }
-.next {
+
+.slick-slide {
+  width: auto !important;
 }
+
