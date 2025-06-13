@@ -5,7 +5,7 @@ import { LinearProgress } from '@mui/material';
 function ProjectsItem({obj}) {
 	return (
 		<div className='project'>
-			<img src={"../../../public/projects/" + obj.img + '.png'} alt="" className="project-banner" />
+			<img src={"/projects/" + obj.img + '.png'} alt="" className="project-banner" />
 			<div className="project-desc">
 				<h3 className="project-title">{obj.title}</h3>
 				<p className="project-subtitle">{obj.subtitle}</p>
