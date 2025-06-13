@@ -11,11 +11,13 @@
 
 .createTaskHeader {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
   width: 100%;
   max-width: 480px;
-  margin-bottom: 24px;
 }
 
 .titleTask {
@@ -25,7 +27,7 @@
 }
 
 .createTaskButton {
-  background-color: #3b82f6;
+  background-color: #5577FF;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -35,13 +37,16 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2563eb;
+    background-color: #5577FF88;
   }
 }
 
 .createTaskForm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
+  max-width: 500px;
+  gap: 12px;
 }
