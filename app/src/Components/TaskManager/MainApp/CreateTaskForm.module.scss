@@ -1,0 +1,47 @@
+.create_task {
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: #fff5f5;
+}
+
+.createTaskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.titleTask {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.createTaskButton {
+  background-color: #3b82f6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+}
+
+.createTaskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
