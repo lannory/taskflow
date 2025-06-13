@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './TextAreaField.module.scss';
 
 const TextAreaField = ({ value, onChange, placeholder }) => (
   <textarea
@@ -6,7 +7,7 @@ const TextAreaField = ({ value, onChange, placeholder }) => (
     onChange={onChange}
     placeholder={placeholder}
     rows={4}
-    className=""
+    className={styles.textAreaField}
   />
 );
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import InputField from '../InputField/InputField';
 import TextAreaField from '../TextAreaField/TextAreaField';
 import DateField from '../DateField/DateField';
-import SelectField from '../SelectField/SelectField';
+import ManagerSelect from '../SelectField/ManagerSelect';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import styles from"./CreateTaskForm.module.scss";
 
@@ -29,8 +29,7 @@ const CreateTaskForm = () => {
           Create Task
         </button>
       </div>
-
-      <formonSubmit
+      <form
         onSubmit={handleSubmit}
         className={styles.createTaskForm}
       >
@@ -40,28 +39,24 @@ const CreateTaskForm = () => {
           onChange={(e) => setProjectName(e.target.value)}
           placeholder="Project Name"
         />
-
         <TextAreaField
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter a description..."
+          placeholder="A concise, 5-10 minute presentation that outlines the key design decisions. This presentation covers:"
         />
-
         <DateField
+          label="Project Deadline"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
           placeholder="DD/MM/YYYY"
         />
-
-        <SelectField
+        <ManagerSelect
           value={manager}
-          onChange={(e) => setManager(e.target.value)}
-          options={['Anna', 'John', 'Kira']}
+          onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-
         <SubmitButton text="Create Task" />
-      </formonSubmit>
+      </form>
     </div>
   );
 };
