@@ -1,0 +1,17 @@
+.textAreaField {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font: 400 16px/24px 'Poppins', sans-serif;
+
+  &:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+}
