@@ -1,3 +1,5 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .inputContainer{
   display: flex;
   flex-direction: column;
@@ -20,14 +22,13 @@
     height: auto;
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
+    border: 1px solid $Default-border;
     font: 400 14px/20px 'Inter', sans-serif;
-    color: #111827;
-    background-color: #f9fafb;
+    background-color: $White;
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: #3b82f6;
+      border-color: $Gray-500;
       outline: none;
     }
   }

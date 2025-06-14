@@ -1,3 +1,5 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
 .allTasksTitle {
     display: flex;
     justify-content: flex-start;
@@ -30,41 +32,41 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 20px;
-    color: #101828;
+    color: $Gray-900;
     cursor: pointer;
-    background-color: #fff;
+    background-color: $White;
 }
 
 .tableRow:hover {
-    background-color: #F9FAFB;
+    background-color: $Gray-50;
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 /* Колір для першого стовпця tbody */
 tbody tr td:first-child {
-    color: #101828;
+    color: $Gray-900;
 }
 
 /* Колір для всіх інших стовпців tbody */
 tbody tr td:not(:first-child) {
-    color: #475467;
+    color: $Gray-600;
 }
 
 .tableHeadRow {
     height: 44px;
-    background-color: #F9FAFB;
+    background-color: $Gray-50;
     font-family: "Inter", sans-serif;
     font-size: 12px;
     font-weight: 700;
     line-height: 18px;
-    color: #475467;
+    color: $Gray-600;
 }
 
 .tableRow td,
 .tableHeadRow td {
     vertical-align: middle;
     padding: 0 0 0 24px;
-    border-bottom: solid 1px #E4E7EC;
+    border-bottom: solid 1px $Gray-200;
 }
 
 .tableCheckbox {
@@ -72,7 +74,7 @@ tbody tr td:not(:first-child) {
     height: 18px;
     margin: 0;
     border-radius: 6px;
-    border: 1px solid #D0D5DD;
+    border: 1px solid $Gray-300;
     cursor: pointer;
 }
 
@@ -85,7 +87,7 @@ tbody tr td:not(:first-child) {
 .purpleIcon {
     width: 40px;
     height: 40px;
-    background-color: #F4EBFF;
+    background-color: $Brand-100;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -95,14 +97,14 @@ tbody tr td:not(:first-child) {
 .purpleIcon i {
     width: 15px;
     height: 15px;
-    color: #7F56D9;
+    color: $Brand-600;
     aspect-ratio: 1 / 1;
     display: inline-block;
 }
 
 .accordionRow{
-    background-color: #fff;
-    border-bottom: solid 1px #E4E7EC;
+    background-color: $White;
+    border-bottom: solid 1px $Gray-200;
 }
 
 .accordionContent {
@@ -110,7 +112,7 @@ tbody tr td:not(:first-child) {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    color: #667085;
+    color: $Gray-500;
     padding: 45px 11px;
     margin: 0;
 }

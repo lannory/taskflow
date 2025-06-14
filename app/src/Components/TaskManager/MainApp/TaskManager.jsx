@@ -3,7 +3,6 @@ import InputField from '../InputField/InputField';
 import TextAreaField from '../TextAreaField/TextAreaField';
 import DateField from '../DateField/DateField';
 import ManagerSelect from '../SelectField/ManagerSelect';
-import SubmitButton from '../SubmitButton/SubmitButton';
 import styles from"./CreateTaskForm.module.scss";
 import BigTitle from '../../BigTitle/BigTitle'
 import BigButton from '../../BigButton/BigButton'
@@ -39,7 +38,7 @@ const CreateTaskForm = () => {
         <TextAreaField
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="A concise, 5-10 minute presentation that outlines the key design decisions. This presentation covers:"
+          placeholder="Enter a description..."
         />
         <DateField
           label="Project Deadline"

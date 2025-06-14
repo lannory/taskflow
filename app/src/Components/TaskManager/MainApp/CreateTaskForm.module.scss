@@ -1,3 +1,5 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .create_task {
   display: flex;
   width: 100%;
@@ -6,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 32px;
-  background-color: #fff5f5;
+  background-color: $Backgroung;
 }
 
 .createTaskHeader {
@@ -23,11 +25,11 @@
 .titleTask {
   font-size: 24px;
   font-weight: bold;
-  color: #111827;
+  color: $Secondary-500;
 }
 
 .createTaskButton {
-  background-color: #5577FF;
+  background-color: $Base-purple;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -37,7 +39,7 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #5577FF88;
+    background-color: $Base-purple-hover;
   }
 }
 

@@ -1,13 +1,10 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .selectWrapper {
   position: relative;
   width: 100%;
   max-width: 500px;
   font: 500 16px 'Inter', sans-serif;
-
-  &:focus {
-    border-color: #D6BBFB;
-    outline: none;
-  }
 }
 
 .selected {
@@ -15,22 +12,23 @@
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid $Default-border;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $White;
+
 }
 
 .placeholder {
-  color: #888;
+  color: $Gray-500;
 }
 
 .dropdown {
   position: absolute;
   width: 100%;
   margin-top: 4px;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: $White;
+  border: 1px solid $Default-border;
   border-radius: 8px;
   z-index: 10;
 }
@@ -43,7 +41,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: $White-hover;
+    border-radius: 8px;
   }
 }
 

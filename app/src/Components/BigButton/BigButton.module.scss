@@ -1,17 +1,19 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
 .purpleButton {
-  background-color: #5577FF;
+  background-color: $Base-purple;
 }
 
 .purpleButton:hover {
-  background-color: #3e5ed6; /* темніший синьо-фіолетовий */
+  background-color: $Base-purple-hover; /* темніший синьо-фіолетовий */
 }
 
 .redButton {
-  background-color: #EE201C;
+  background-color: $Error-red;
 }
 
 .redButton:hover {
-  background-color: #c41816; /* темніший червоний */
+  background-color: $Error-red-hover; /* темніший червоний */
 }
 
 
@@ -23,7 +25,7 @@
     padding: 8px 42px;
     border-radius: 8px;
     border: none;
-    color: #fff;
+    color: $White;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
 }

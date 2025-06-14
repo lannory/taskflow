@@ -1,3 +1,5 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .calendar{
     width: max-content;
     font-family: "Poppins", sans-serif;
@@ -7,7 +9,7 @@
     flex-direction: column;
     gap: 36px;
     padding: 24px 18px 18px 18px;
-    background-color: #FFFFFF;
+    background-color: $White;
     border-radius: 10px;
 }
 
@@ -25,13 +27,13 @@
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
-    color: #141522;
+    color: $Secondary-500;
     margin: 0;
 }
 
 .navBtn{
     font-size: 14px;
-    color: #54577A;
+    color: $Secondary-400;
     border: none;
     background-color: transparent;
     margin: 0;
@@ -61,11 +63,11 @@
 }
 
 .day:hover{
-    background-color: #F5F5F7;
+    background-color: $White-hover;
 }
 
 .day:hover .dayNumber {
-  background-color: #FFFFFF;
+  background-color: $White;
 }
 
 .dayName{
@@ -74,7 +76,7 @@
 }
 
 .dayNumber{
-    background-color: #F5F5F7;
+    background-color: $White-hover;
     width: 32px;
     aspect-ratio: 1/1;
     display: flex;
@@ -84,14 +86,14 @@
 }
 
 .day.active {
-    background-color: #5577FF;
+    background-color: $Base-purple;
 }
 
 
 .day.active > .dayName{
-    color: #FFFFFF;
+    color: $White;
 }
 
 .day.active > .dayNumber{
-    background-color: #FFFFFF;
+    background-color: $White;
 }
