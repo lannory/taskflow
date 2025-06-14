@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import styles from './TaskTabs.module.css';
+import styles from './TaskTabs.module.scss';
+import React from "react"
 
 export default function TaskTabs() {
   const [activeTab, setActiveTab] = useState('');

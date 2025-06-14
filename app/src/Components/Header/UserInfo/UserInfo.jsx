@@ -1,6 +1,7 @@
-import styles from './UserInfo.module.css';
+import styles from './UserInfo.module.scss';
 import SmallTitle from '../../SmallTitle/SmallTitle';
 import userPhoto from '../../../../src/assets/userPhoto.png';
+import React from "react"
 
 export default function UserInfo() {
     return (

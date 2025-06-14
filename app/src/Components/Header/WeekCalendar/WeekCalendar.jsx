@@ -1,6 +1,7 @@
 import { startOfWeek, addDays, format, subWeeks, addWeeks } from 'date-fns';
 import { useState } from 'react';
-import styles from './WeekCalendar.module.css';
+import styles from './WeekCalendar.module.scss';
+import React from "react"
 
 export default function WeekCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date());

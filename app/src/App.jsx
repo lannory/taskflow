@@ -3,13 +3,14 @@ import TaskManager from "./Components/TaskManager/MainApp/TaskManager"
 import './App.css'
 import AllTasks from './Components/AllTasks/AllTasks'
 import Header from './Components/Header/Header'
+import React from "react"
 
 function App() {
   return (
     <>
-    {/* <Header isFullHeader={false}/> */}
-      <TaskManager />
-      <AllTasks />
+    {/* <Header isFullHeader={true}/> */}
+      {/* <TaskManager /> */}
+      {/* <AllTasks /> */}
     </>
   )
 }

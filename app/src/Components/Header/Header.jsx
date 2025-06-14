@@ -1,7 +1,9 @@
-import styles from './Header.module.css'
+import styles from './Header.module.scss'
 import TaskTabs from './TaskTabs/TaskTabs'
 import UserInfo from './UserInfo/UserInfo'
 import WeekCalendar from './WeekCalendar/WeekCalendar'
+import React from "react"
+
 
 
 export default function Header({isFullHeader}) {

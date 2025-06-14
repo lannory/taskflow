@@ -1,4 +1,6 @@
-import styles from './BigButton.module.css';
+import styles from './BigButton.module.scss';
+import React from "react"
+
 
 export default function BigButton({ text, style }) {
   let colorClass = '';

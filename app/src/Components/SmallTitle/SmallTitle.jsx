@@ -1,4 +1,6 @@
-import styles from './SmallTitle.module.css';
+import styles from './SmallTitle.module.scss';
+import React from "react"
+
 
 export default function SmallTitle({text}){
     return(
