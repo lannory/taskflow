@@ -1,6 +1,7 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
 .wrapper {
-	background-color: #fff;
-	color: #141522;
+	background-color: $White;
 	margin: 32px;
 	max-width: 720px;
 	border-radius: 10px;
@@ -9,62 +10,69 @@
 .descWrapper {
 	padding: 24px;
 }
+
 .title {
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 150%; /* 48px */
+	line-height: 150%; // 48px
 	letter-spacing: -0.96px;
 	margin-bottom: 16px;
 }
+
 .projectType {
 	display: flex;
 	font-size: 14px;
 	font-weight: 500;
-	line-height: 150%; /* 21px */
+	line-height: 150%; // 21px
 	letter-spacing: -0.28px;
 
-	p:first-child{
-		color: #54577A;
+	p:first-child {
+		color: $Secondary-400;
 		padding-right: 10px;
 	}
+
 	margin-bottom: 16px;
 }
+
 .link {
-	color: #04A4F4;
+	color: $Project-link;
 	padding-left: 10px;
-	border-left: 1px solid #DFDFDF;;
+	border-left: 1px solid $Project-split;
 }
+
 .widget {
-	
-	display: flex; 
+	display: flex;
 	align-items: center;
 	gap: 20px;
-	p{
+
+	p {
 		font-size: 14px;
 		font-weight: 500;
-		line-height: 150%; /* 21px */
+		line-height: 150%; // 21px
 		letter-spacing: -0.28px;
 		display: flex;
 		align-items: center;
 		column-gap: 5px;
 	}
+
 	margin-bottom: 31px;
 }
 
 .subtitle {
 	font-size: 24px;
 	font-weight: 600;
-	line-height: 150%; /* 36px */
+	line-height: 150%; // 36px
 	letter-spacing: -0.72px;
 	margin-bottom: 16px;
 }
+
 .text {
 	width: 672px;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 175%; /* 28px */
+	line-height: 175%; // 28px
 	margin-bottom: 24px;
 }
 
@@ -73,21 +81,18 @@
 	flex-direction: column;
 	row-gap: 20px;
 }
-.listItem {
-	font-family: "Plus Jakarta Sans";
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 200%; /* 28px */
 
+.listItem {
+	font-size: 14px;
+	line-height: 200%; // 28px
 	display: flex;
 	column-gap: 10px;
 	align-items: center;
 
-	div{
+	div {
 		width: 20px;
 		height: 20px;
-		background-color: #546FFF;
+		background-color: $Projects-blue;
 		border-radius: 50%;
 		display: flex;
 		align-items: center;

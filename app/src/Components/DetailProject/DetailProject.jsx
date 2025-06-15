@@ -16,11 +16,11 @@ function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 				</div>
 				<div className={styles.widget}>
 					<p>
-						<i className="fa-regular fa-clock" style={{ color: "#54577a" }}></i>
+						<i className="fa-regular fa-users" style={{ color: "#54577a" }}></i>
 						{peopleAmount} Students Involved
 					</p>
 					<p>
-						<i className="fa-light fa-users" style={{ color: "#54577a" }}></i>
+						<i className="fa-regular fa-clock" style={{ color: "#54577a" }}></i>						
 						{deadline}
 					</p>
 				</div>

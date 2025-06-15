@@ -10,9 +10,6 @@ import React from "react"
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 
-function App() {
-
-
 
 function App() {
   return (
@@ -20,8 +17,10 @@ function App() {
       <Header isFullHeader={true}/>
       <TaskManager />
       <AllTasks />
+      <AllProjects/>
+      <DetailProjectPage/>
     </>
   )
 }
 
-export default App
+export default App;

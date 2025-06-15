@@ -19,7 +19,9 @@ function DetailProjectPage() {
 	};
 
 	return (
-		<DetailProject {...projectData}/>
+		<div className={styles.container}>
+			<DetailProject {...projectData}/>
+		</div>
 	);
 }
 

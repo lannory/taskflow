@@ -18,7 +18,7 @@
     "lucide-react": "^0.513.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sass": "^1.89.1"
+    "sass": "^1.89.1",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1"
 

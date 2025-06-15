@@ -1,3 +1,6 @@
-*{
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.container{
 	font-family: "Plus Jakarta Sans";
+	color: $Secondary-500;
 }
