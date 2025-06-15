@@ -1,0 +1,66 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.userInfo {
+    width: 684px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 0 18px 20px 0;
+}
+
+.userInfoLeft {
+    width: max-content;
+}
+
+.userInfoSubtitle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    width: max-content;
+    color: $Secondary-400;
+    margin: 8px 0 0 0;
+    padding: 0;
+}
+
+.userInfoRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: max-content;
+    padding-bottom: 4px;
+}
+
+.headerAlert {
+    width: 52px;
+    height: 52px;
+    border: 1px solid $White-hover;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.headerAlert i {
+    font-size: 24px;
+    color: $Secondary-300;
+    line-height: 1;
+}
+
+.headerAlert:hover {
+    background-color: $White-hover;
+}
+
+.headerAlert i {
+    transition: color 0.3s ease;
+}
+
+.userPhoto {
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+}

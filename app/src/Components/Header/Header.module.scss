@@ -1,0 +1,13 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.headerContainer{
+    display: flex;
+    gap: 46px;
+    width: max-content;
+    padding-top: 32px;
+}
+
+.headerLeft{
+    padding-left: 32px;
+    border-bottom: solid 1px $White-hover;
+}
