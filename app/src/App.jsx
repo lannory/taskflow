@@ -7,11 +7,17 @@ import AllTasks from './Components/AllTasks/AllTasks'
 import Header from './Components/Header/Header'
 import React from "react"
 
+import AllProjects from './Pages/AllProjects/AllProjects'
+import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
+
+function App() {
+
+
 
 function App() {
   return (
     <>
-    <Header isFullHeader={true}/>
+      <Header isFullHeader={true}/>
       <TaskManager />
       <AllTasks />
     </>
