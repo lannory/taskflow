@@ -1,15 +1,15 @@
 import './App.css';
 import './reset.scss';
-import AllProjects from './Pages/allprojects/AllProjects'
-import DetailProject from './Pages/detailproject/DetailProject';
+import AllProjects from './Pages/AllProjects/AllProjects'
+import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 
 function App() {
 
 
   return (
     <>
-      {/* <AllProjects/> */}
-      <DetailProject/>
+      <AllProjects/>
+      {/* <DetailProjectPage/> */}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
-import './Projects.scss';
+import styles from './Projects.module.scss';
 
 
 function ProjectsNavigation() {
@@ -9,22 +9,28 @@ function ProjectsNavigation() {
 
 
 	return (
-		<nav className='projects-nav'>
+		<nav className={styles.projectsNav}>
 			<form action="">
-				<input type="text" className='search-input' placeholder='Search  Project' ref={searchRef}/>
-				<button type='button' className='search-btn'>
-					<img src="../../../public/search-normal.svg" alt="" />
+				<input
+					type="text"
+					className={styles.searchInput}
+					placeholder="Search  Project"
+					ref={searchRef}
+				/>
+				<button type="button" className={styles.searchBtn}>
+					<i className="fa-light fa-magnifying-glass" style={{ color: '#8E92BC' }}></i>
 				</button>
 			</form>
-			<div className="nav-btns">
-				<div className="category-menu">
-					<button className="category-btn btn">
-						<img src="../../../public/category.svg" alt="" />
+
+			<div className={styles.navBtns}>
+				<div className={styles.categoryMenu}>
+					<button className={`${styles.categoryBtn} ${styles.btn}`}>
+						<i className="fa-solid fa-list" style={{ color: '#8E92BC' }}></i>
 						Category
 					</button>
 				</div>
-				<button className="sort-btn btn">
-					<img src="../../../public/category.svg" alt="" />
+				<button className={`${styles.sortBtn} ${styles.btn}`}>
+					<i className="fa-regular fa-sort" style={{ color: '#8E92BC' }}></i>
 					Sort By : Deadline
 				</button>
 			</div>

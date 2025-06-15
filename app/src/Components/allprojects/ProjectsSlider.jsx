@@ -3,7 +3,7 @@ import ProjectsItem from './ProjectsItem';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import styles from './Projects.module.scss';
 
 
 
@@ -12,26 +12,29 @@ function ProjectsSlider({title, projects}) {
 		dots: false,
 		infinite: false,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: 3.2,
 		slidesToScroll: 1,
  	 };
 
 	const sliderRef = useRef();
 	return (
-		<div className='slider-wrapper'>
-			<div className="slider-desc">
-				<h2 className="projects-title">{title}</h2>
-				<div className="slider-controls">
-					<button className="prev" onClick={() => sliderRef?.current?.slickPrev()}><img src="../../../arrow-left.svg" alt="" /></button>
-					<button className="next" onClick={() => sliderRef?.current?.slickNext()}><img src="../../../arrow-right.svg" alt="" /></button>
+		<div className={styles.sliderWrapper}>
+			<div className={styles.sliderDesc}>
+				<h2 className={styles.projectsTitle}>{title}</h2>
+				<div className={styles.sliderControls}>
+					<button className={styles.prev} onClick={() => sliderRef?.current?.slickPrev()}>
+						<i className="fa-solid fa-arrow-left"></i>
+					</button>
+					<button className={styles.next} onClick={() => sliderRef?.current?.slickNext()}>
+						<i className="fa-solid fa-arrow-right"></i>
+						<img src="../../../arrow-right.svg" alt="" />
+					</button>
 				</div>
 			</div>
-			<div className="projects-slider">
+			<div className={styles.projectsSlider}>
 				<Slider ref={sliderRef} {...settings}>
 					{projects.map(item => <ProjectsItem obj={item} />)}
 				</Slider>
-				
-				
 			</div>
 		</div>
 	);
