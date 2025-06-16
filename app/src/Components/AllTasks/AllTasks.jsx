@@ -3,6 +3,8 @@ import BigButton from '../BigButton/BigButton';
 import BigTitle from '../BigTitle/BigTitle';
 import styles from './AllTasks.module.scss';
 import TasksTable from './TasksTable/TasksTable';
+import TasksSearch from './TasksSearch/TasksSearch';
+import StatusButton from './StatusButton/StatusButton';
 
 export default function AllTasks() {
     const tasks = [
@@ -50,6 +52,14 @@ export default function AllTasks() {
 
     return (
         <>
+            <div className={styles.SerachBlock}>
+                <TasksSearch />
+                <div className={styles.StatusButtonsBlock}>
+                    <StatusButton text='Approved' type='green' />
+                    <StatusButton text='Re work' type='red' />
+                    <StatusButton text='Pending' type='yellow' />
+                </div>
+            </div>
             <div className={styles.allTasksTitle}>
                 <BigTitle text='All Tasks' />
                 <BigButton text='Create Task' style='purple' />

@@ -1,0 +1,40 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.inputContainer {
+    width: max-content;
+    position: relative;
+}
+
+.TasksSearchInput {
+    width: 478px;
+    height: 50px;
+    border: solid 1px $Gray-300;
+    border-radius: 10px;
+    background-color: $Backgroung;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -1%;
+    vertical-align: middle;
+    padding-left: 28px;
+    color: $Secondary-400;
+
+
+    &:focus {
+        border-color: $Gray-500;
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $Secondary-400;
+    }
+}
+
+.inputContainer i {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: $Secondary-300;
+}
