@@ -108,3 +108,13 @@ tbody tr td:not(:first-child) {
     padding: 45px 11px;
     margin: 0;
 }
+
+.dropdownItem{
+    font-size: 14px;
+    font-weight: 500;
+    color: $Gray-600;
+
+    & i{
+        margin-right: 8px;
+    }
+}
