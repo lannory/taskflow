@@ -11,8 +11,8 @@ import React from "react"
 function App() {
   return (
     <>
-    <Header isFullHeader={true}/>
-      <TaskManager />
+      {/* <Header isFullHeader={true} /> */}
+      {/* <TaskManager /> */}
       <AllTasks />
     </>
   )
