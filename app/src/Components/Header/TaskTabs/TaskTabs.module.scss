@@ -1,0 +1,32 @@
+ @use '../../../assets/styles/colorVariables.scss' as *;
+ 
+ .taskTabs{
+    width: 684px;
+    display: flex;
+    justify-content: left;
+    gap: 32px;
+    padding: 42px 18px 24px 0;
+}
+
+.taskTabsBtn {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: $Gray-600;
+    border: none;
+    background-color: transparent;
+    padding: 4px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.taskTabsBtn:hover {
+    color: $Base-purple;
+}
+
+.active {
+    color: $Base-purple;
+}
+
+

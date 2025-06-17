@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BigButton from '../BigButton/BigButton';
 import BigTitle from '../BigTitle/BigTitle';
-import styles from './AllTasks.module.css';
+import styles from './AllTasks.module.scss';
 
 export default function AllTasks() {
 
