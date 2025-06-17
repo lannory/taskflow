@@ -4,6 +4,39 @@ import { Empty, Dropdown, Space } from "antd";
 
 export default function TasksTable({ tasks }) {
 
+    const [sortField, setSortField] = useState(null);
+    const [sortDirection, setSortDirection] = useState(null);
+
+    const handleSort = (field) => {
+        if (sortField !== field) {
+            setSortField(field);
+            setSortDirection('asc');
+        } else if (sortDirection === 'asc') {
+            setSortDirection('desc');
+        } else if (sortDirection === 'desc') {
+            setSortField(null);
+            setSortDirection(null);
+        }
+    };
+
+    let displayedTasks = [...tasks];
+
+    if (sortField && sortDirection) {
+        displayedTasks.sort((a, b) => {
+            const dateA = new Date(a[sortField]);
+            const dateB = new Date(b[sortField]);
+
+            return sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
+        });
+    }
+
+    function formatDate(dateStr) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const date = new Date(dateStr);
+        return date.toLocaleDateString('en-US', options);
+    }
+
+
     const options = [
         {
             key: 'edit',
@@ -73,14 +106,42 @@ export default function TasksTable({ tasks }) {
                                     Task name
                                 </div>
                             </td>
-                            <td>Task Created</td>
-                            <td>Duo Date</td>
+                            <td
+                                onClick={() => handleSort('taskCreated')}
+                                className={styles.sortColumn}
+                            >
+                                Task Created
+                                {sortField === 'taskCreated' && (
+                                    <span>
+                                        {sortDirection === 'asc' ? (
+                                            <i className="fa-solid fa-arrow-up"></i>
+                                        ) : (
+                                            <i className="fa-solid fa-arrow-down"></i>
+                                        )}
+                                    </span>
+                                )}
+                            </td>
+                            <td
+                                onClick={() => handleSort('duoDate')}
+                                className={styles.sortColumn}
+                            >
+                                Duo Date
+                                {sortField === 'duoDate' && (
+                                    <span>
+                                        {sortDirection === 'asc' ? (
+                                            <i className="fa-solid fa-arrow-up"></i>
+                                        ) : (
+                                            <i className="fa-solid fa-arrow-down"></i>
+                                        )}
+                                    </span>
+                                )}
+                            </td>
                             <td>Last Activity</td>
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        {tasks.map((task, index) => (
+                        {displayedTasks.map((task, index) => (
                             <React.Fragment key={index}>
                                 <tr
                                     className={styles.tableRow}
@@ -106,9 +167,9 @@ export default function TasksTable({ tasks }) {
                                             <span>{task.title}</span>
                                         </div>
                                     </td>
-                                    <td>{task.taskCreated}</td>
-                                    <td>{task.duoDate}</td>
-                                    <td>{task.lastActivity}</td>
+                                    <td>{formatDate(task.taskCreated)}</td>
+                                    <td>{formatDate(task.duoDate)}</td>
+                                    <td>{formatDate(task.lastActivity)}</td>
                                     <td>
 
                                         <Dropdown menu={{ items: options }} trigger={['click']}>

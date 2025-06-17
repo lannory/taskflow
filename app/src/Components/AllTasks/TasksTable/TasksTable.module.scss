@@ -118,3 +118,11 @@ tbody tr td:not(:first-child) {
         margin-right: 8px;
     }
 }
+
+.sortColumn {
+    cursor: pointer;
+    user-select: none;
+    & i{
+        margin-left: 5px;
+    }
+}
