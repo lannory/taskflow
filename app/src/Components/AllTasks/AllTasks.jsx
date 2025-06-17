@@ -1,41 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BigButton from '../BigButton/BigButton';
 import BigTitle from '../BigTitle/BigTitle';
 import styles from './AllTasks.module.scss';
 import TasksTable from './TasksTable/TasksTable';
 import TasksSearch from './TasksSearch/TasksSearch';
 import StatusButton from './StatusButton/StatusButton';
-import tasks from '../../../public/tasks';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveStatus } from '../../store/Tasks/TasksSlice';
 
 export default function AllTasks() {
+    const dispatch = useDispatch();
 
-    const [searchValue, setSearchValue] = useState('');
-    const [activeStatus, setActiveStatus] = useState('')
+    const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
     const StatusButtons = [
-        { text: 'Approved'},
-        { text: 'Re work'},
-        { text: 'Pending'},
-        { text: 'In progress'},
+        { text: 'Approved' },
+        { text: 'Re work' },
+        { text: 'Pending' },
+        { text: 'In progress' },
     ];
 
     const saveActiveStatus = (status) => {
-        if(status === activeStatus){
-            setActiveStatus('')
+        if (status === activeStatus) {
+            dispatch(setActiveStatus(''));
         } else {
-            setActiveStatus(status)
+            dispatch(setActiveStatus(status));
         }
-
-    }
-
-    const filteredTasks = tasks.filter(task =>
-        task.title.toLowerCase().includes(searchValue.toLowerCase())
-    );
+    };
 
     return (
         <>
             <div className={styles.SerachBlock}>
-                <TasksSearch value={searchValue} setValue={setSearchValue} />
+                <TasksSearch/>
                 <div className={styles.StatusButtonsBlock}>
                     {StatusButtons.map((button) => (
                         <StatusButton
@@ -49,9 +45,9 @@ export default function AllTasks() {
             </div>
             <div className={styles.allTasksTitle}>
                 <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
-                <BigButton text='Create Task' style='purple' />
+                <BigButton text="Create Task" style="purple" />
             </div>
-            <TasksTable tasks={filteredTasks} show={activeStatus}/>
+            <TasksTable/>
         </>
-    )
+    );
 }

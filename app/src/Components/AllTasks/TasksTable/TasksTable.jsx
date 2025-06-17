@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
 import styles from './TasksTable.module.scss';
-import { Empty, Dropdown, Space } from "antd";
+import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
+import { toggleSort, toggleTask, toggleAllTasks, deleteTask } from '../../../store/Tasks/TasksSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function TasksTable({ tasks, show }) {
-    const [sortField, setSortField] = useState(null);
-    const [sortDirection, setSortDirection] = useState(null);
+
+export default function TasksTable() {
+    const dispatch = useDispatch();
+
+    const tasks = useSelector((state) => state.tasks.tasks);
+    const sortField = useSelector((state) => state.tasks.sortField);
+    const sortDirection = useSelector((state) => state.tasks.sortDirection);
+    const activeStatus = useSelector((state) => state.tasks.activeStatus);
+    const searchValue = useSelector((state) => state.tasks.searchValue);
+    const allTasksTicked = useSelector((state) => state.tasks.allTasksTicked);
 
     // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
-        if (sortField !== field) {
-            setSortField(field);
-            setSortDirection('asc');
-        } else if (sortDirection === 'asc') {
-            setSortDirection('desc');
-        } else if (sortDirection === 'desc') {
-            setSortField(null);
-            setSortDirection(null);
-        }
+        dispatch(toggleSort(field));
     };
 
     // Створюємо копію tasks
     let displayedTasks = [...tasks];
 
-    // Якщо передано фільтр show — фільтруємо таски за статусом
-    if (show) {
+    if (searchValue) {
         displayedTasks = displayedTasks.filter(task =>
-            task.status.toLowerCase() === show.toLowerCase()
+            task.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+    }
+
+    // Якщо передано фільтр — фільтруємо таски за статусом
+    if (activeStatus) {
+        displayedTasks = displayedTasks.filter(task =>
+            task.status.toLowerCase() === activeStatus.toLowerCase()
         );
     }
 
@@ -48,16 +55,33 @@ export default function TasksTable({ tasks, show }) {
     }
 
     // Опції для випадаючого меню в колонці Action
-    const options = [
+    const getTaskOptions = (task) => [
         {
             key: 'edit',
-            label: <span className={styles.dropdownItem}><i className="fa-solid fa-pen-to-square"></i>Edit</span>,
+            label: (
+                <span className={styles.dropdownItem}>
+                    <i className="fa-solid fa-pen-to-square"></i> Edit
+                </span>
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+            },
         },
         {
             key: 'delete',
-            label: <span className={styles.dropdownItem}><i className="fa-solid fa-trash"></i>Delete</span>,
+            label: (
+                <span className={styles.dropdownItem}>
+                    <i className="fa-solid fa-trash"></i> Delete
+                </span>
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+                dispatch(deleteTask(task.id));
+            },
         },
     ];
+
+
 
     // Опції для статуів завдання
     const taskStatuses = [
@@ -68,7 +92,6 @@ export default function TasksTable({ tasks, show }) {
     ]
 
     const [expandedRows, setExpandedRows] = useState(new Set()); // Зберігає індекси відкритих рядків
-    const [selectedRows, setSelectedRows] = useState(new Set()); // Зберігає індекси вибраних рядків
 
     // Розгортає або згортає окремий рядок таблиці
     const toggleRow = (index) => {
@@ -81,29 +104,10 @@ export default function TasksTable({ tasks, show }) {
         setExpandedRows(newSet);
     };
 
-    // Вибрати або зняти вибір з усіх рядків
-    const toggleSelectAll = () => {
-        if (selectedRows.size === tasks.length) {
-            setSelectedRows(new Set()); // Зняти всі
-        } else {
-            setSelectedRows(new Set(tasks.map((_, i) => i))); // Вибрати всі
-        }
-    };
-
-    // Вибрати або зняти вибір з окремого рядка
-    const toggleSingleRow = (index) => {
-        const newSet = new Set(selectedRows);
-        if (newSet.has(index)) {
-            newSet.delete(index);
-        } else {
-            newSet.add(index);
-        }
-        setSelectedRows(newSet);
-    };
 
     return (
         <>
-            {tasks.length === 0 ? (
+            {displayedTasks.length === 0 ? (
                 <Empty />
             ) : (
                 <table className={styles.tasksTable}>
@@ -121,8 +125,8 @@ export default function TasksTable({ tasks, show }) {
                                     <input
                                         type="checkbox"
                                         className={styles.tableCheckbox}
-                                        checked={selectedRows.size === tasks.length}
-                                        onChange={toggleSelectAll}
+                                        checked={allTasksTicked}
+                                        onChange={() => dispatch(toggleAllTasks())}
                                     />
                                     Task name
                                 </div>
@@ -171,8 +175,8 @@ export default function TasksTable({ tasks, show }) {
                                                 type="checkbox"
                                                 className={styles.tableCheckbox}
                                                 onClick={(e) => e.stopPropagation()}
-                                                checked={selectedRows.has(index)}
-                                                onChange={() => toggleSingleRow(index)}
+                                                checked={task.tick}
+                                                onChange={() => dispatch(toggleTask(task.id))}
                                             />
                                             <span className={styles.purpleIcon}>
                                                 <i className={task.icon}></i>
@@ -200,7 +204,7 @@ export default function TasksTable({ tasks, show }) {
                                     </td>
                                     <td>
                                         <Dropdown
-                                            menu={{ items: options }}
+                                            menu={{ items: getTaskOptions(task) }}
                                             trigger={['click']}
                                             getPopupContainer={(triggerNode) => triggerNode.parentNode}
                                         >
@@ -212,6 +216,7 @@ export default function TasksTable({ tasks, show }) {
                                                 }}
                                             ></i>
                                         </Dropdown>
+
 
                                     </td>
                                 </tr>

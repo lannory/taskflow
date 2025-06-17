@@ -1,5 +1,6 @@
 const tasks = [
     {
+        id: 1,
         tick: true,
         icon: 'fa-solid fa-bolt',
         title: 'Tech requirements',
@@ -9,6 +10,7 @@ const tasks = [
         description: 'This redesign proposal aims to enhance the user experience, reflect Infoware Technologies commitment to digital innovation'
     },
     {
+        id: 2,
         tick: false,
         icon: 'fa-regular fa-image',
         title: 'UI Design Draft',
@@ -18,6 +20,7 @@ const tasks = [
         description: 'Initial draft of the UI mockups for the dashboard and user profile pages.'
     },
     {
+        id: 3,
         tick: false,
         icon: 'fa-solid fa-film',
         title: 'Backend Integration',
@@ -27,6 +30,7 @@ const tasks = [
         description: 'Connect frontend with the REST API endpoints and test CRUD operations.'
     },
     {
+        id: 4,
         tick: false,
         icon: 'fa-brands fa-figma',
         title: 'Team Feedback Review',
@@ -36,6 +40,7 @@ const tasks = [
         description: 'Gather and address feedback from team members on the current implementation.'
     },
     {
+        id: 5,
         tick: true,
         icon: 'fa-solid fa-bolt',
         title: 'Deployment Setup',
@@ -45,6 +50,7 @@ const tasks = [
         description: 'Configure CI/CD pipelines and prepare production server for deployment.'
     },
     {
+        id: 6,
         tick: false,
         icon: 'fa-regular fa-image',
         title: 'UI Design Draft',
