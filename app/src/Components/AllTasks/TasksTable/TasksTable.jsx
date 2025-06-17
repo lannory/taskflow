@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown, Space } from "antd";
+import StatusButton from '../StatusButton/StatusButton';
 
-export default function TasksTable({ tasks }) {
-
+export default function TasksTable({ tasks, show }) {
     const [sortField, setSortField] = useState(null);
     const [sortDirection, setSortDirection] = useState(null);
 
+    // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
         if (sortField !== field) {
             setSortField(field);
@@ -19,8 +20,17 @@ export default function TasksTable({ tasks }) {
         }
     };
 
+    // Створюємо копію tasks
     let displayedTasks = [...tasks];
 
+    // Якщо передано фільтр show — фільтруємо таски за статусом
+    if (show) {
+        displayedTasks = displayedTasks.filter(task =>
+            task.status.toLowerCase() === show.toLowerCase()
+        );
+    }
+
+    // Якщо вибрано поле сортування — сортуємо масив displayedTasks
     if (sortField && sortDirection) {
         displayedTasks.sort((a, b) => {
             const dateA = new Date(a[sortField]);
@@ -30,13 +40,14 @@ export default function TasksTable({ tasks }) {
         });
     }
 
+    // Форматування дати
     function formatDate(dateStr) {
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         const date = new Date(dateStr);
         return date.toLocaleDateString('en-US', options);
     }
 
-
+    // Опції для випадаючого меню в колонці Action
     const options = [
         {
             key: 'edit',
@@ -48,10 +59,18 @@ export default function TasksTable({ tasks }) {
         },
     ];
 
-    const [expandedRows, setExpandedRows] = useState(new Set());
-    const [selectedRows, setSelectedRows] = useState(new Set());
+    // Опції для статуів завдання
+    const taskStatuses = [
+        { key: 'Approved', label: <StatusButton text='Approved' />, },
+        { key: 'Re work', label: <StatusButton text='Re work' />, },
+        { key: 'Pending', label: <StatusButton text='Pending' />, },
+        { key: 'In progress', label: <StatusButton text='In progress' />, },
+    ]
 
+    const [expandedRows, setExpandedRows] = useState(new Set()); // Зберігає індекси відкритих рядків
+    const [selectedRows, setSelectedRows] = useState(new Set()); // Зберігає індекси вибраних рядків
 
+    // Розгортає або згортає окремий рядок таблиці
     const toggleRow = (index) => {
         const newSet = new Set(expandedRows);
         if (newSet.has(index)) {
@@ -62,14 +81,16 @@ export default function TasksTable({ tasks }) {
         setExpandedRows(newSet);
     };
 
+    // Вибрати або зняти вибір з усіх рядків
     const toggleSelectAll = () => {
         if (selectedRows.size === tasks.length) {
-            setSelectedRows(new Set());
+            setSelectedRows(new Set()); // Зняти всі
         } else {
-            setSelectedRows(new Set(tasks.map((_, i) => i)));
+            setSelectedRows(new Set(tasks.map((_, i) => i))); // Вибрати всі
         }
     };
 
+    // Вибрати або зняти вибір з окремого рядка
     const toggleSingleRow = (index) => {
         const newSet = new Set(selectedRows);
         if (newSet.has(index)) {
@@ -106,37 +127,29 @@ export default function TasksTable({ tasks }) {
                                     Task name
                                 </div>
                             </td>
-                            <td
-                                onClick={() => handleSort('taskCreated')}
-                                className={styles.sortColumn}
-                            >
+                            <td onClick={() => handleSort('taskCreated')} className={styles.sortColumn}>
                                 Task Created
                                 {sortField === 'taskCreated' && (
                                     <span>
-                                        {sortDirection === 'asc' ? (
-                                            <i className="fa-solid fa-arrow-up"></i>
-                                        ) : (
-                                            <i className="fa-solid fa-arrow-down"></i>
-                                        )}
+                                        {sortDirection === 'asc'
+                                            ? <i className="fa-solid fa-arrow-up"></i>
+                                            : <i className="fa-solid fa-arrow-down"></i>
+                                        }
                                     </span>
                                 )}
                             </td>
-                            <td
-                                onClick={() => handleSort('duoDate')}
-                                className={styles.sortColumn}
-                            >
+                            <td onClick={() => handleSort('duoDate')} className={styles.sortColumn}>
                                 Duo Date
                                 {sortField === 'duoDate' && (
                                     <span>
-                                        {sortDirection === 'asc' ? (
-                                            <i className="fa-solid fa-arrow-up"></i>
-                                        ) : (
-                                            <i className="fa-solid fa-arrow-down"></i>
-                                        )}
+                                        {sortDirection === 'asc'
+                                            ? <i className="fa-solid fa-arrow-up"></i>
+                                            : <i className="fa-solid fa-arrow-down"></i>
+                                        }
                                     </span>
                                 )}
                             </td>
-                            <td>Last Activity</td>
+                            <td>Status</td>
                             <td></td>
                         </tr>
                     </thead>
@@ -169,10 +182,28 @@ export default function TasksTable({ tasks }) {
                                     </td>
                                     <td>{formatDate(task.taskCreated)}</td>
                                     <td>{formatDate(task.duoDate)}</td>
-                                    <td>{formatDate(task.lastActivity)}</td>
                                     <td>
-
-                                        <Dropdown menu={{ items: options }} trigger={['click']}>
+                                        <Dropdown
+                                            menu={{ items: taskStatuses }}
+                                            trigger={['click']}
+                                            getPopupContainer={(triggerNode) => triggerNode.parentNode}
+                                        >
+                                            <span
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                }}
+                                            >
+                                                <StatusButton text={task.status} />
+                                            </span>
+                                        </Dropdown>
+                                    </td>
+                                    <td>
+                                        <Dropdown
+                                            menu={{ items: options }}
+                                            trigger={['click']}
+                                            getPopupContainer={(triggerNode) => triggerNode.parentNode}
+                                        >
                                             <i
                                                 className="fa-solid fa-ellipsis-vertical"
                                                 onClick={(e) => {
@@ -181,6 +212,7 @@ export default function TasksTable({ tasks }) {
                                                 }}
                                             ></i>
                                         </Dropdown>
+
                                     </td>
                                 </tr>
                                 {expandedRows.has(index) && (
@@ -197,5 +229,4 @@ export default function TasksTable({ tasks }) {
             )}
         </>
     );
-
 }

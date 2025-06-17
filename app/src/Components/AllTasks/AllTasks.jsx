@@ -13,9 +13,10 @@ export default function AllTasks() {
     const [activeStatus, setActiveStatus] = useState('')
 
     const StatusButtons = [
-        { text: 'Approved', type: 'green' },
-        { text: 'Re work', type: 'red' },
-        { text: 'Pending', type: 'yellow' },
+        { text: 'Approved'},
+        { text: 'Re work'},
+        { text: 'Pending'},
+        { text: 'In progress'},
     ];
 
     const saveActiveStatus = (status) => {
@@ -40,7 +41,6 @@ export default function AllTasks() {
                         <StatusButton
                             key={button.text}
                             text={button.text}
-                            type={button.type}
                             isActive={activeStatus === button.text}
                             onClick={() => saveActiveStatus(button.text)}
                         />
@@ -48,10 +48,10 @@ export default function AllTasks() {
                 </div>
             </div>
             <div className={styles.allTasksTitle}>
-                <BigTitle text='All Tasks' />
+                <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
                 <BigButton text='Create Task' style='purple' />
             </div>
-            <TasksTable tasks={filteredTasks} />
+            <TasksTable tasks={filteredTasks} show={activeStatus}/>
         </>
     )
 }

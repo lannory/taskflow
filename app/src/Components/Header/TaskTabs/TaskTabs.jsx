@@ -5,7 +5,7 @@ import React from "react"
 export default function TaskTabs() {
   const [activeTab, setActiveTab] = useState('');
 
-  const tabs = ['Approved', 'Pending', 'Completed', 'Assigned Task’s'];
+  const tabs = ['All', 'Approved', 'Pending', 'Completed'];
 
   return (
     <div className={styles.taskTabs}>
