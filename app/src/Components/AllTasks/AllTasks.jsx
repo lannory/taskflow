@@ -10,19 +10,41 @@ import tasks from '../../../public/tasks';
 export default function AllTasks() {
 
     const [searchValue, setSearchValue] = useState('');
+    const [activeStatus, setActiveStatus] = useState('')
 
-    const filteredTasks = tasks.filter(task =>  
+    const StatusButtons = [
+        { text: 'Approved', type: 'green' },
+        { text: 'Re work', type: 'red' },
+        { text: 'Pending', type: 'yellow' },
+    ];
+
+    const saveActiveStatus = (status) => {
+        if(status === activeStatus){
+            setActiveStatus('')
+        } else {
+            setActiveStatus(status)
+        }
+
+    }
+
+    const filteredTasks = tasks.filter(task =>
         task.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
     return (
         <>
             <div className={styles.SerachBlock}>
-                <TasksSearch  value={searchValue} setValue={setSearchValue} />
+                <TasksSearch value={searchValue} setValue={setSearchValue} />
                 <div className={styles.StatusButtonsBlock}>
-                    <StatusButton text='Approved' type='green' />
-                    <StatusButton text='Re work' type='red' />
-                    <StatusButton text='Pending' type='yellow' />
+                    {StatusButtons.map((button) => (
+                        <StatusButton
+                            key={button.text}
+                            text={button.text}
+                            type={button.type}
+                            isActive={activeStatus === button.text}
+                            onClick={() => saveActiveStatus(button.text)}
+                        />
+                    ))}
                 </div>
             </div>
             <div className={styles.allTasksTitle}>

@@ -18,7 +18,8 @@
     color: $Approved;
     background-color: $Approved-background;
 
-    &:hover {
+    &:hover,
+    &.active {
         background-color: $Approved-hover-light;
     }
 }
@@ -27,7 +28,8 @@
     color: $Pending;
     background-color: $Pending-background;
 
-    &:hover {
+    &:hover,
+    &.active {
         background-color: $Pending-hover-light;
     }
 }
@@ -36,7 +38,8 @@
     color: $Error-red;
     background-color: $Error-red-background;
 
-    &:hover {
+    &:hover,
+    &.active {
         background-color: $Error-red-hover-light;
     }
 }
