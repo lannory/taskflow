@@ -1,5 +1,5 @@
 import './App.css'
-import AllTasks from './Components/AllTasks/AllTasks'
+import Sidebar from './Components/Sidebar/Sidebar'
 
 function App() {
 
