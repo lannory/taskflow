@@ -1,22 +1,30 @@
-import { useState } from 'react';
 import styles from './TaskTabs.module.scss';
 import React from "react"
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveStatus } from '../../../store/Tasks/TasksSlice';
 
 export default function TaskTabs() {
-  const [activeTab, setActiveTab] = useState('');
 
-  const tabs = ['All', 'Approved', 'Pending', 'Completed'];
+  const tabs = [
+    { text: 'All', dispatch: '', },
+    { text: 'Approved', dispatch: 'Approved', },
+    { text: 'Pending', dispatch: 'Pending', },
+    { text: 'Completed', dispatch: 'Completed', },
+  ];
+
+  const dispatch = useDispatch();
+  const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
   return (
     <div className={styles.taskTabs}>
       {tabs.map((tab) => (
         <button
-          key={tab}
+          key={tab.text}
           type="button"
-          className={`${styles.taskTabsBtn} ${activeTab === tab ? styles.active : ''}`}
-          onClick={() => setActiveTab(tab)}
+          className={`${styles.taskTabsBtn} ${activeStatus === tab.dispatch ? styles.active : ''}`}
+          onClick={() => dispatch(setActiveStatus(tab.dispatch))}
         >
-          {tab}
+          {tab.text}
         </button>
       ))}
     </div>
