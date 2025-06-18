@@ -50,11 +50,13 @@ const tasksSlice = createSlice({
             state.tasks.forEach(t => t.tick = newValue);
             state.allTasksTicked = newValue;
         },
+        changeTaskStatus(state, action) {
+            const { id, status } = action.payload;
+            const task = state.tasks.find(task => task.id === id);
+            task.status = status;
+        },
         deleteTask(state, action) {
             state.tasks = state.tasks.filter(item => item.id !== action.payload);
-
-                        // state.data = state.data.filter(item => item.id !== action.payload);
-
         }
 
 
@@ -68,6 +70,7 @@ export const {
     toggleSort,
     toggleTask,
     toggleAllTasks,
+    changeTaskStatus,
     deleteTask,
 } = tasksSlice.actions;
 

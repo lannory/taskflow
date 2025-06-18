@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
-import { toggleSort, toggleTask, toggleAllTasks, deleteTask } from '../../../store/Tasks/TasksSlice';
+import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus } from '../../../store/Tasks/TasksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -81,6 +81,48 @@ export default function TasksTable() {
         },
     ];
 
+    const getTaskStatuses = (task) => [
+        {
+            key: 'Approved',
+            label: (
+                <StatusButton text='Approved' />
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+                dispatch(changeTaskStatus({ id: task.id, status: 'Approved' }))
+            }
+        },
+        {
+            key: 'Re work',
+            label: (
+                <StatusButton text='Re work' />
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+                dispatch(changeTaskStatus({ id: task.id, status: 'Re work' }))
+            }
+        },
+        {
+            key: 'Pending',
+            label: (
+                <StatusButton text='Pending' />
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+                dispatch(changeTaskStatus({ id: task.id, status: 'Pending' }))
+            }
+        },
+        {
+            key: 'In progress',
+            label: (
+                <StatusButton text='In progress' />
+            ),
+            onClick: (e) => {
+                e.domEvent.stopPropagation();
+                dispatch(changeTaskStatus({ id: task.id, status: 'In progress' }))
+            }
+        },
+    ]
 
 
     // Опції для статуів завдання
@@ -188,7 +230,7 @@ export default function TasksTable() {
                                     <td>{formatDate(task.duoDate)}</td>
                                     <td>
                                         <Dropdown
-                                            menu={{ items: taskStatuses }}
+                                            menu={{ items: getTaskStatuses(task) }}
                                             trigger={['click']}
                                             getPopupContainer={(triggerNode) => triggerNode.parentNode}
                                         >

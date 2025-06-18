@@ -42,6 +42,11 @@ tbody tr td:first-child {
 /* Колір для всіх інших стовпців tbody */
 tbody tr td:not(:first-child) {
     color: $Gray-600;
+
+    & i {
+        width: 15px;
+        text-align: center;
+    }
 }
 
 .tableHeadRow {
@@ -94,7 +99,7 @@ tbody tr td:not(:first-child) {
     display: inline-block;
 }
 
-.accordionRow{
+.accordionRow {
     background-color: $White;
     border-bottom: solid 1px $Gray-200;
 }
@@ -109,12 +114,12 @@ tbody tr td:not(:first-child) {
     margin: 0;
 }
 
-.dropdownItem{
+.dropdownItem {
     font-size: 14px;
     font-weight: 500;
     color: $Gray-600;
 
-    & i{
+    & i {
         margin-right: 8px;
     }
 }
@@ -122,7 +127,8 @@ tbody tr td:not(:first-child) {
 .sortColumn {
     cursor: pointer;
     user-select: none;
-    & i{
+
+    & i {
         margin-left: 5px;
     }
 }
