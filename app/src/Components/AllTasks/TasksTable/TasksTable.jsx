@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
-import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus } from '../../../store/Tasks/TasksSlice';
+import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow } from '../../../store/Tasks/TasksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -15,6 +15,7 @@ export default function TasksTable() {
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
     const searchValue = useSelector((state) => state.tasks.searchValue);
     const allTasksTicked = useSelector((state) => state.tasks.allTasksTicked);
+    const expandedRows = useSelector((state) => state.tasks.expandedRows);
 
     // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
@@ -125,27 +126,6 @@ export default function TasksTable() {
     ]
 
 
-    // Опції для статуів завдання
-    const taskStatuses = [
-        { key: 'Approved', label: <StatusButton text='Approved' />, },
-        { key: 'Re work', label: <StatusButton text='Re work' />, },
-        { key: 'Pending', label: <StatusButton text='Pending' />, },
-        { key: 'In progress', label: <StatusButton text='In progress' />, },
-    ]
-
-    const [expandedRows, setExpandedRows] = useState(new Set()); // Зберігає індекси відкритих рядків
-
-    // Розгортає або згортає окремий рядок таблиці
-    const toggleRow = (index) => {
-        const newSet = new Set(expandedRows);
-        if (newSet.has(index)) {
-            newSet.delete(index);
-        } else {
-            newSet.add(index);
-        }
-        setExpandedRows(newSet);
-    };
-
 
     return (
         <>
@@ -204,9 +184,9 @@ export default function TasksTable() {
                             <React.Fragment key={index}>
                                 <tr
                                     className={styles.tableRow}
-                                    onClick={() => toggleRow(index)}
+                                    onClick={() => dispatch(setExtendetRow(task.id))}
                                     style={
-                                        expandedRows.size !== 0 && !expandedRows.has(index)
+                                        expandedRows.length !== 0 && !expandedRows.includes(task.id)
                                             ? { backgroundColor: 'transparent' }
                                             : {}
                                     }
@@ -262,7 +242,7 @@ export default function TasksTable() {
 
                                     </td>
                                 </tr>
-                                {expandedRows.has(index) && (
+                                {expandedRows.includes(task.id) && (
                                     <tr className={styles.accordionRow}>
                                         <td colSpan={5}>
                                             <p className={styles.accordionContent}>{task.description}</p>
