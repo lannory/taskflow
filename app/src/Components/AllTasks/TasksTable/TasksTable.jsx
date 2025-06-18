@@ -32,11 +32,14 @@ export default function TasksTable() {
     }
 
     // Якщо передано фільтр — фільтруємо таски за статусом
-    if (activeStatus) {
+    if (activeStatus === 'Completed') {
+        displayedTasks = displayedTasks.filter(task => task.tick === true);
+    } else if (activeStatus) {
         displayedTasks = displayedTasks.filter(task =>
             task.status.toLowerCase() === activeStatus.toLowerCase()
         );
     }
+
 
     // Якщо вибрано поле сортування — сортуємо масив displayedTasks
     if (sortField && sortDirection) {
