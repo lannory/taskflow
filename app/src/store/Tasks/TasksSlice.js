@@ -10,6 +10,7 @@ const initialState = {
     sortDirection: null,
     allTasksTicked: false,
     expandedRows: [],
+    searchDate: '',
 };
 
 const tasksSlice = createSlice({
@@ -65,6 +66,14 @@ const tasksSlice = createSlice({
                 state.expandedRows.splice(index, 1);
             }
         },
+        searchByDate(state, action){
+            const date = action.payload;
+            if(state.searchDate === date){
+                state.searchDate = '';
+            } else {
+                state.searchDate = date;
+            }
+        },
         deleteTask(state, action) {
             state.tasks = state.tasks.filter(item => item.id !== action.payload);
         }
@@ -83,6 +92,7 @@ export const {
     changeTaskStatus,
     setExtendetRow,
     deleteTask,
+    searchByDate,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

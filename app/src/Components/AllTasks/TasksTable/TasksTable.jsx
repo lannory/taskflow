@@ -16,6 +16,7 @@ export default function TasksTable() {
     const searchValue = useSelector((state) => state.tasks.searchValue);
     const allTasksTicked = useSelector((state) => state.tasks.allTasksTicked);
     const expandedRows = useSelector((state) => state.tasks.expandedRows);
+    const searchDate = useSelector((state) => state.tasks.searchDate);
 
     // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
@@ -40,7 +41,6 @@ export default function TasksTable() {
         );
     }
 
-
     // Якщо вибрано поле сортування — сортуємо масив displayedTasks
     if (sortField && sortDirection) {
         displayedTasks.sort((a, b) => {
@@ -50,6 +50,12 @@ export default function TasksTable() {
             return sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
         });
     }
+
+    if (searchDate) {
+        displayedTasks = displayedTasks.filter(task =>
+            task.duoDate === searchDate
+        )
+    };
 
     // Форматування дати
     function formatDate(dateStr) {
