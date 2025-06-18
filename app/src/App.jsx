@@ -1,23 +1,23 @@
-
-import TaskManager from "./Components/TaskManager/MainApp/TaskManager"
+import React from "react"
+import CreateTask from "./Components/CreateTask/MainApp/CreateTask"
+// import AllTasks from './Components/AllTasks/AllTasks'
+// import Header from './Components/Header/Header'
+// import AllProjects from './Pages/AllProjects/AllProjects'
+// import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 import './App.css'
 import '../src/assets/styles/resetStyles.scss' // reset styles
 import '../src/assets/styles/colorVariables.scss'
-import AllTasks from './Components/AllTasks/AllTasks'
-import Header from './Components/Header/Header'
-import React from "react"
-import AllProjects from './Pages/AllProjects/AllProjects'
-import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
+
 
 
 function App() {
   return (
     <>
-      <Header isFullHeader={true}/>
-      <TaskManager />
-      <AllTasks />
+      {/* <Header isFullHeader={true}/> */}
+      <CreateTask />
+      {/* <AllTasks />
       <AllProjects/>
-      <DetailProjectPage/>
+      <DetailProjectPage/> */}
     </>
   )
 }

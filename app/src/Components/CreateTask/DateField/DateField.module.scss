@@ -1,0 +1,32 @@
+.DateFieldContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  gap: 8px;
+  margin: 19px 0 0 26px;
+
+  .DateFieldLabel {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    font: 500 14px/20px 'Inter', sans-serif;
+    color: #344054;
+  }
+
+  .DateField {
+    width: 100%;
+    max-width: 475px;
+    height: auto;
+    padding: 14px 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font: 400 14px 'Poppins', sans-serif;
+    line-height: 20px;
+    color: #111827;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease;
+  }
+}

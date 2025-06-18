@@ -3,9 +3,8 @@ import InputField from '../InputField/InputField';
 import TextAreaField from '../TextAreaField/TextAreaField';
 import DateField from '../DateField/DateField';
 import ManagerSelect from '../SelectField/ManagerSelect';
+import BigButton from '../../BigButton/BigButton';
 import styles from"./CreateTaskForm.module.scss";
-import BigTitle from '../../BigTitle/BigTitle'
-import BigButton from '../../BigButton/BigButton'
 
 const CreateTaskForm = () => {
   const [projectName, setProjectName] = useState('');
@@ -22,8 +21,8 @@ const CreateTaskForm = () => {
   return (
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
-        <BigTitle text='Create Task'/>
-        <BigButton text='Create Task' style='purple'/>
+        <h2 className={styles.titleTask}>Create Task</h2>
+        <BigButton />
       </div>
       <form
         onSubmit={handleSubmit}
@@ -38,7 +37,7 @@ const CreateTaskForm = () => {
         <TextAreaField
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter a description..."
+          placeholder="A concise, 5-10 minute presentation that outlines the key design decisions. This presentation covers:"
         />
         <DateField
           label="Project Deadline"
@@ -51,7 +50,7 @@ const CreateTaskForm = () => {
           onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-        <BigButton text='Create Task' style='purple'/>
+        <BigButton />
       </form>
     </div>
   );
