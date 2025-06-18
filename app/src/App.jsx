@@ -9,16 +9,17 @@ import React from "react"
 
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
-
+import TeamPage from './Pages/Team/TeamPage';
 
 function App() {
   return (
     <>
-      <Header isFullHeader={true}/>
+      {/* <Header isFullHeader={true}/>
       <TaskManager />
       <AllTasks />
       <AllProjects/>
-      <DetailProjectPage/>
+      <DetailProjectPage/> */}
+      <TeamPage/>
     </>
   )
 }
