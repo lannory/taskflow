@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './LoginForm.module.scss';
-import BigButton from "../BigButton/BigButton";
+import { useDispatch, useSelector } from 'react-redux';
+import { signInAsync } from '../../store/Auth/AuthSlice';
 
 const LoginSchem = Yup.object({
     login: Yup.string()
@@ -10,21 +11,26 @@ const LoginSchem = Yup.object({
         .max(20, 'Login must be shorter than 20 characters')
         .required('Required'),
     password: Yup.string()
-        .min(6, 'Password must be at least 6 characters')
+        .min(5, 'Password must be at least 6 characters')
         .required('Required')
 })
 
 
 export default function LoginForm() {
 
+    const dispatch = useDispatch();
+    const error = useSelector(state => state.auth.error);
+    // const error = 'шо тут помилка';
     const [swowPassword, setSwowPassword] = useState(false);
+
+    useEffect(() => {
+        if (error) {
+            console.log(error)
+        }
+    })
 
     const togglePassword = () => {
         setSwowPassword(!swowPassword);
-    }
-
-    const handleLogin = (values) => {
-        console.log(values)
     }
 
     return (
@@ -41,12 +47,9 @@ export default function LoginForm() {
                     }}
                     enableReinitialize={true}
                     validationSchema={LoginSchem}
-                    onSubmit={(values, { resetForm }) => {
-                        handleLogin(values);
+                    onSubmit={async (values, { resetForm }) => {
+                        await dispatch(signInAsync({ username: values.login, password: values.password }))
                         resetForm();
-                        console.log(values.login);
-                        console.log(values.password);
-                        console.log(values.rememberMe);
                     }}
                 >
                     {({ isValid, dirty }) => (
@@ -83,6 +86,7 @@ export default function LoginForm() {
                                 <Field id='rememberMe' type="checkbox" name="rememberMe" className={styles.rememberMeCheckbox} />
                                 <label htmlFor="rememberMe" className={styles.rememberMeLable}>Remembr me</label>
                             </div>
+                            <p className={styles.formTotalError}>{error}</p>
                             <button type='submit' className={`${styles.loginButton} ${isValid && dirty ? styles.active : ''}`} disabled={!(isValid && dirty)}>Login</button>
                         </Form>
                     )}
