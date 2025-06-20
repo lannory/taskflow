@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Formik, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 import styles from './LoginForm.module.scss';
@@ -16,6 +16,12 @@ const LoginSchem = Yup.object({
 
 
 export default function LoginForm() {
+
+    const [swowPassword, setSwowPassword] = useState(false);
+
+    const togglePassword = () => {
+        setSwowPassword(!swowPassword);
+    }
 
     const handleLogin = (values) => {
         console.log(values)
@@ -36,38 +42,53 @@ export default function LoginForm() {
                     enableReinitialize={true}
                     validationSchema={LoginSchem}
                     onSubmit={(values, { resetForm }) => {
-                        handleLogin(values)
+                        handleLogin(values);
                         resetForm();
+                        console.log(values.login);
+                        console.log(values.password);
+                        console.log(values.rememberMe);
                     }}
                 >
-                    <Form className={styles.loginForm}>
-                        <div className={styles.inputBlock}>
-                            <label htmlFor='login' className={styles.smallLable}>User name or ID</label>
-                            <Field id='login' type="text" name='login' placeholder='Enter your user name or ID' className={styles.formInput} />
-                            <div className={styles.formErrorWrapper}>
-                                <ErrorMessage name='login' component='p' className={styles.formError} />
+                    {({ isValid, dirty }) => (
+                        <Form className={styles.loginForm}>
+                            <div className={styles.inputBlock}>
+                                <label htmlFor='login' className={styles.smallLable}>User name or ID</label>
+                                <Field id='login' type="text" name='login' placeholder='Enter your user name or ID' className={styles.formInput} />
+                                <div className={styles.formErrorWrapper}>
+                                    <ErrorMessage name='login' component='p' className={styles.formError} />
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.inputBlock}>
-                            <label htmlFor='password' className={styles.smallLable}>Password</label>
-                            <Field id='password' type="password" name='password' placeholder='Enter your Password' className={styles.formInput} />
-                            <div className={styles.formErrorWrapper}>
-                                <ErrorMessage name='password' component='p' className={styles.formError} />
+                            <div className={styles.inputBlock}>
+                                <label htmlFor='password' className={styles.smallLable}>Password</label>
+                                <div className={styles.iconContainer}>
+                                    <Field
+                                        id='password'
+                                        type={swowPassword ? 'text' : 'password'}
+                                        name='password'
+                                        placeholder='Enter your Password'
+                                        className={styles.formInput}
+                                    />
+                                    <div className={styles.passIcon} onClick={togglePassword}>
+                                        {swowPassword
+                                            ? <i className="fa-solid fa-eye"></i>
+                                            : <i className="fa-solid fa-eye-slash"></i>}
+                                    </div>
+                                </div>
+                                <div className={styles.formErrorWrapper}>
+                                    <ErrorMessage name='password' component='p' className={styles.formError} />
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.rememberMeInput}>
-                            <Field id='rememberMe' type="checkbox" name="rememberMe" className={styles.rememberMeCheckbox} />
-                            <label htmlFor="rememberMe" className={styles.rememberMeLable}>Remembr me</label>
-                        </div>
-                        <button type='submit' className={`${styles.loginButton} `}>Login</button>
-                        {/* ${styles.active} */}
-                        {/* <p className={styles.registerCTA}>
-                        Don’t have an Account ?
-                        <span className={styles.regButton}>Register</span>
-                    </p> */}
-                    </Form>
+
+                            <div className={styles.rememberMeInput}>
+                                <Field id='rememberMe' type="checkbox" name="rememberMe" className={styles.rememberMeCheckbox} />
+                                <label htmlFor="rememberMe" className={styles.rememberMeLable}>Remembr me</label>
+                            </div>
+                            <button type='submit' className={`${styles.loginButton} ${isValid && dirty ? styles.active : ''}`} disabled={!(isValid && dirty)}>Login</button>
+                        </Form>
+                    )}
                 </Formik>
             </div>
         </div>
     )
 }
+
