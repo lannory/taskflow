@@ -14,12 +14,12 @@ import TeamPage from './Pages/Team/TeamPage';
 function App() {
   return (
     <>
-      {/* <Header isFullHeader={true}/>
-      <TaskManager />
-      <AllTasks />
+      <Header isFullHeader={false}/>
+      {/* <TaskManager />*/} 
+      {/* <AllTasks /> */}
       <AllProjects/>
-      <DetailProjectPage/> */}
-      <TeamPage/>
+      {/* <DetailProjectPage/>*/}
+      {/* {<TeamPage/> } */}
     </>
   )
 }

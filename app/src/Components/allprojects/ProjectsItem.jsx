@@ -30,8 +30,8 @@ function ProjectsItem({obj}) {
 
 			<div className={styles.projectDeadline}>
 				<div className={styles.deadline}>
-					<i className="fa-regular fa-clock" Style='color: #54577A;'></i>
-					{obj.deadline} left
+					<i className={styles.icon + " fa-regular fa-clock"}></i>
+					{obj.deadlineAmount} {obj.deadlineUnit} left
 				</div>
 			</div>
 		</div>);

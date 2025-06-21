@@ -15,7 +15,7 @@ function TeamItem({obj}) {
 			<p className={styles.text}>{obj.desc}</p>
 			<div className={styles.desc}>
 				<div className={styles.task}>
-					<i className="fa-regular fa-note-sticky" Style="color: #54577A"></i>
+					<i className={styles.icon + " fa-regular fa-note-sticky"}></i>
 					<p>{obj.taskCount} Task</p>
 				</div>
 				<p className={styles.rating}>{obj.rating} ({obj.reviews} Reviews)</p>

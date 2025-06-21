@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Team.module.scss';
 import TeamItem from './TeamItem';
-
+import MediumTitle from '../MediumTitle/MediumTitle';
 
 function TeamList(props) {
 
@@ -65,7 +65,7 @@ function TeamList(props) {
 
 	return (
 		<div className={styles.wrapper}>
-			<h2 className={styles.title}>Your Team and & Managers</h2>
+			<MediumTitle text={'Your Team and & Managers'}/>
 			<div className={styles.list}>
 				{team.map(item => <TeamItem obj={item} key={item.name}/>)}
 			</div>
