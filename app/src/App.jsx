@@ -8,16 +8,18 @@ import Header from './Components/Header/Header'
 import React from "react"
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
+import LoginForm from "./Components/LoginForm/LoginForm"
 
 
 function App() {
   return (
     <>
-      <Header isFullHeader={true}/>
-      <TaskManager />
-      <AllTasks />
-      <AllProjects/>
-      <DetailProjectPage/>
+      {/* <Header isFullHeader={true}/> */}
+      {/* <TaskManager /> */}
+      {/* <AllTasks /> */}
+      {/* <AllProjects/> */}
+      {/* <DetailProjectPage/> */}
+      <LoginForm/>
     </>
   )
 }
