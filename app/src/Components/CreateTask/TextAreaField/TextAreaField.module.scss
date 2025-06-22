@@ -1,0 +1,20 @@
+.wrapperTextArea {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 28px 0 0 26px;
+
+  .textArea {
+    width: 100%;
+    max-width: 500px;
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    font: 400 16px 'Poppins', sans-serif;
+    line-height: 24px;
+  }
+}

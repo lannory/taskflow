@@ -1,0 +1,27 @@
+@use '../../assets/styles/colorVariables'  as *;
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: $White;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+
+.logo {
+    padding: 0 16px;
+}
+
+.logoImage {
+    width: 100%;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

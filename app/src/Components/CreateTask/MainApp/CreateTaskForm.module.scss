@@ -1,5 +1,3 @@
-@use '../../../assets/styles/colorVariables.scss' as *;
-
 .create_task {
   display: flex;
   width: 100%;
@@ -8,7 +6,7 @@
   align-items: center;
   justify-content: center;
   padding: 32px;
-  background-color: $Backgroung;
+  background-color: #fff5f5;
 }
 
 .createTaskHeader {
@@ -20,26 +18,10 @@
   margin-bottom: 24px;
   width: 100%;
   max-width: 480px;
-}
+  margin: 26px 0 0 32px;
 
-.titleTask {
-  font-size: 24px;
-  font-weight: bold;
-  color: $Secondary-500;
-}
-
-.createTaskButton {
-  background-color: $Base-purple;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: $Base-purple-hover;
+  .titleTask {
+    font: 600 31px 'Poppins', sans-serif;
   }
 }
 

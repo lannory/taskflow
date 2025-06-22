@@ -1,0 +1,134 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.tasksTable {
+    border-collapse: collapse;
+    width: 100%;
+    // max-width: 1124px;
+}
+
+.colTitle {
+    width: 528px;
+}
+
+.colDate {
+    width: 176px;
+}
+
+.colAction {
+    width: 68px;
+}
+
+.tableRow {
+    height: 60px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $Gray-900;
+    cursor: pointer;
+    background-color: $White;
+}
+
+.tableRow:hover {
+    background-color: $Gray-50;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Колір для першого стовпця tbody */
+tbody tr td:first-child {
+    color: $Gray-900;
+}
+
+/* Колір для всіх інших стовпців tbody */
+tbody tr td:not(:first-child) {
+    color: $Gray-600;
+
+    & i {
+        width: 15px;
+        text-align: center;
+    }
+}
+
+.tableHeadRow {
+    height: 44px;
+    background-color: $Gray-50;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: $Gray-600;
+}
+
+.tableRow td,
+.tableHeadRow td {
+    vertical-align: middle;
+    padding: 0 0 0 24px;
+    border-bottom: solid 1px $Gray-200;
+}
+
+.tableCheckbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border-radius: 6px;
+    border: 1px solid $Gray-300;
+    cursor: pointer;
+}
+
+.cellContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.purpleIcon {
+    width: 40px;
+    height: 40px;
+    background-color: $Brand-100;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purpleIcon i {
+    width: 15px;
+    height: 15px;
+    color: $Brand-600;
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+}
+
+.accordionRow {
+    background-color: $White;
+    border-bottom: solid 1px $Gray-200;
+}
+
+.accordionContent {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $Gray-500;
+    padding: 45px 11px;
+    margin: 0;
+}
+
+.dropdownItem {
+    font-size: 14px;
+    font-weight: 500;
+    color: $Gray-600;
+
+    & i {
+        margin-right: 8px;
+    }
+}
+
+.sortColumn {
+    cursor: pointer;
+    user-select: none;
+
+    & i {
+        margin-left: 5px;
+    }
+}

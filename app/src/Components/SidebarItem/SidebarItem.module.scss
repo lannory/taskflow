@@ -1,0 +1,33 @@
+@use '../../assets/styles/colorVariables'  as *;
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: $Secondary-300;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menuItem:hover {
+    color: $Secondary-500;
+}
+
+.active {
+    background-color: $White-hover;
+    color: $Black;
+}
+
+.icon {
+    font-size: 18px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.label {
+    line-height: 1;
+}

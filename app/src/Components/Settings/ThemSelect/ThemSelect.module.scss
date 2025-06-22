@@ -1,0 +1,16 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.field select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
