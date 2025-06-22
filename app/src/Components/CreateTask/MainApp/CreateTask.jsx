@@ -22,7 +22,7 @@ const CreateTaskForm = () => {
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
         <h2 className={styles.titleTask}>Create Task</h2>
-        <BigButton />
+        <BigButton style=""/>
       </div>
       <form
         onSubmit={handleSubmit}
