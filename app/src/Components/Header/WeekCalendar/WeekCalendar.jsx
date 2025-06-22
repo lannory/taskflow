@@ -1,11 +1,15 @@
 import { startOfWeek, addDays, format, subWeeks, addWeeks } from 'date-fns';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './WeekCalendar.module.scss';
 import React from "react"
+import { useDispatch, useSelector } from 'react-redux';
+import { searchByDate } from '../../../store/Tasks/TasksSlice';
 
 export default function WeekCalendar() {
+  const dispatch = useDispatch();
+  const searchDate = useSelector((state) => state.tasks.searchDate);
+
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const weekStart = startOfWeek(currentDate, { weekStartsOn: 0 });
 
@@ -14,12 +18,12 @@ export default function WeekCalendar() {
 
   const days = Array.from({ length: 7 }).map((_, index) => {
     const day = addDays(weekStart, index);
-    const isActive = format(day, 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd');
+    const isActive = format(day, 'yyyy-MM-dd') === searchDate;
     return (
       <div
         key={index}
         className={`${styles.day} ${isActive ? styles.active : ''}`}
-        onClick={() => setSelectedDate(day)}
+        onClick={() => dispatch(searchByDate(format(day, 'yyyy-MM-dd')))}
       >
         <div className={styles.dayName}>{format(day, 'EEEEE')}</div>
         <div className={styles.dayNumber}>{format(day, 'd')}</div>

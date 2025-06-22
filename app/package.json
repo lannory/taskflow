@@ -16,6 +16,7 @@
     "@mui/material": "^7.1.1",
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.8.2",
+    "antd": "^5.26.1",
     "date-fns": "^4.1.0",
     "formik": "^2.4.6",
     "lucide-react": "^0.513.0",

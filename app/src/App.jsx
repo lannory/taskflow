@@ -14,12 +14,15 @@ import LoginForm from "./Components/LoginForm/LoginForm"
 function App() {
   return (
     <>
-      {/* <Header isFullHeader={true}/> */}
-      {/* <TaskManager /> */}
-      {/* <AllTasks /> */}
-      {/* <AllProjects/> */}
-      {/* <DetailProjectPage/> */}
-      <LoginForm/>
+      <div className="MainContainer">
+        <Header isFullHeader={true} />
+        {/* <TaskManager /> */}
+        <AllTasks />
+        {/* <AllProjects/> */}
+        {/* <DetailProjectPage/> */}
+        <LoginForm/>
+      </div>
+
     </>
   )
 }
