@@ -1,10 +1,12 @@
+@use '../../assets/styles/colorVariables'  as *;
+
 .menuItem {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 10px 16px;
     border-radius: 10px;
-    color: #8E92BC;
+    color: $Secondary-300;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
@@ -12,12 +14,12 @@
 }
 
 .menuItem:hover {
-    color: #141522;
+    color: $Secondary-500;
 }
 
 .active {
-    background-color: #F5F5F7;
-    color: #000;
+    background-color: $White-hover;
+    color: $Black;
 }
 
 .icon {

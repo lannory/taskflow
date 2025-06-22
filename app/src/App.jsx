@@ -8,16 +8,18 @@ import Header from './Components/Header/Header'
 import React from "react"
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
+import ProjectPage from "./Pages/ProjectPage";
 
 
 function App() {
   return (
     <>
       <Header isFullHeader={true}/>
-      <TaskManager />
+      {/* <ProjectPage /> */}
+      {/* <TaskManager />
       <AllTasks />
       <AllProjects/>
-      <DetailProjectPage/>
+      <DetailProjectPage/> */}
     </>
   )
 }
