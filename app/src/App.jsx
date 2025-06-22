@@ -1,5 +1,5 @@
 
-import TaskManager from "./Components/TaskManager/MainApp/TaskManager"
+import React from "react"
 import './App.css'
 import '../src/assets/styles/resetStyles.scss' // reset styles
 import '../src/assets/styles/colorVariables.scss'
