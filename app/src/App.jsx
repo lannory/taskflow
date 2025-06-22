@@ -17,10 +17,10 @@ function App() {
       <div className="MainContainer">
         <Header isFullHeader={true} />
         {/* <TaskManager /> */}
-        <AllTasks />
-        {/* <AllProjects/> */}
+        {/* <AllTasks /> */}
+        <AllProjects/>
         {/* <DetailProjectPage/> */}
-        <LoginForm/>
+        {/* <LoginForm/> */}
         {/* {<TeamPage/> } */}
       </div>
     </>

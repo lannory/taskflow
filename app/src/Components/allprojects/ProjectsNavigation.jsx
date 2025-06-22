@@ -1,8 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
 import styles from './Projects.module.scss';
-import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons';
-import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeShown, changeSort, sorting } from '../../store/projectsSlice';
 
@@ -116,7 +114,7 @@ function ProjectsNavigation() {
 					ref={searchRef}
 				/>
 				<button type="button" className={styles.searchBtn}>
-					<i className={styles.navIcon + " fa-light fa-magnifying-glass"}></i>
+					<SearchOutlined />
 				</button>
 			</form>
 

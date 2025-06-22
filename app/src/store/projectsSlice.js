@@ -2,16 +2,16 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const defaultProjects = {
 		newProj: [
-				{title: 'Creating Mobile App Design',img: '01', subtitle: 'UI UX Design', progress: 75, deadlineAmount: '3', deadlineUnit: 'days'},
-				{title: 'Creating Perfect Website',img: '02', subtitle: 'Web Developer', progress: 85, deadlineAmount: '4', deadlineUnit: 'days'},
-				{title: 'Mobile App Design',img: '03', subtitle: 'UI UX Design', progress: 65, deadlineAmount: '3', deadlineUnit: 'days'},
-				{title: 'Creating Mobile Apps',img: '04', subtitle: 'Android Developer', progress: 95, deadlineAmount: '1', deadlineUnit: 'day'}
+				{title: 'Creating Mobile App Design',img: '01', subtitle: 'UI UX Design', progress: 75, deadlineAmount: '3', deadlineUnit: 'days', id: 1},
+				{title: 'Creating Perfect Website',img: '02', subtitle: 'Web Developer', progress: 85, deadlineAmount: '4', deadlineUnit: 'days', id: 2},
+				{title: 'Mobile App Design',img: '03', subtitle: 'UI UX Design', progress: 65, deadlineAmount: '3', deadlineUnit: 'days', id: 3},
+				{title: 'Creating Mobile Apps',img: '04', subtitle: 'Android Developer', progress: 95, deadlineAmount: '1', deadlineUnit: 'day', id: 4}
 			],
 		timeLim: [
-					{title: 'Creating Awesome Mobile Apps',img: '05', subtitle: 'UI UX Design', progress: 90, deadlineAmount: '1', deadlineUnit: 'hour'},
-					{title: 'Creating Fresh Website',img: '06', subtitle: 'Web Developer', progress: 85, deadlineAmount: '2', deadlineUnit: 'hours'},
-					{title: 'Creating Color Palletes',img: '07', subtitle: 'UI UX Design', progress: 100, deadlineAmount: '1', deadlineUnit: 'hour'},
-					{title: 'Awesome Flutter Apps',img: '08', subtitle: 'Web Developer', progress: 75, deadlineAmount: '3', deadlineUnit: 'hours'}
+					{title: 'Creating Awesome Mobile Apps',img: '05', subtitle: 'UI UX Design', progress: 90, deadlineAmount: '1', deadlineUnit: 'hour', id: 5},
+					{title: 'Creating Fresh Website',img: '06', subtitle: 'Web Developer', progress: 85, deadlineAmount: '2', deadlineUnit: 'hours', id: 6},
+					{title: 'Creating Color Palletes',img: '07', subtitle: 'UI UX Design', progress: 100, deadlineAmount: '1', deadlineUnit: 'hour', id: 7},
+					{title: 'Awesome Flutter Apps',img: '08', subtitle: 'Web Developer', progress: 75, deadlineAmount: '3', deadlineUnit: 'hours', id: 8}
 				]
 		
 	}

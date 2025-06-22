@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import taskReduser from './store/Tasks/TasksSlice.js';
 import AuthReducer from './store/Auth/AuthSlice.js';
+import projectsReducer from './store/projectsSlice.js';
+
 
 const store = configureStore({
   reducer: {
