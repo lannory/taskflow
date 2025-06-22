@@ -1,0 +1,79 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.wrapper {
+
+	background-color: $White;
+
+}
+
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+	width: 1126px;  
+}
+
+
+.card {
+	border-radius: 10px;
+	max-width: 354px;
+	box-sizing: border-box;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 24px;
+}
+
+.person {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.name {
+	margin-bottom: 4px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 150%; /* 24px */
+	letter-spacing: -0.32px;
+}
+
+.job {
+	color: $Secondary-400;
+
+
+	font-size: 12px;
+	letter-spacing: -0.12px;
+}
+
+.text {
+	color: $Secondary-300;
+
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 200%; /* 28px */
+}
+
+.desc {
+	display: flex;
+	justify-content: space-between;
+}
+
+.task {
+	display: flex;
+	column-gap: 8px;
+	align-items: center;
+	
+}
+
+.rating, .task p {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 150%; /* 21px */
+	letter-spacing: -0.28px;
+}
+
+.icon{
+	color: #54577A;
+}

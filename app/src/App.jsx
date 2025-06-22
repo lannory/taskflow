@@ -8,6 +8,7 @@ import Header from './Components/Header/Header'
 import React from "react"
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
+import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Components/LoginForm/LoginForm"
 
 
@@ -21,6 +22,7 @@ function App() {
         {/* <AllProjects/> */}
         {/* <DetailProjectPage/> */}
         <LoginForm/>
+        {/* {<TeamPage/> } */}      
       </div>
 
     </>

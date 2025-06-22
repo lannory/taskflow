@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './Projects.module.scss';
-
+import MediumTitle from '../MediumTitle/MediumTitle';
 
 
 function ProjectsSlider({title, projects}) {
@@ -20,7 +20,7 @@ function ProjectsSlider({title, projects}) {
 	return (
 		<div className={styles.sliderWrapper}>
 			<div className={styles.sliderDesc}>
-				<h2 className={styles.projectsTitle}>{title}</h2>
+				{<MediumTitle text={title}/>}
 				<div className={styles.sliderControls}>
 					<button className={styles.prev} onClick={() => sliderRef?.current?.slickPrev()}>
 						<i className="fa-solid fa-arrow-left"></i>
