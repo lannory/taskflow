@@ -9,17 +9,21 @@ import React from "react"
 import AllProjects from './Pages/AllProjects/AllProjects'
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 import ProjectPage from "./Pages/ProjectPage";
-
+import TeamPage from './Pages/Team/TeamPage';
+import LoginForm from "./Components/LoginForm/LoginForm"
 
 function App() {
   return (
     <>
-      <Header isFullHeader={true}/>
-      {/* <ProjectPage /> */}
-      {/* <TaskManager />
-      <AllTasks />
-      <AllProjects/>
-      <DetailProjectPage/> */}
+      <div className="MainContainer">
+        <Header isFullHeader={true} />
+        {/* <TaskManager /> */}
+        <AllTasks />
+        {/* <AllProjects/> */}
+        {/* <DetailProjectPage/> */}
+        <LoginForm/>
+        {/* {<TeamPage/> } */}
+      </div>
     </>
   )
 }

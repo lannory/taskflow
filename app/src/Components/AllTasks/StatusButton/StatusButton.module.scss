@@ -1,0 +1,50 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.statusButton {
+    width: 76px;
+    height: 28px;
+    background-color: $Gray-300;
+    color: $Gray-600;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &.active {
+        background-color: $Gray-400;
+    }
+}
+
+.green {
+    color: $Approved;
+    background-color: $Approved-background;
+
+    &:hover,
+    &.active {
+        background-color: $Approved-hover-light;
+    }
+}
+
+.yellow {
+    color: $Pending;
+    background-color: $Pending-background;
+
+    &:hover,
+    &.active {
+        background-color: $Pending-hover-light;
+    }
+}
+
+.red {
+    color: $Error-red;
+    background-color: $Error-red-background;
+
+    &:hover,
+    &.active {
+        background-color: $Error-red-hover-light;
+    }
+}
