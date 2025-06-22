@@ -1,6 +1,6 @@
 @use '../../../assets/styles/colorVariables.scss' as *;
 
-.DateFieldContainer {
+.inputContainer{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,29 +8,30 @@
   width: 100%;
   max-width: 500px;
   gap: 8px;
-  margin: 0 0 8px 0;
+  margin: 33px 0 0 26px;
+  padding: 6px auto;
 
-  .LabelField {
-    width: 100%;
-    max-width: 110px;
+  .LabelField{
+    max-width: 91px;
     height: auto;
     font: 500 14px/20px 'Inter', sans-serif;
   }
 
-  .DateField {
+  .inputField{
     width: 100%;
     max-width: 475px;
     height: auto;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: 8px;
-    border: 1px solid $Gray-300;
-    font: 400 14px/20px 'Inter', sans-serif;
-    color: $Gray-900;
+    border: 1px solid #d1d5db;
+    font: 400 14px 'Poppins', sans-serif;
+    line-height: 20px;
+    color: #111827;
     background-color: $White;
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: $Gray-500;
+      border-color: #3b82f6;
       outline: none;
     }
   }
