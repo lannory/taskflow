@@ -1,0 +1,77 @@
+// .field {
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 16px;
+// }
+
+// .field label {
+//   margin-bottom: 8px;
+//   font-weight: 500;
+// }
+
+// .field select {
+//   padding: 8px;
+//   border-radius: 6px;
+//   border: 1px solid #ccc;
+// }
+
+// .toggleGroup {
+//   display: flex;
+//   gap: 12px;
+// }
+
+// .toggle,
+// .activeToggle {
+//   padding: 10px 16px;
+//   border-radius: 8px;
+//   border: 1px solid #3f51b5;
+//   background-color: #fff;
+//   color: #3f51b5;
+//   cursor: pointer;
+// }
+
+// .activeToggle {
+//   background-color: #e6e9ff;
+// }
+
+/* components/Settings/TimeFormatButton.module.scss */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  min-width: 140px;
+  border: 1.5px solid #3f51b5;
+  border-radius: 12px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: #f5f7ff;
+  }
+}
+
+.active {
+  border-color: #3f51b5;
+}
+
+.label {
+  font-size: 14px;
+  color: #000;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active .circle {
+  background-color: #3f51b5;
+}
