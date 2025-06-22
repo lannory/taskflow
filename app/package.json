@@ -18,11 +18,15 @@
     "@reduxjs/toolkit": "^2.8.2",
     "antd": "^5.26.1",
     "date-fns": "^4.1.0",
+    "formik": "^2.4.6",
     "lucide-react": "^0.513.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "sass": "^1.89.1"
+    "react-slick": "^0.30.3",
+    "sass": "^1.89.1",
+    "slick-carousel": "^1.8.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
