@@ -1,4 +1,5 @@
-import styles from "./SidebarItem.module.css";
+import React from "react";
+import styles from "./SidebarItem.module.scss";
 
 export default function SidebarItem({ icon, label, active, onClick }) {
     return (

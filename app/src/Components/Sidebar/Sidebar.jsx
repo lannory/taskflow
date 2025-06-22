@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Sidebar.module.css";
+import styles from "./Sidebar.module.scss";
 import SidebarItem from "../SidebarItem/SidebarItem";
 import logo from "../../assets/Hillel-Logo.png";
 

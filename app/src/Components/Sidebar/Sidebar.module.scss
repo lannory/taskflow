@@ -1,7 +1,9 @@
+@use '../../assets/styles/colorVariables'  as *;
+
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: white;
+    background-color: $White;
     padding: 24px;
     display: flex;
     flex-direction: column;
