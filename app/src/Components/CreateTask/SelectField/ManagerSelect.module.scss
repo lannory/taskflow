@@ -1,34 +1,32 @@
-@use '../../../assets/styles/colorVariables.scss' as *;
-
 .selectWrapper {
   position: relative;
   width: 100%;
   max-width: 500px;
   font: 500 16px 'Inter', sans-serif;
+  margin: 38px 0 38px 26px;
 }
 
 .selected {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid $Default-border;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
-  background-color: $White;
-
+  background-color: #fff;
 }
 
 .placeholder {
-  color: $Gray-500;
+  color: #888;
 }
 
 .dropdown {
   position: absolute;
   width: 100%;
   margin-top: 4px;
-  background: $White;
-  border: 1px solid $Default-border;
+  background: #fff;
+  border: 1px solid #ccc;
   border-radius: 8px;
   z-index: 10;
 }
@@ -36,13 +34,12 @@
 .option {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 10px 14px;
   gap: 8px;
   cursor: pointer;
 
   &:hover {
-    background-color: $White-hover;
-    border-radius: 8px;
+    background-color: #f0f0f0;
   }
 }
 

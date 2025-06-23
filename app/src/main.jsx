@@ -11,6 +11,7 @@ const store = configureStore({
   reducer: {
     auth: AuthReducer,
     tasks: taskReduser,
+    projects: projectsReducer
   }
 })
 
