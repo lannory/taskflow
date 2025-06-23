@@ -74,6 +74,7 @@ const tasksSlice = createSlice({
                 state.searchDate = date;
             }
         },
+        
         deleteTask(state, action) {
             state.tasks = state.tasks.filter(item => item.id !== action.payload);
         }

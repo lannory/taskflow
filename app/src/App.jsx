@@ -16,11 +16,11 @@ function App() {
     <>
       <div className="MainContainer">
         <Header isFullHeader={true} />
-        {/* <TaskManager /> */}
-        <AllTasks />
+        <TaskManager />
+        {/* <AllTasks /> */}
         {/* <AllProjects/> */}
         {/* <DetailProjectPage/> */}
-        <LoginForm/>
+        {/* <LoginForm/> */}
       </div>
 
     </>
