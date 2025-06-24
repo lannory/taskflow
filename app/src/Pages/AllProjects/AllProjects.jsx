@@ -1,9 +1,9 @@
 import React from 'react';
-import ProjectsNavigation from '../../Components/AllProjects/ProjectsNavigation';
+import ProjectsNavigation from '../../Components/allprojects/ProjectsNavigation/ProjectsNavigation';
 import styles from './AllProjects.module.scss'
-import ProjectsSlider from '../../Components/AllProjects/ProjectsSlider';
+import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/ProjectsSlider';
 import { useSelector } from 'react-redux';
-import ProjectsList from '../../Components/AllProjects/ProjectsList';
+import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
 
 function AllProjects() {
 
@@ -13,11 +13,11 @@ function AllProjects() {
 
 	return (
 		<div className={styles.container}>
-			<ProjectsNavigation/>
+			<ProjectsNavigation />
 			{shownBy == 'category' ?
-			<><ProjectsSlider title={'New Project'} projects={projects.newProj}/>
-			<ProjectsSlider title={'Time limit'} projects={projects.timeLim}/></> : <ProjectsList arr={projects}/>}
-			
+				<><ProjectsSlider title={'New Project'} projects={projects.newProj} />
+					<ProjectsSlider title={'Time limit'} projects={projects.timeLim} /></> : <ProjectsList arr={projects} />}
+
 		</div>
 	);
 }

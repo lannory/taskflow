@@ -1,0 +1,44 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.sliderWrapper {
+	// padding-left: 38px;
+	margin-bottom: 16px;
+}
+
+
+// .projectsSlider {
+// 	max-width: 1156px;
+// }
+
+.sliderDesc {
+	display: flex;
+	align-items: center;
+	// max-width: 1124px;
+	justify-content: space-between;
+}
+
+.sliderControls {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+
+}
+
+.slick-slide > div {
+	padding: 0 12px;
+	box-sizing: border-box;
+}
+
+// .slick-slide {
+// 	width: auto !important;
+// }
+
+
+.icon{
+	color: #54577A;
+}
+
+.navIcon{
+	color: $Secondary-300;
+}
+

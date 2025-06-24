@@ -11,6 +11,8 @@ import ProjectPage from "./Pages/ProjectPage";
 import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Components/LoginForm/LoginForm";
 import CreateTask from './Components/CreateTask/MainApp/CreateTask';
+import ProjectsList from "./Components/allprojects/ProjectsList/ProjectsList";
+import ProjectsNavigation from "./Components/allprojects/ProjectsNavigation/ProjectsNavigation";
 
 function App() {
   return (
@@ -18,11 +20,14 @@ function App() {
       <div className="MainContainer">
         {/* <Header isFullHeader={true} /> */}
         {/* <CreateTask/> */}
-        <AllTasks />
-        {/* <AllProjects/> */}
+        {/* <AllTasks /> */}
+        <AllProjects />
         {/* <DetailProjectPage/> */}
         {/* <LoginForm/> */}
         {/* {<TeamPage/> } */}
+
+
+        {/* <ProjectsNavigation/> */}
       </div>
     </>
   )

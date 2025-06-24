@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRef } from 'react';
-import styles from './Projects.module.scss';
+import styles from './ProjectsNavigation.module.scss';
 import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShown, changeSort, sorting } from '../../store/Projects/projectsSlice';
+import { changeShown, changeSort, sorting } from '../../../store/Projects/projectsSlice';
 
 
 
@@ -53,7 +53,7 @@ function ProjectsNavigation() {
       ),
       icon: <SortDescendingOutlined />,
       onClick: () => {
-        dispatch(changeSort({type: 'deadline', direction: 'increase'}));
+        dispatch(changeSort({ type: 'deadline', direction: 'increase' }));
         dispatch(sorting());
       }
     },
@@ -64,8 +64,8 @@ function ProjectsNavigation() {
           Deadline
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'deadline', direction: 'decrease'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'deadline', direction: 'decrease' }));
         dispatch(sorting());
       },
       icon: <SortAscendingOutlined />,
@@ -73,12 +73,12 @@ function ProjectsNavigation() {
     {
       key: '3',
       label: (
-        <button  rel="noopener noreferrer">
+        <button rel="noopener noreferrer">
           Progress
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'progress', direction: 'increase'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'progress', direction: 'increase' }));
         dispatch(sorting());
       },
       icon: <SortDescendingOutlined />,
@@ -90,8 +90,8 @@ function ProjectsNavigation() {
           Progress
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'progress', direction: 'decrease'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'progress', direction: 'decrease' }));
         dispatch(sorting());
       },
       icon: <SortAscendingOutlined />,
@@ -100,47 +100,47 @@ function ProjectsNavigation() {
 
 
 
-	const searchRef = useRef();
+  const searchRef = useRef();
 
   const shown = useSelector(state => state.projects.shownBy);
   const sortBy = useSelector(state => state.projects.sortType), direction = useSelector(state => state.projects.sortDirection);
 
 
-	return (
-		<nav className={styles.projectsNav}>
-			<form action="">
-				<input
-					type="text"
-					className={styles.searchInput}
-					placeholder="Search  Project"
-					ref={searchRef}
-				/>
-				<button type="button" className={styles.searchBtn}>
-					<i className={styles.navIcon + " fa-light fa-magnifying-glass"}></i>
-				</button>
-			</form>
+  return (
+    <nav className={styles.projectsNav}>
+      <form action="">
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder="Search  Project"
+          ref={searchRef}
+        />
+        <button type="button" className={styles.searchBtn}>
+          <i className={styles.navIcon + " fa-solid fa-magnifying-glass"}></i>
+        </button>
+      </form>
 
-			<div className={styles.navBtns}>
-				<div className={styles.categoryMenu}>
+      <div className={styles.navBtns}>
+        <div className={styles.categoryMenu}>
           <Dropdown menu={{ items: categories }} trigger={['click']}>
             <button className={`${styles.categoryBtn} ${styles.btn}`}>
               <i className={styles.navIcon + " fa-solid fa-list"}></i>
               Show By : {shown}
-					  </button>
-          </Dropdown>
-				</div>
-
-				<div className="sortMenu">
-          <Dropdown menu={{ items: sort }} trigger={['click']}>
-            <button className={`${styles.sortBtn} ${styles.btn}`}>
-              <i className={styles.navIcon + " fa-regular fa-sort"}></i>
-              Sort By : {sortBy || 'default'} {direction  == 'decrease'? <i className="fa-solid fa-arrow-down"></i> : <i className="fa-solid fa-arrow-up"></i>}
             </button>
           </Dropdown>
         </div>
-			</div>
-		</nav>
-	);
+
+        <div className={styles.sortMenu}>
+          <Dropdown menu={{ items: sort }} trigger={['click']}>
+            <button className={`${styles.sortBtn} ${styles.btn}`}>
+              <i className={styles.navIcon + " fa-solid fa-arrow-down-wide-short"}></i>
+              Sort By : {sortBy || 'default'} {direction == 'decrease' ? <i className="fa-solid fa-arrow-down"></i> : <i className="fa-solid fa-arrow-up"></i>}
+            </button>
+          </Dropdown>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default ProjectsNavigation;
