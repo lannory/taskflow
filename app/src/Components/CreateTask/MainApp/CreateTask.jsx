@@ -22,7 +22,6 @@ const CreateTaskForm = () => {
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
         <h2 className={styles.titleTask}>Create Task</h2>
-        <BigButton style=""/>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -37,7 +36,7 @@ const CreateTaskForm = () => {
         <TextAreaField
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="A concise, 5-10 minute presentation that outlines the key design decisions. This presentation covers:"
+          placeholder="Enter a description..."
         />
         <DateField
           label="Project Deadline"
@@ -50,7 +49,7 @@ const CreateTaskForm = () => {
           onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-        <BigButton />
+        <BigButton text='Create Task' style='purple'/>
       </form>
     </div>
   );

@@ -1,20 +1,30 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .wrapperTextArea {
   display: flex;
   justify-content: center;
   width: 100%;
   max-width: 500px;
-  margin: 28px 0 0 26px;
+  margin: 28px 0 0 0;
 
   .textArea {
     width: 100%;
     max-width: 500px;
     font-size: 16px;
     padding: 10px 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: solid 1px $Gray-300;
+    border-radius: 8px;
     box-sizing: border-box;
     resize: vertical;
     font: 400 16px 'Poppins', sans-serif;
     line-height: 24px;
+    resize: none;
+
+    &:focus-visible {
+      border: solid 1px $Gray-500;
+      outline: none;
+    }
   }
+
+
 }

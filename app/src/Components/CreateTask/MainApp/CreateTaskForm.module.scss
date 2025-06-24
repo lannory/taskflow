@@ -1,12 +1,13 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .create_task {
   display: flex;
+  gap: 0;
   width: 100%;
   max-width: 550px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px;
-  background-color: #fff5f5;
 }
 
 .createTaskHeader {
@@ -15,10 +16,8 @@
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  margin-bottom: 24px;
   width: 100%;
-  max-width: 480px;
-  margin: 26px 0 0 32px;
+  max-width: 500px;
 
   .titleTask {
     font: 600 31px 'Poppins', sans-serif;
@@ -32,5 +31,4 @@
   justify-content: center;
   width: 100%;
   max-width: 500px;
-  gap: 12px;
 }

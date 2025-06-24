@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 500px;
   gap: 8px;
-  margin: 33px 0 0 26px;
+  margin: 33px 0 0 0;
   padding: 6px auto;
 
   .LabelField{
@@ -19,19 +19,19 @@
 
   .inputField{
     width: 100%;
-    max-width: 475px;
+    max-width: 470px;
     height: auto;
     padding: 10px 14px;
     border-radius: 8px;
-    border: 1px solid #d1d5db;
+    border: solid 1px $Gray-300;
     font: 400 14px 'Poppins', sans-serif;
     line-height: 20px;
-    color: #111827;
+    color: $Gray-900;
     background-color: $White;
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: #3b82f6;
+      border-color: $Gray-500;
       outline: none;
     }
   }

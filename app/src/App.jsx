@@ -19,14 +19,17 @@ function App() {
     <>
       <div className="MainContainer">
         {/* <Header isFullHeader={true} /> */}
+        
+        
         {/* <CreateTask/> */}
-        <LoginForm/>
-
         {/* <AllTasks /> */}
         {/* <ProjectPage /> */}
         {/* {<TeamPage/> } */}
         {/* <AllProjects /> */}
         {/* <DetailProjectPage/> */}
+
+
+        {/* <LoginForm/> */}
       </div>
     </>
   )
