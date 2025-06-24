@@ -7,7 +7,7 @@ import AllTasks from './Components/AllTasks/AllTasks';
 import Header from './Components/Header/Header';
 import AllProjects from './Pages/AllProjects/AllProjects';
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
-import ProjectPage from "./Pages/ProjectPage";
+import ProjectPage from "./Pages/ProjectCreatePage/ProjectPage";
 import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Components/LoginForm/LoginForm";
 import CreateTask from './Components/CreateTask/MainApp/CreateTask';
@@ -24,8 +24,8 @@ function App() {
         {/* <LoginForm/> */}
 
 
-
-        {<TeamPage/> }
+        {/* <ProjectPage /> */}
+        {/* {<TeamPage/> } */}
         {/* <AllProjects /> */}
         {/* <DetailProjectPage/> */}
       </div>

@@ -26,7 +26,7 @@ export default function ProjectForm({
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <BigTitle text={isEdit ? 'Edit Project' : 'Create Project'}/>
-                <BigButton text={isEdit ? 'Save Project' : 'Create Project'} style='purple'/>
+                {/* <BigButton text={isEdit ? 'Save Project' : 'Create Project'} style='purple'/> */}
             </div>
 
             <Formik
