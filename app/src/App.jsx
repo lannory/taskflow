@@ -9,7 +9,7 @@ import AllProjects from './Pages/AllProjects/AllProjects';
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 import ProjectPage from "./Pages/ProjectCreatePage/ProjectPage";
 import TeamPage from './Pages/Team/TeamPage';
-import LoginForm from "./Components/LoginForm/LoginForm";
+import LoginForm from "./Pages/LoginForm/LoginForm";
 import CreateTask from './Components/CreateTask/MainApp/CreateTask';
 import ProjectsList from "./Components/allprojects/ProjectsList/ProjectsList";
 import ProjectsNavigation from "./Components/allprojects/ProjectsNavigation/ProjectsNavigation";
@@ -20,10 +20,9 @@ function App() {
       <div className="MainContainer">
         {/* <Header isFullHeader={true} /> */}
         {/* <CreateTask/> */}
-        <AllTasks />
-        {/* <LoginForm/> */}
+        <LoginForm/>
 
-
+        {/* <AllTasks /> */}
         {/* <ProjectPage /> */}
         {/* {<TeamPage/> } */}
         {/* <AllProjects /> */}
