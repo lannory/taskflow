@@ -21,13 +21,13 @@ function App() {
         {/* <Header isFullHeader={true} /> */}
         {/* <CreateTask/> */}
         {/* <AllTasks /> */}
-        <AllProjects />
-        {/* <DetailProjectPage/> */}
+        <DetailProjectPage/>
         {/* <LoginForm/> */}
         {/* {<TeamPage/> } */}
 
 
-        {/* <ProjectsNavigation/> */}
+
+        {/* <AllProjects /> */}
       </div>
     </>
   )

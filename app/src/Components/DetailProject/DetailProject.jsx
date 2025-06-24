@@ -12,11 +12,11 @@ function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 				<h2 className={styles.title}>{title}</h2>
 				<div className={styles.projectType}>
 					<p>{type}</p>
-					<p className={styles.link}>+ Get Mentors</p>
+					{/* <p className={styles.link}>+ Get Mentors</p> */}
 				</div>
 				<div className={styles.widget}>
 					<p>
-						<i className="fa-regular fa-users" style={{ color: "#54577a" }}></i>
+						<i className="fa-solid fa-users" style={{ color: "#54577a" }}></i>
 						{peopleAmount} Students Involved
 					</p>
 					<p>

@@ -1,8 +1,10 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
 .wrapper {
+	font-family: "Poppins", sans-serif;
+	color: $Secondary-500;
 	background-color: $White;
-	margin: 32px;
+	// margin: 32px;
 	max-width: 720px;
 	border-radius: 10px;
 }
