@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Team.module.scss';
-import TeamItem from './TeamItem';
-import MediumTitle from '../MediumTitle/MediumTitle';
+import styles from './TeamList.module.scss';
+import TeamItem from '../TeamItem/TeamItem';
+import MediumTitle from '../../MediumTitle/MediumTitle';
 
 function TeamList(props) {
 
@@ -60,14 +60,14 @@ function TeamList(props) {
 			reviews: 910,
 			img: "06"
 		},
-		
+
 	]
 
 	return (
 		<div className={styles.wrapper}>
-			<MediumTitle text={'Your Team and & Managers'}/>
+			<MediumTitle text={'Your Team and & Managers'} />
 			<div className={styles.list}>
-				{team.map(item => <TeamItem obj={item} key={item.name}/>)}
+				{team.map(item => <TeamItem obj={item} key={item.name} />)}
 			</div>
 		</div>
 	);

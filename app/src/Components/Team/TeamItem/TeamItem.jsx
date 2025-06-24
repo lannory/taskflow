@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Team.module.scss'
+import styles from './TeamItem.module.scss';
 
 
 function TeamItem({obj}) {
@@ -18,7 +18,7 @@ function TeamItem({obj}) {
 					<i className={styles.icon + " fa-regular fa-note-sticky"}></i>
 					<p>{obj.taskCount} Task</p>
 				</div>
-				<p className={styles.rating}>{obj.rating} ({obj.reviews} Reviews)</p>
+				{/* <p className={styles.rating}>{obj.rating} ({obj.reviews} Reviews)</p> */}
 			</div>
 		</div>
 	);

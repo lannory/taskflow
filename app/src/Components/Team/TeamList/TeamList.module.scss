@@ -1,0 +1,14 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.wrapper {
+	font-family: "Poppins", sans-serif;
+	color: $Secondary-500;
+}
+
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+	width: 1126px;  
+}
