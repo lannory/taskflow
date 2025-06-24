@@ -22,7 +22,7 @@ function App() {
 
       <div className="MainContainer">
         {/* <SettingsForm/> */}
-        {/* <CreateTask/> */}
+        <CreateTask/>
         {/* <AllTasks /> */}
         {/* <ProjectPage /> */}
         {/* {<TeamPage/> } */}
