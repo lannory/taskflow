@@ -3,7 +3,7 @@ import React from "react";
 import './App.css';
 import '../src/assets/styles/resetStyles.scss'; // reset styles
 import '../src/assets/styles/colorVariables.scss';
-import AllTasks from './Components/AllTasks/AllTasks';
+import AllTasks from './Pages/AllTasks/AllTasks';
 import Header from './Components/Header/Header';
 import AllProjects from './Pages/AllProjects/AllProjects';
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
@@ -20,7 +20,7 @@ function App() {
       <div className="MainContainer">
         {/* <Header isFullHeader={true} /> */}
         {/* <CreateTask/> */}
-        {/* <AllTasks /> */}
+        <AllTasks />
         {/* <LoginForm/> */}
 
 

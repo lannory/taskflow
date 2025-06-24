@@ -1,10 +1,10 @@
 import React from 'react';
-import BigButton from '../BigButton/BigButton';
-import BigTitle from '../BigTitle/BigTitle';
+import BigButton from '../../Components/BigButton/BigButton';
+import BigTitle from '../../Components/BigTitle/BigTitle';
 import styles from './AllTasks.module.scss';
-import TasksTable from './TasksTable/TasksTable';
-import TasksSearch from './TasksSearch/TasksSearch';
-import StatusButton from './StatusButton/StatusButton';
+import TasksTable from '../../Components/AllTasks/TasksTable/TasksTable';
+import TasksSearch from '../../Components/AllTasks/TasksSearch/TasksSearch';
+import StatusButton from '../../Components/AllTasks/StatusButton/StatusButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStatus } from '../../store/Tasks/TasksSlice';
 
@@ -31,7 +31,7 @@ export default function AllTasks() {
     return (
         <>
             <div className={styles.SerachBlock}>
-                <TasksSearch/>
+                <TasksSearch />
                 <div className={styles.StatusButtonsBlock}>
                     {StatusButtons.map((button) => (
                         <StatusButton
@@ -47,7 +47,7 @@ export default function AllTasks() {
                 <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
                 <BigButton text="Create Task" style="purple" />
             </div>
-            <TasksTable/>
+            <TasksTable />
         </>
     );
 }
