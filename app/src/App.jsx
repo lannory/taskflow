@@ -11,8 +11,7 @@ import ProjectPage from "./Pages/ProjectCreatePage/ProjectPage";
 import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Pages/LoginForm/LoginForm";
 import CreateTask from './Pages/CreateTask/CreateTask';
-import ProjectsList from "./Components/allprojects/ProjectsList/ProjectsList";
-import ProjectsNavigation from "./Components/allprojects/ProjectsNavigation/ProjectsNavigation";
+import SettingsForm from './Pages/SettingsForm/SettingsForm';
 
 function App() {
   return (
@@ -21,6 +20,7 @@ function App() {
         {/* <Header isFullHeader={true} /> */}
 
 
+        <SettingsForm/>
         {/* <CreateTask/> */}
         {/* <AllTasks /> */}
         {/* <ProjectPage /> */}
