@@ -4,7 +4,7 @@ import styles from './Projects.module.scss';
 import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShown, changeSort, sorting } from '../../store/projectsSlice';
+import { changeShown, changeSort, sorting } from '../../store/Projects/projectsSlice';
 
 
 

@@ -209,9 +209,6 @@ export default function TasksTable() {
                                                 checked={task.tick}
                                                 onChange={() => dispatch(toggleTask(task.id))}
                                             />
-                                            <span className={styles.purpleIcon}>
-                                                <i className={task.icon}></i>
-                                            </span>
                                             <span>{task.title}</span>
                                         </div>
                                     </td>

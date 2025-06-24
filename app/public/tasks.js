@@ -1,8 +1,8 @@
 const tasks = [
     {
         id: 1,
+        prodjectID: 1,
         tick: true,
-        icon: 'fa-solid fa-bolt',
         title: 'Tech requirements',
         taskCreated: '2024-01-04',
         duoDate: '2025-06-16',
@@ -11,8 +11,8 @@ const tasks = [
     },
     {
         id: 2,
+        prodjectID: 2,
         tick: false,
-        icon: 'fa-regular fa-image',
         title: 'UI Design Draft',
         taskCreated: '2024-01-12',
         duoDate: '2025-06-17',
@@ -21,8 +21,8 @@ const tasks = [
     },
     {
         id: 3,
+        prodjectID: 2,
         tick: false,
-        icon: 'fa-solid fa-film',
         title: 'Backend Integration',
         taskCreated: '2024-01-07',
         duoDate: '2025-06-18',
@@ -31,8 +31,8 @@ const tasks = [
     },
     {
         id: 4,
+        prodjectID: 3,
         tick: false,
-        icon: 'fa-brands fa-figma',
         title: 'Team Feedback Review',
         taskCreated: '2024-01-09',
         duoDate: '2025-06-18',
@@ -41,8 +41,8 @@ const tasks = [
     },
     {
         id: 5,
+        prodjectID: 3,
         tick: true,
-        icon: 'fa-solid fa-bolt',
         title: 'Deployment Setup',
         taskCreated: '2024-01-12',
         duoDate: '2025-06-19',
@@ -51,8 +51,8 @@ const tasks = [
     },
     {
         id: 6,
+        prodjectID: 1,
         tick: false,
-        icon: 'fa-regular fa-image',
         title: 'UI Design Draft',
         taskCreated: '2024-01-12',
         duoDate: '2025-06-17',

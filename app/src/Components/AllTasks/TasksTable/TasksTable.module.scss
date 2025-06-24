@@ -9,7 +9,6 @@
 .colTitle {
     width: 528px;
 }
-
 .colDate {
     width: 176px;
 }
@@ -79,24 +78,6 @@ tbody tr td:not(:first-child) {
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-.purpleIcon {
-    width: 40px;
-    height: 40px;
-    background-color: $Brand-100;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.purpleIcon i {
-    width: 15px;
-    height: 15px;
-    color: $Brand-600;
-    aspect-ratio: 1 / 1;
-    display: inline-block;
 }
 
 .accordionRow {
