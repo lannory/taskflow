@@ -12,15 +12,16 @@ import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Pages/LoginForm/LoginForm";
 import CreateTask from './Pages/CreateTask/CreateTask';
 import SettingsForm from './Pages/SettingsForm/SettingsForm';
+import Sidebar from "./Components/Sidebar/Sidebar";
 
 function App() {
   return (
     <>
+      {/* <Sidebar /> */}
+      {/* <Header isFullHeader={true} /> */}
+
       <div className="MainContainer">
-        {/* <Header isFullHeader={true} /> */}
-
-
-        <SettingsForm/>
+        {/* <SettingsForm/> */}
         {/* <CreateTask/> */}
         {/* <AllTasks /> */}
         {/* <ProjectPage /> */}
