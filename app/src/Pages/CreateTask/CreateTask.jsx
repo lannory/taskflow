@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import InputField from '../InputField/InputField';
-import TextAreaField from '../TextAreaField/TextAreaField';
-import DateField from '../DateField/DateField';
-import ManagerSelect from '../SelectField/ManagerSelect';
-import BigButton from '../../BigButton/BigButton';
-import styles from"./CreateTaskForm.module.scss";
+import InputField from '../../Components/CreateTask/InputField/InputField';
+import TextAreaField from '../../Components/CreateTask/TextAreaField/TextAreaField';
+import DateField from '../../Components/CreateTask/DateField/DateField';
+import ManagerSelect from '../../Components/CreateTask/SelectField/ManagerSelect';
+import BigButton from '../../Components/BigButton/BigButton';
+import styles from "./CreateTaskForm.module.scss";
 
 const CreateTaskForm = () => {
   const [projectName, setProjectName] = useState('');
@@ -49,7 +49,7 @@ const CreateTaskForm = () => {
           onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-        <BigButton text='Create Task' style='purple'/>
+        <BigButton text='Create Task' style='purple' />
       </form>
     </div>
   );
