@@ -1,6 +1,6 @@
 
 import React from "react";
-import './App.css';
+import styles from './App.module.scss';
 import '../src/assets/styles/resetStyles.scss'; // reset styles
 import '../src/assets/styles/colorVariables.scss';
 import AllTasks from './Pages/AllTasks/AllTasks';
@@ -17,36 +17,29 @@ import Overview from './Pages/Overview/Overview';
 
 function App() {
   return (
-    <>
+    <div className={styles.AppWrapper}>
       <Sidebar />
-      {/* <Header isFullHeader={true} /> */}
+      <div className={styles.MainContainer}>
+        <Header isFullHeader={true} />
 
-      <div className="MainContainer">
-        {/* <LoginForm/> */}
+        <div className={styles.pages}>
+          {/* <LoginForm/> */}
 
-        {/* <Overview/> */}
+          {/* <Overview/> */}
 
-        {/* <AllTasks /> */}
-        {/* <CreateTask/> */}
+          {/* <AllTasks /> */}
+          {/* <CreateTask/> */}
 
-        {/* <AllProjects /> */}
-        {/* <CreateProject /> */}
-        {/* <DetailProjectPage/> */}
+          {/* <AllProjects /> !!! */}
+          {/* <CreateProject /> */}
+          <DetailProjectPage/> 
 
-        {/* {<TeamPage/> } */}
+          {/* <TeamPage/>  */}
 
-        {/* <SettingsForm/> */}
-
-
-
-
-
-
-
-
-
+          {/* <SettingsForm/> */}
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

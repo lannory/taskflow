@@ -1,0 +1,17 @@
+@use './assets/styles/colorVariables.scss' as *;
+
+.AppWrapper {
+  display: grid;
+  gap: 0 0;
+  grid-template-columns: 248px auto;
+  height: 100vh;
+  width: 100%;
+}
+
+.MainContainer{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px;
+}
+
+
