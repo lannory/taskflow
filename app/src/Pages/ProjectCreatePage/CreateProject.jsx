@@ -7,7 +7,7 @@ const users = [
     { id: '3', name: 'Mark', role: 'developer' },
 ];
 
-export default function ProjectPage() {
+export default function CreateProject() {
     const handleCreate = (data) => {
         console.log('Project created:', data);
     };

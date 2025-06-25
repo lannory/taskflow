@@ -7,30 +7,44 @@ import AllTasks from './Pages/AllTasks/AllTasks';
 import Header from './Components/Header/Header';
 import AllProjects from './Pages/AllProjects/AllProjects';
 import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
-import ProjectPage from "./Pages/ProjectCreatePage/ProjectPage";
+import CreateProject from "./Pages/ProjectCreatePage/CreateProject";
 import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Pages/LoginForm/LoginForm";
 import CreateTask from './Pages/CreateTask/CreateTask';
 import SettingsForm from './Pages/SettingsForm/SettingsForm';
 import Sidebar from "./Components/Sidebar/Sidebar";
+import Overview from './Pages/Overview/Overview';
 
 function App() {
   return (
     <>
-      {/* <Sidebar /> */}
+      <Sidebar />
       {/* <Header isFullHeader={true} /> */}
 
       <div className="MainContainer">
-        {/* <SettingsForm/> */}
-        <CreateTask/>
+        {/* <LoginForm/> */}
+
+        {/* <Overview/> */}
+
         {/* <AllTasks /> */}
-        {/* <ProjectPage /> */}
-        {/* {<TeamPage/> } */}
+        {/* <CreateTask/> */}
+
         {/* <AllProjects /> */}
+        {/* <CreateProject /> */}
         {/* <DetailProjectPage/> */}
 
+        {/* {<TeamPage/> } */}
 
-        {/* <LoginForm/> */}
+        {/* <SettingsForm/> */}
+
+
+
+
+
+
+
+
+
       </div>
     </>
   )

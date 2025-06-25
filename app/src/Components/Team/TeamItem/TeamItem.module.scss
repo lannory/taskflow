@@ -1,22 +1,8 @@
 @use '../../../assets/styles/colorVariables.scss' as *;
 
-.wrapper {
-	font-family: "Poppins", sans-serif;
-	color: $Secondary-500;
-}
-
-
-.list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 32px;
-	width: 1126px;  
-}
-
-
 .card {
 	border-radius: 10px;
-	max-width: 354px;
+	// max-width: 354px;
 	box-sizing: border-box;
 	padding: 24px;
 	display: flex;

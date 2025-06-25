@@ -1,17 +1,16 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
 .settingsForm {
-  padding: 24px;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
+  // padding: 24px;
+  width: max-content;
+  // margin: auto;
   font-family: "Poppins", sans-serif;
 }
 
 .tabs {
   display: flex;
   gap: 16px;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
   font-size: 16px;
   font-weight: 600;
 }

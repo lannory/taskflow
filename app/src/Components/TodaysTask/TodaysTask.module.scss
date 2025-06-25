@@ -1,0 +1,46 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.TodayTasksTable {
+    width: max-content;
+    border-collapse: collapse;
+    margin-top: 19px;   
+}
+
+tbody tr + tr {
+  border-top: 16px solid transparent;
+}
+
+.emptyBox{
+    width: 476px;
+    margin-top: 19px;
+}
+
+.colTitle {
+    width: 400px;
+}
+
+.colAction {
+    width: max-content;
+}
+
+.tableCheckbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: 1px solid $Gray-300;
+    cursor: pointer;
+}
+
+.TaskTitle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $Black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
