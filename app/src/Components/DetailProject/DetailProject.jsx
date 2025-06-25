@@ -5,9 +5,7 @@ import styles from './DetailProject.module.scss';
 function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.banner}>
-				<img src={`/projects/detail/${banner}.png`} alt={title} />
-			</div>
+
 			<div className={styles.descWrapper}>
 				<h2 className={styles.title}>{title}</h2>
 				<div className={styles.projectType}>
@@ -42,6 +40,10 @@ function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 					</ul>
 				</div>
 			</div>
+			<div className={styles.banner}>
+				<img src={`/projects/detail/${banner}.png`} alt={title} />
+			</div>
+
 			
 		</div>
 	);

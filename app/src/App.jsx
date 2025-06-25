@@ -30,9 +30,9 @@ function App() {
           {/* <AllTasks /> */}
           {/* <CreateTask/> */}
 
-          {/* <AllProjects /> !!! */}
+          <AllProjects /> 
           {/* <CreateProject /> */}
-          <DetailProjectPage/> 
+          {/* <DetailProjectPage/>  */}
 
           {/* <TeamPage/>  */}
 
