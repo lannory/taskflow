@@ -5,12 +5,15 @@ import DateField from '../../Components/CreateTask/DateField/DateField';
 import ManagerSelect from '../../Components/CreateTask/SelectField/ManagerSelect';
 import BigButton from '../../Components/BigButton/BigButton';
 import styles from "./CreateTaskForm.module.scss";
+import { useNavigate } from 'react-router-dom';
 
 const CreateTaskForm = () => {
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
   const [deadline, setDeadline] = useState('');
   const [manager, setManager] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +52,7 @@ const CreateTaskForm = () => {
           onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-        <BigButton text='Create Task' style='purple' />
+        <BigButton text='Create Task' style='purple' /> 
       </form>
     </div>
   );

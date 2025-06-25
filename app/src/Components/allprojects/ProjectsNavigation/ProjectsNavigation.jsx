@@ -5,6 +5,8 @@ import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons
 import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeShown, changeSort, sorting } from '../../../store/Projects/projectsSlice';
+import BigButton from '../../BigButton/BigButton';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,6 +15,8 @@ function ProjectsNavigation() {
 
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
 
   const categories = [
@@ -108,6 +112,9 @@ function ProjectsNavigation() {
 
   return (
     <nav className={styles.projectsNav}>
+      <div>
+        <BigButton text='New&nbsp;Project' style='purple' onClick={() => navigate('/createproject')} />
+      </div>
       <form action="">
         <input
           type="text"

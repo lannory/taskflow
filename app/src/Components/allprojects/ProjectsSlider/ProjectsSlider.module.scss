@@ -6,11 +6,12 @@
 }
 
 
-// .projectsSlider {
-// 	max-width: 1156px;
-// }
+.projectsSlider {
+	max-width: 1156px;
+}
 
 .sliderDesc {
+	margin-bottom: 18px;
 	display: flex;
 	align-items: center;
 	// max-width: 1124px;
@@ -35,7 +36,7 @@
 
 
 .icon{
-	color: #54577A;
+	color: $Secondary-400;
 }
 
 .navIcon{

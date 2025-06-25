@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import taskReduser from './store/Tasks/TasksSlice.js';
 import AuthReducer from './store/Auth/AuthSlice.js';
-import projectsReducer from './store/Projects/projectsSlice.js'
+import projectsReducer from './store/Projects/projectsSlice.js';
+import { BrowserRouter } from 'react-router-dom';
+
 
 const store = configureStore({
   reducer: {
@@ -18,6 +20,8 @@ const store = configureStore({
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
 )

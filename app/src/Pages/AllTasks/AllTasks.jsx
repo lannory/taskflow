@@ -7,9 +7,12 @@ import TasksSearch from '../../Components/AllTasks/TasksSearch/TasksSearch';
 import StatusButton from '../../Components/AllTasks/StatusButton/StatusButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStatus } from '../../store/Tasks/TasksSlice';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function AllTasks() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
@@ -45,7 +48,7 @@ export default function AllTasks() {
             </div>
             <div className={styles.allTasksTitle}>
                 <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
-                <BigButton text="Create Task" style="purple" />
+                <BigButton text="Create Task" style="purple" onClick={() => navigate('/createtask')}/>
             </div>
             <TasksTable />
         </>
