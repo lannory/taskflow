@@ -2,7 +2,7 @@ import React from "react";
 import styles from './App.module.scss';
 import '../src/assets/styles/resetStyles.scss';
 import '../src/assets/styles/colorVariables.scss';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import AllTasks from './Pages/AllTasks/AllTasks';
 import Header from './Components/Header/Header';
 import AllProjects from './Pages/AllProjects/AllProjects';
@@ -19,6 +19,10 @@ import { useSelector } from "react-redux";
 function App() {
   const { isAuth } = useSelector(state => state.auth);
 
+  const location = useLocation();
+  const isFullHeader = location.pathname !== '/team';
+
+
   if (!isAuth) {
     return <LoginForm />;
   }
@@ -27,7 +31,7 @@ function App() {
     <div className={styles.AppWrapper}>
       <Sidebar />
       <div className={styles.MainContainer}>
-        <Header isFullHeader={true} />
+        <Header isFullHeader={isFullHeader} />
         <div className={styles.pages}>
           <Routes>
             <Route path='/' element={<Overview />} />
