@@ -1,15 +1,18 @@
 import React from 'react';
-import BigButton from '../BigButton/BigButton';
-import BigTitle from '../BigTitle/BigTitle';
+import BigButton from '../../Components/BigButton/BigButton';
+import BigTitle from '../../Components/BigTitle/BigTitle';
 import styles from './AllTasks.module.scss';
-import TasksTable from './TasksTable/TasksTable';
-import TasksSearch from './TasksSearch/TasksSearch';
-import StatusButton from './StatusButton/StatusButton';
+import TasksTable from '../../Components/AllTasks/TasksTable/TasksTable';
+import TasksSearch from '../../Components/AllTasks/TasksSearch/TasksSearch';
+import StatusButton from '../../Components/AllTasks/StatusButton/StatusButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStatus } from '../../store/Tasks/TasksSlice';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function AllTasks() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
@@ -31,7 +34,7 @@ export default function AllTasks() {
     return (
         <>
             <div className={styles.SerachBlock}>
-                <TasksSearch/>
+                <TasksSearch />
                 <div className={styles.StatusButtonsBlock}>
                     {StatusButtons.map((button) => (
                         <StatusButton
@@ -45,9 +48,9 @@ export default function AllTasks() {
             </div>
             <div className={styles.allTasksTitle}>
                 <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
-                <BigButton text="Create Task" style="purple" />
+                <BigButton text="Create Task" style="purple" onClick={() => navigate('/createtask')}/>
             </div>
-            <TasksTable/>
+            <TasksTable />
         </>
     );
 }

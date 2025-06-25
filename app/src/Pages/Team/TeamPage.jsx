@@ -1,13 +1,10 @@
 import React from 'react';
-import styles from './TeamPage.module.scss';
-import TeamList from '../../Components/Team/TeamList';
+import TeamList from '../../Components/Team/TeamList/TeamList';
 
 
 function TeamPage(props) {
 	return (
-		<div className={styles.container}>
-			<TeamList/>
-		</div>
+		<TeamList />
 	);
 }
 

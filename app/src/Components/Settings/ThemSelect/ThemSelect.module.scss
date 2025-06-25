@@ -1,4 +1,7 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
 .field {
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
@@ -6,11 +9,23 @@
 
 .field label {
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .field select {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  vertical-align: middle;
+  width: 400px;
+  height: 50px;
   padding: 8px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid $Gray-300;
+
+  &:focus-visible {
+    border-color: $Gray-500;
+  }
 }

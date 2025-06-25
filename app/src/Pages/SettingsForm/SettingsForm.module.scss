@@ -1,0 +1,35 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.settingsForm {
+  // padding: 24px;
+  width: max-content;
+  // margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  // margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toggleGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.toggle,
+.activeToggle {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid $Gray-300;
+  background-color: $White;
+  color: $Secondary-500;
+  cursor: pointer;
+}
+
+.activeToggle {
+  background-color: $White-hover;
+}

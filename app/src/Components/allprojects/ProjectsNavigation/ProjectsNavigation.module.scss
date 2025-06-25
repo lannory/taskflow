@@ -1,0 +1,69 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.projectsNav {
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	align-items: center;
+	column-gap: 28px;
+
+	form {
+		position: relative;
+	}
+
+	margin: 42px 0 31px 0;
+
+}
+
+.navBtns {
+	display: flex;
+	column-gap: 24px;
+	align-items: center;
+
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: -0.24px;
+
+	border-radius: 10px;
+	border: 1px solid $White-hover;
+	padding: 14px 28px;
+	font-family: "Poppins", sans-serif;
+
+}
+
+.searchInput {
+	background-color: $White;
+	border-radius: 10px;
+	border: 1px solid $White-hover;
+	padding: 14px 28px;
+	min-width: 480px;
+
+	&::placeholder {
+		color: $Secondary-400;
+		font-size: 12px;
+		letter-spacing: -0.12px;
+	}
+
+	    &:focus {
+        border-color: $Gray-500;
+        outline: none;
+    }
+
+}
+
+.searchBtn {
+	position: absolute;
+	transform: translateY(-50%);
+	top: 50%;
+	right: 28px;
+}
+
+.categoryMenu, .sortMenu{
+	background-color: $White;
+}

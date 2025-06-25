@@ -1,26 +1,32 @@
 import React, { useRef } from 'react';
-import ProjectsItem from './ProjectsItem';
+import ProjectsItem from '../ProjectsItem/ProjectsItem';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+<<<<<<< HEAD:app/src/Components/allprojects/ProjectsSlider.jsx
 import styles from './Projects.module.scss';
 import MediumTitle from '../MediumTitle/MediumTitle';
 import { Empty } from 'antd';
+=======
+import styles from './ProjectsSlider.module.scss';
+import SmallTitle from '../../SmallTitle/SmallTitle';
 
-function ProjectsSlider({title, projects}) {
+>>>>>>> origin/main:app/src/Components/allprojects/ProjectsSlider/ProjectsSlider.jsx
+
+function ProjectsSlider({ title, projects }) {
 	const settings = {
 		dots: false,
 		infinite: false,
 		speed: 500,
 		slidesToShow: 3.2,
 		slidesToScroll: 1,
- 	 };
+	};
 
 	const sliderRef = useRef();
 	return (
 		<div className={styles.sliderWrapper}>
 			<div className={styles.sliderDesc}>
-				{<MediumTitle text={title}/>}
+				{<SmallTitle text={title} />}
 				<div className={styles.sliderControls}>
 					<button className={styles.prev} onClick={() => sliderRef?.current?.slickPrev()}>
 						<i className="fa-solid fa-arrow-left"></i>

@@ -147,6 +147,7 @@ export default function TasksTable() {
                         <col className={styles.colDate} />
                         <col className={styles.colDate} />
                         <col className={styles.colDate} />
+                        <col className={styles.colDate} />
                         <col className={styles.colAction} />
                     </colgroup>
                     <thead>
@@ -184,6 +185,7 @@ export default function TasksTable() {
                                     </span>
                                 )}
                             </td>
+                            <td>Project</td>
                             <td>Status</td>
                             <td></td>
                         </tr>
@@ -209,14 +211,12 @@ export default function TasksTable() {
                                                 checked={task.tick}
                                                 onChange={() => dispatch(toggleTask(task.id))}
                                             />
-                                            <span className={styles.purpleIcon}>
-                                                <i className={task.icon}></i>
-                                            </span>
                                             <span>{task.title}</span>
                                         </div>
                                     </td>
                                     <td>{formatDate(task.taskCreated)}</td>
                                     <td>{formatDate(task.duoDate)}</td>
+                                    <td>{task.prodjectID}</td>
                                     <td>
                                         <Dropdown
                                             menu={{ items: getTaskStatuses(task) }}

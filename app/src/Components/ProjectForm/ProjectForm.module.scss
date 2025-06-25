@@ -1,43 +1,65 @@
-@use '../../assets/styles/colorVariables'  as *;
+@use '../../assets/styles/colorVariables' as *;
 
 .wrapper {
-    padding: 26px;
-    max-width: 600px;
+    // padding: 26px;
+    max-width: 500px;
+    font-family: "Poppins", sans-serif;
+
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 33px;
+        margin-top: 17px;
     }
+
     .formGroup {
         margin-bottom: 28px;
         display: flex;
         flex-direction: column;
+
         .label {
             margin-bottom: 0.5rem;
             font-size: 14px;
         }
+
         .input,
         .textarea,
         .select {
             padding: 10px 14px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
             font-size: 16px;
+            line-height: 24px;
             border-radius: 8px;
             border: 1px solid $Default-border;
             background-color: $White;
             color: $Gray-500;
+
             &:focus-visible {
                 border: 1px solid $Default-border;
             }
+
+            &::placeholder {
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+            }
         }
+
         .textarea {
             resize: none;
+
+
         }
+
         .error {
             color: $Error-red;
             font-size: 14px;
             margin-top: 10px;
         }
+
         .select {
             appearance: none;
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 L70,100 L120,50' stroke='%23666' stroke-width='15' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;

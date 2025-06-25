@@ -4,9 +4,11 @@ import styles from './WeekCalendar.module.scss';
 import React from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { searchByDate } from '../../../store/Tasks/TasksSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function WeekCalendar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const searchDate = useSelector((state) => state.tasks.searchDate);
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -23,7 +25,11 @@ export default function WeekCalendar() {
       <div
         key={index}
         className={`${styles.day} ${isActive ? styles.active : ''}`}
-        onClick={() => dispatch(searchByDate(format(day, 'yyyy-MM-dd')))}
+        onClick={() => {
+          dispatch(searchByDate(format(day, 'yyyy-MM-dd')))
+          navigate('/alltasks')
+
+        }}
       >
         <div className={styles.dayName}>{format(day, 'EEEEE')}</div>
         <div className={styles.dayNumber}>{format(day, 'd')}</div>

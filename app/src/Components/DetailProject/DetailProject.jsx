@@ -5,18 +5,16 @@ import styles from './DetailProject.module.scss';
 function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.banner}>
-				<img src={`/projects/detail/${banner}.png`} alt={title} />
-			</div>
+
 			<div className={styles.descWrapper}>
 				<h2 className={styles.title}>{title}</h2>
 				<div className={styles.projectType}>
 					<p>{type}</p>
-					<p className={styles.link}>+ Get Mentors</p>
+					{/* <p className={styles.link}>+ Get Mentors</p> */}
 				</div>
 				<div className={styles.widget}>
 					<p>
-						<i className="fa-regular fa-users" style={{ color: "#54577a" }}></i>
+						<i className="fa-solid fa-users" style={{ color: "#54577a" }}></i>
 						{peopleAmount} Students Involved
 					</p>
 					<p>
@@ -42,6 +40,10 @@ function DetailProject({ deadline, title, banner, type, peopleAmount, list }) {
 					</ul>
 				</div>
 			</div>
+			<div className={styles.banner}>
+				<img src={`/projects/detail/${banner}.png`} alt={title} />
+			</div>
+
 			
 		</div>
 	);

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './DetailProjectPage.module.scss';
 import DetailProject from '../../Components/DetailProject/DetailProject';
 
 function DetailProjectPage() {
@@ -19,9 +18,7 @@ function DetailProjectPage() {
 	};
 
 	return (
-		<div className={styles.container}>
 			<DetailProject {...projectData}/>
-		</div>
 	);
 }
 

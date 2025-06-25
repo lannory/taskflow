@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Sidebar.module.scss";
 import SidebarItem from "../SidebarItem/SidebarItem";
 import logo from "../../assets/Hillel-Logo.png";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const menuItems = [
-    { icon: "fa-solid fa-table-cells-large", label: "Overview" },
-    { icon: "fa-solid fa-folder", label: "Projects" },
-    { icon: "fa-solid fa-book-open", label: "Tasks" },
-    { icon: "fa-solid fa-user", label: "Your Team" },
-    { icon: "fa-solid fa-gear", label: "Settings" },
+    { icon: "fa-solid fa-table-cells-large", label: "Overview", link: '/', },
+    { icon: "fa-solid fa-folder", label: "Projects", link: '/allprojects', },
+    { icon: "fa-solid fa-book-open", label: "Tasks", link: '/alltasks', },
+    { icon: "fa-solid fa-user", label: "Your Team", link: '/team', },
+    { icon: "fa-solid fa-gear", label: "Settings", link: '/settings', },
 ];
 
 export default function Sidebar() {
-    const [activeItem, setActiveItem] = useState("Overview");
+    const navigate = useNavigate();
+    const location = useLocation();
+
 
     return (
         <aside className={styles.sidebar}>
@@ -26,8 +29,10 @@ export default function Sidebar() {
                         key={item.label}
                         icon={item.icon}
                         label={item.label}
-                        active={item.label === activeItem}
-                        onClick={() => setActiveItem(item.label)}
+                        active={location.pathname === item.link}
+                        onClick={() => {
+                            navigate(item.link)
+                        }}
                     />
                 ))}
             </nav>

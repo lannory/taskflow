@@ -1,10 +1,20 @@
 import React from 'react';
 import { useRef } from 'react';
+<<<<<<< HEAD:app/src/Components/allprojects/ProjectsNavigation.jsx
 import styles from './Projects.module.scss';
 import { SortAscendingOutlined, SortDescendingOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeShown, changeSort, sorting, setSearchValue} from '../../store/projectsSlice';
+=======
+import styles from './ProjectsNavigation.module.scss';
+import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeShown, changeSort, sorting } from '../../../store/Projects/projectsSlice';
+import BigButton from '../../BigButton/BigButton';
+import { useNavigate } from 'react-router-dom';
+>>>>>>> origin/main:app/src/Components/allprojects/ProjectsNavigation/ProjectsNavigation.jsx
 
 
 
@@ -13,6 +23,8 @@ function ProjectsNavigation() {
 
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   const categories = [
     {
@@ -52,7 +64,7 @@ function ProjectsNavigation() {
       ),
       icon: <SortDescendingOutlined />,
       onClick: () => {
-        dispatch(changeSort({type: 'deadline', direction: 'increase'}));
+        dispatch(changeSort({ type: 'deadline', direction: 'increase' }));
         dispatch(sorting());
       }
     },
@@ -63,8 +75,8 @@ function ProjectsNavigation() {
           Deadline
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'deadline', direction: 'decrease'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'deadline', direction: 'decrease' }));
         dispatch(sorting());
       },
       icon: <SortAscendingOutlined />,
@@ -72,12 +84,12 @@ function ProjectsNavigation() {
     {
       key: '3',
       label: (
-        <button  rel="noopener noreferrer">
+        <button rel="noopener noreferrer">
           Progress
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'progress', direction: 'increase'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'progress', direction: 'increase' }));
         dispatch(sorting());
       },
       icon: <SortDescendingOutlined />,
@@ -89,8 +101,8 @@ function ProjectsNavigation() {
           Progress
         </button>
       ),
-      onClick: () =>{
-        dispatch(changeSort({type: 'progress', direction: 'decrease'}));
+      onClick: () => {
+        dispatch(changeSort({ type: 'progress', direction: 'decrease' }));
         dispatch(sorting());
       },
       icon: <SortAscendingOutlined />,
@@ -100,6 +112,10 @@ function ProjectsNavigation() {
 
   const searchValue = useSelector(state => state.projects.searchValue)
 
+<<<<<<< HEAD:app/src/Components/allprojects/ProjectsNavigation.jsx
+=======
+  const searchRef = useRef();
+>>>>>>> origin/main:app/src/Components/allprojects/ProjectsNavigation/ProjectsNavigation.jsx
 
   const shown = useSelector(state => state.projects.shownBy);
   const sortBy = useSelector(state => state.projects.sortType), direction = useSelector(state => state.projects.sortDirection);
@@ -108,6 +124,7 @@ function ProjectsNavigation() {
     dispatch(setSearchValue(e.target.value));
   }
 
+<<<<<<< HEAD:app/src/Components/allprojects/ProjectsNavigation.jsx
 	return (
 		<nav className={styles.projectsNav}>
 			<form action="">
@@ -122,13 +139,32 @@ function ProjectsNavigation() {
 					{!searchValue ? <SearchOutlined /> : <i className="fa-solid fa-xmark" onClick={() => dispatch(setSearchValue(''))} />}
 				</button>
 			</form>
+=======
+  return (
+    <nav className={styles.projectsNav}>
+      <div>
+        <BigButton text='New&nbsp;Project' style='purple' onClick={() => navigate('/createproject')} />
+      </div>
+      <form action="">
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder="Search  Project"
+          ref={searchRef}
+        />
+        <button type="button" className={styles.searchBtn}>
+          <i className={styles.navIcon + " fa-solid fa-magnifying-glass"}></i>
+        </button>
+      </form>
+>>>>>>> origin/main:app/src/Components/allprojects/ProjectsNavigation/ProjectsNavigation.jsx
 
-			<div className={styles.navBtns}>
-				<div className={styles.categoryMenu}>
+      <div className={styles.navBtns}>
+        <div className={styles.categoryMenu}>
           <Dropdown menu={{ items: categories }} trigger={['click']}>
             <button className={`${styles.categoryBtn} ${styles.btn}`}>
               <i className={styles.navIcon + " fa-solid fa-list"}></i>
               Show By : {shown}
+<<<<<<< HEAD:app/src/Components/allprojects/ProjectsNavigation.jsx
 					  </button>
           </Dropdown>
 				</div>
@@ -138,12 +174,23 @@ function ProjectsNavigation() {
             <button className={`${styles.sortBtn} ${styles.btn}`}>
               <i className={styles.navIcon + " fa-regular fa-sort"}></i>
               Sort By : {sortBy || 'default'} {direction  == 'decrease'? <i className="fa-solid fa-arrow-down"></i> : direction == 'increase' ? <i className="fa-solid fa-arrow-up"></i> : ''}
+=======
+>>>>>>> origin/main:app/src/Components/allprojects/ProjectsNavigation/ProjectsNavigation.jsx
             </button>
           </Dropdown>
         </div>
-			</div>
-		</nav>
-	);
+
+        <div className={styles.sortMenu}>
+          <Dropdown menu={{ items: sort }} trigger={['click']}>
+            <button className={`${styles.sortBtn} ${styles.btn}`}>
+              <i className={styles.navIcon + " fa-solid fa-arrow-down-wide-short"}></i>
+              Sort By : {sortBy || 'default'} {direction == 'decrease' ? <i className="fa-solid fa-arrow-down"></i> : <i className="fa-solid fa-arrow-up"></i>}
+            </button>
+          </Dropdown>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default ProjectsNavigation;

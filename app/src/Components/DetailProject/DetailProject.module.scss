@@ -1,15 +1,22 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
 .wrapper {
+	font-family: "Poppins", sans-serif;
+	color: $Secondary-500;
 	background-color: $White;
-	margin: 32px;
-	max-width: 720px;
+	// margin: 32px;
+	// max-width: 720px;
 	border-radius: 10px;
-}
-
-.descWrapper {
+	margin-top: 32px;
+	display: grid;
+	grid-template-columns: 7fr 3fr;
+	gap: 24px;
 	padding: 24px;
 }
+
+// .descWrapper {
+// 	padding: 24px;
+// }
 
 .title {
 	font-size: 32px;
@@ -73,7 +80,7 @@
 }
 
 .text {
-	width: 672px;
+	// width: 672px;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
@@ -103,4 +110,13 @@
 		align-items: center;
 		justify-content: center;
 	}
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	box-sizing: border-box;
+		border-radius: 5px;
+
 }

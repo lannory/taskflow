@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Projects.module.scss'
+import styles from './Projects.module.scss';
 import { LinearProgress } from '@mui/material';
 import { Dropdown, Space } from 'antd';
 import { useDispatch } from 'react-redux';

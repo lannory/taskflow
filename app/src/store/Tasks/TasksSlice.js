@@ -11,6 +11,7 @@ const initialState = {
     allTasksTicked: false,
     expandedRows: [],
     searchDate: '',
+    editTask: '',
 };
 
 const tasksSlice = createSlice({
@@ -39,7 +40,7 @@ const tasksSlice = createSlice({
             const id = action.payload;
             const task = state.tasks.find(task => task.id === id);
             if (task) {
-                if(task.tick === true){
+                if (task.tick === true) {
                     state.allTasksTicked = false;
                 }
                 task.tick = !task.tick;
@@ -60,19 +61,25 @@ const tasksSlice = createSlice({
         setExtendetRow(state, action) {
             const id = action.payload;
             const index = state.expandedRows.indexOf(id);
-            if(index === -1){
+            if (index === -1) {
                 state.expandedRows.push(id);
             } else {
                 state.expandedRows.splice(index, 1);
             }
         },
-        searchByDate(state, action){
+        searchByDate(state, action) {
             const date = action.payload;
-            if(state.searchDate === date){
+            if (state.searchDate === date) {
                 state.searchDate = '';
             } else {
                 state.searchDate = date;
             }
+        },
+        addEditTask(state, action) {
+            // записквати в editTask 
+        },
+        saveEditedTask(state, action) {
+            // зберігаєш відредагований такс 
         },
         deleteTask(state, action) {
             state.tasks = state.tasks.filter(item => item.id !== action.payload);

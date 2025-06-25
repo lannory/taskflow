@@ -1,34 +1,25 @@
-@use '../../assets/styles/colorVariables.scss' as *;
-
-.wrapper {
-
-	background-color: $White;
-
-}
-
-
-.list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 32px;
-	width: 1126px;  
-}
-
+@use '../../../assets/styles/colorVariables.scss' as *;
 
 .card {
 	border-radius: 10px;
-	max-width: 354px;
+	// max-width: 354px;
 	box-sizing: border-box;
 	padding: 24px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 24px;
+	background-color: $White;
 }
 
 .person {
 	display: flex;
 	align-items: center;
 	column-gap: 8px;
+
+	img{
+		height: 48px;
+		width: 48px;
+	}
 }
 
 .name {
@@ -75,5 +66,5 @@
 }
 
 .icon{
-	color: #54577A;
+	color: $Secondary-400;
 }

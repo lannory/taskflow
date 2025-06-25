@@ -11,7 +11,7 @@ export default function UserInfo() {
                 <h6 className={styles.userInfoSubtitle}>Let's finish your task today!</h6>
             </div>
             <div className={styles.userInfoRight}>
-                <span className={styles.headerAlert}><i className="fa-regular fa-bell"></i></span>
+                {/* <span className={styles.headerAlert}><i className="fa-regular fa-bell"></i></span> */}
                 <img className={styles.userPhoto} src={userPhoto} alt="User photo" />
             </div>
         </div>

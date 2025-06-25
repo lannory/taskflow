@@ -1,14 +1,16 @@
 @use '../../assets/styles/colorVariables'  as *;
 
 .sidebar {
-    width: 200px;
-    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    width: 248px;
+    min-height: 100vh;
+    box-sizing: border-box;
     background-color: $White;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 32px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
 
 .logo {

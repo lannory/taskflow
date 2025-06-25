@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import InputField from '../InputField/InputField';
-import TextAreaField from '../TextAreaField/TextAreaField';
-import DateField from '../DateField/DateField';
-import ManagerSelect from '../SelectField/ManagerSelect';
-import BigButton from '../../BigButton/BigButton';
-import styles from"./CreateTaskForm.module.scss";
+import InputField from '../../Components/CreateTask/InputField/InputField';
+import TextAreaField from '../../Components/CreateTask/TextAreaField/TextAreaField';
+import DateField from '../../Components/CreateTask/DateField/DateField';
+import ManagerSelect from '../../Components/CreateTask/SelectField/ManagerSelect';
+import BigButton from '../../Components/BigButton/BigButton';
+import styles from "./CreateTaskForm.module.scss";
+import { useNavigate } from 'react-router-dom';
 
 const CreateTaskForm = () => {
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
   const [deadline, setDeadline] = useState('');
   const [manager, setManager] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +25,6 @@ const CreateTaskForm = () => {
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
         <h2 className={styles.titleTask}>Create Task</h2>
-        <BigButton style=""/>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -37,7 +39,7 @@ const CreateTaskForm = () => {
         <TextAreaField
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="A concise, 5-10 minute presentation that outlines the key design decisions. This presentation covers:"
+          placeholder="Enter a description..."
         />
         <DateField
           label="Project Deadline"
@@ -50,7 +52,7 @@ const CreateTaskForm = () => {
           onChange={(value) => setManager(value)}
           placeholder="Select Project Manager"
         />
-        <BigButton />
+        <BigButton text='Create Task' style='purple' /> 
       </form>
     </div>
   );
