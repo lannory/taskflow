@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './Projects.module.scss';
 import MediumTitle from '../MediumTitle/MediumTitle';
-
+import { Empty } from 'antd';
 
 function ProjectsSlider({title, projects}) {
 	const settings = {
@@ -32,9 +32,12 @@ function ProjectsSlider({title, projects}) {
 				</div>
 			</div>
 			<div className={styles.projectsSlider}>
-				<Slider ref={sliderRef} {...settings}>
-					{projects.map(item => <ProjectsItem obj={item} />)}
-				</Slider>
+				{projects.length == 0 ? <Empty/> : 
+					<Slider ref={sliderRef} {...settings}>
+						{projects.map(item => <ProjectsItem obj={item} />)}
+					</Slider>
+					}
+				
 			</div>
 		</div>
 	);

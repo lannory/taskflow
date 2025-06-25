@@ -57,6 +57,7 @@
 }
 
 .project {
+	position: relative;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -153,3 +154,8 @@
 	color: '#8E92BC';
 }
 
+.dropdown{
+	position: absolute;
+	top: 0;
+	right: 0;
+}

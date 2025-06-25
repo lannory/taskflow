@@ -18,11 +18,12 @@ const defaultProjects = {
 
 
 const initialState = {
-	defaultProjects,
-	projects: defaultProjects,
+	projectsList: Object.values(defaultProjects).flat(),
+	projectsCategories: defaultProjects,
 	shownBy: 'category',
 	sortType: null,
-	sortDirection: null
+	sortDirection: null,
+	searchValue: ''
 }
 
 
@@ -37,66 +38,47 @@ const projectsSlice = createSlice({
 		changeShown: (state, action) => {
 			state.shownBy = action.payload;
 			
-			if(action.payload == 'list'){
-				state.projects = Object.values(state.projects).flat();
-			}else{
-				state.projects = state.defaultProjects
-			}
 			return state;
 		},
 		sorting: (state, action) => {
+			let entries = Object.entries(state.projectsCategories);
+
+			if(state.sortType == 'deadline'){
+				if(state.sortDirection == 'increase'){
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
+				}
+				else{
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.deadlineAmount - a.deadlineAmount)]));
+				}
+			}else{
+				if(state.sortDirection == 'increase'){
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.progress - b.progress)]));
+				}
+				else{
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.progress - a.progress)]));
+				}
+			}
+
+
+			state.projectsList = Object.values(state.projectsCategories).flat();
+			return state;
+		},
+		deleteProject: (state, action) =>{
+			const id = action.payload;
 			
-			if(state.shownBy == 'category'){
-				let entries = Object.entries(state.defaultProjects);
-
-				if(state.sortType == 'deadline'){
-					if(state.sortDirection == 'increase'){
-						state.projects = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
-					}
-					else{
-						state.projects = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.deadlineAmount - a.deadlineAmount)]));
-					}
-				}else{
-					if(state.sortDirection == 'increase'){
-						state.projects = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.progress - b.progress)]));
-					}
-					else{
-						state.projects = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.progress - a.progress)]));
-					}
-				}
-				
-			}
-			else{
-				if(state.sortType == 'progress'){
-					if(state.sortDirection == 'increase'){
-						state.projects = state.projects.sort((a, b) => a.progress - b.progress);
-					}else{
-						state.projects = state.projects.sort((a, b) => b.progress - a.progress);
-					}
-				}else{
-					let tmp = state.projects.map(item => {
-						if(item.deadlineUnit.substr(0, 3) == 'day'){
-							item.deadlineAmount = item.deadlineAmount * 24;
-						} return item
-					});
-
-					if(state.sortDirection == 'increase'){
-						tmp = tmp.sort((a, b) => a.deadlineAmount - b.deadlineAmount);
-					}else{
-						tmp = tmp.sort((a, b) => b.deadlineAmount - a.deadlineAmount);
-					}
-					state.projects = tmp.map(item => {
-						if(item.deadlineUnit.substr(0, 3) == 'day'){
-							item.deadlineAmount = item.deadlineAmount / 24;
-						} return item;
-					});
-				}
-			}
+			const entries = Object.entries(state.projectsCategories);
+			state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.filter(item => item.id != id)]));
+		
+			state.projectsList = Object.values(state.projectsCategories).flat();
+			
+		},
+		setSearchValue: (state, action) => {
+			state.searchValue = action.payload;
 			return state;
 		}
 	}
 });
 
-export const {changeSort, changeShown, sorting} = projectsSlice.actions;
+export const {changeSort, changeShown, sorting, deleteProject, setSearchValue} = projectsSlice.actions;
 
 export default projectsSlice.reducer;

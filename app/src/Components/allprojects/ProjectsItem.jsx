@@ -1,8 +1,42 @@
 import React from 'react';
 import styles from './Projects.module.scss'
 import { LinearProgress } from '@mui/material';
+import { Dropdown, Space } from 'antd';
+import { useDispatch } from 'react-redux';
+import { deleteProject } from '../../store/projectsSlice';
+
+
 
 function ProjectsItem({obj}) {
+
+	const dispatch = useDispatch();
+
+	const dropdownMenu = [
+		{
+		  key: '1',
+		  onClick: () => {
+			dispatch(deleteProject(obj.id));
+		  },
+		  label: (
+			<a rel="noopener noreferrer">
+			  Delete
+			</a>
+		  ),
+		},
+		{
+		  key: '2',
+		  label: (
+			<button rel="noopener noreferrer">
+			  Edit
+			</button>
+		  ),
+		  onClick: () => {
+			
+		  }
+		}
+	  ];
+
+
 	return (
 		<div className={styles.project}>
 			<img src={`/projects/${obj.img}.png`} alt="" className={styles.projectBanner} />
@@ -33,6 +67,14 @@ function ProjectsItem({obj}) {
 					<i className={styles.icon + " fa-regular fa-clock"}></i>
 					{obj.deadlineAmount} {obj.deadlineUnit} left
 				</div>
+			</div>
+			
+			<div className={styles.dropdown}>
+				<Dropdown menu={{ items: dropdownMenu }} trigger={['click']}>
+					<button>
+						<i className={styles.icon + " fa-regular fa-ellipsis-vertical"}></i>
+					</button>
+				</Dropdown>
 			</div>
 		</div>);
 }

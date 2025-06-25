@@ -1,8 +1,10 @@
 import React from 'react';
 import { useRef } from 'react';
 import styles from './Projects.module.scss';
+import { SortAscendingOutlined, SortDescendingOutlined, SearchOutlined, CloseOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShown, changeSort, sorting } from '../../store/projectsSlice';
+import { changeShown, changeSort, sorting, setSearchValue} from '../../store/projectsSlice';
 
 
 
@@ -11,7 +13,6 @@ function ProjectsNavigation() {
 
 
   const dispatch = useDispatch();
-
 
   const categories = [
     {
@@ -97,12 +98,15 @@ function ProjectsNavigation() {
   ];
 
 
+  const searchValue = useSelector(state => state.projects.searchValue)
 
-	const searchRef = useRef();
 
   const shown = useSelector(state => state.projects.shownBy);
   const sortBy = useSelector(state => state.projects.sortType), direction = useSelector(state => state.projects.sortDirection);
 
+  const handleChange = (e) => {
+    dispatch(setSearchValue(e.target.value));
+  }
 
 	return (
 		<nav className={styles.projectsNav}>
@@ -111,10 +115,11 @@ function ProjectsNavigation() {
 					type="text"
 					className={styles.searchInput}
 					placeholder="Search  Project"
-					ref={searchRef}
+          value={searchValue}
+          onChange={(e) => handleChange(e)}
 				/>
 				<button type="button" className={styles.searchBtn}>
-					<SearchOutlined />
+					{!searchValue ? <SearchOutlined /> : <i className="fa-solid fa-xmark" onClick={() => dispatch(setSearchValue(''))} />}
 				</button>
 			</form>
 

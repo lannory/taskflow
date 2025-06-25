@@ -10,18 +10,21 @@ import DetailProjectPage from './Pages/DetailProject/DetailProjectPage';
 import ProjectPage from "./Pages/ProjectPage";
 import TeamPage from './Pages/Team/TeamPage';
 import LoginForm from "./Components/LoginForm/LoginForm"
+import SettingsForm from './Components/Settings/SettingsForm/SettingsForm'
+
 
 function App() {
   return (
     <>
       <div className="MainContainer">
-        <Header isFullHeader={true} />
+        <Header isFullHeader={false} />
         {/* <TaskManager /> */}
         {/* <AllTasks /> */}
         <AllProjects/>
         {/* <DetailProjectPage/> */}
         {/* <LoginForm/> */}
         {/* {<TeamPage/> } */}
+        {/* <SettingsForm/> */}
       </div>
     </>
   )
