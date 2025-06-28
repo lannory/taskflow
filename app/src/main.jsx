@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import taskReduser from './store/Tasks/TasksSlice.js';
 import AuthReducer from './store/Auth/AuthSlice.js';
-import projectsReducer from './store/Projects/projectsSlice.js';
+import projectsReducer from './store/projects/projectsSlice.js';
 import { BrowserRouter } from 'react-router-dom';
 
 
