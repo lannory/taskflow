@@ -7,7 +7,8 @@ const tasks = [
         taskCreated: '2024-01-04',
         duoDate: '2025-06-16',
         status: 'Approved',
-        description: 'This redesign proposal aims to enhance the user experience, reflect Infoware Technologies commitment to digital innovation'
+        description: 'This redesign proposal aims to enhance the user experience, reflect Infoware Technologies commitment to digital innovation',
+        userID: 1,
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ const tasks = [
         taskCreated: '2024-01-12',
         duoDate: '2025-06-17',
         status: 'Re work',
-        description: 'Initial draft of the UI mockups for the dashboard and user profile pages.'
+        description: 'Initial draft of the UI mockups for the dashboard and user profile pages.',
+        userID: 3,
     },
     {
         id: 3,
@@ -25,9 +27,10 @@ const tasks = [
         tick: false,
         title: 'Backend Integration',
         taskCreated: '2024-01-07',
-        duoDate: '2025-06-18',
+        duoDate: '2025-06-28',
         status: 'Pending',
-        description: 'Connect frontend with the REST API endpoints and test CRUD operations.'
+        description: 'Connect frontend with the REST API endpoints and test CRUD operations.',
+        userID: 3,
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ const tasks = [
         taskCreated: '2024-01-09',
         duoDate: '2025-06-18',
         status: 'Approved',
-        description: 'Gather and address feedback from team members on the current implementation.'
+        description: 'Gather and address feedback from team members on the current implementation.',
+        userID: 2,
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ const tasks = [
         taskCreated: '2024-01-12',
         duoDate: '2025-06-19',
         status: 'Re work',
-        description: 'Configure CI/CD pipelines and prepare production server for deployment.'
+        description: 'Configure CI/CD pipelines and prepare production server for deployment.',
+        userID: 1,
     },
     {
         id: 6,
@@ -57,7 +62,8 @@ const tasks = [
         taskCreated: '2024-01-12',
         duoDate: '2025-06-17',
         status: 'In progress',
-        description: 'Initial draft of the UI mockups for the dashboard and user profile pages.'
+        description: 'Initial draft of the UI mockups for the dashboard and user profile pages.',
+        userID: 2,
     },
 ];
 
