@@ -3,15 +3,10 @@ import ProjectsItem from '../ProjectsItem/ProjectsItem';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-<<<<<<< HEAD:app/src/Components/allprojects/ProjectsSlider.jsx
-import styles from './Projects.module.scss';
-import MediumTitle from '../MediumTitle/MediumTitle';
 import { Empty } from 'antd';
-=======
 import styles from './ProjectsSlider.module.scss';
 import SmallTitle from '../../SmallTitle/SmallTitle';
 
->>>>>>> origin/main:app/src/Components/allprojects/ProjectsSlider/ProjectsSlider.jsx
 
 function ProjectsSlider({ title, projects }) {
 	const settings = {
@@ -33,7 +28,6 @@ function ProjectsSlider({ title, projects }) {
 					</button>
 					<button className={styles.next} onClick={() => sliderRef?.current?.slickNext()}>
 						<i className="fa-solid fa-arrow-right"></i>
-						<img src="../../../arrow-right.svg" alt="" />
 					</button>
 				</div>
 			</div>

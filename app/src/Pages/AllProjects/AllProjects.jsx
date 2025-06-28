@@ -1,17 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
-import ProjectsNavigation from '../../Components/allprojects/ProjectsNavigation';
-import styles from './AllProjects.module.scss'
-import ProjectsSlider from '../../Components/allprojects/ProjectsSlider';
-import { useSelector } from 'react-redux';
-import ProjectsList from '../../Components/allprojects/ProjectsList';
-=======
+
 import ProjectsNavigation from '../../Components/allprojects/ProjectsNavigation/ProjectsNavigation';
 import styles from './AllProjects.module.scss'
 import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/ProjectsSlider';
 import { useSelector } from 'react-redux';
 import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
->>>>>>> origin/main
 
 function AllProjects() {
 
@@ -37,14 +30,8 @@ function AllProjects() {
 		<div className={styles.container}>
 			<ProjectsNavigation />
 			{shownBy == 'category' ?
-<<<<<<< HEAD
-			<><ProjectsSlider title={'New Project'} projects={shownProjectsCategories.newProj}/>
-			<ProjectsSlider title={'Time limit'} projects={shownProjectsCategories.timeLim}/></> : <ProjectsList arr={shownProjectsList}/>}
-=======
-				<><ProjectsSlider title={'New Project'} projects={projects.newProj} />
-					<ProjectsSlider title={'Time limit'} projects={projects.timeLim} /></> : <ProjectsList arr={projects} />}
-
->>>>>>> origin/main
+				<><ProjectsSlider title={'New Project'} projects={shownProjectsCategories.newProj}/>
+				<ProjectsSlider title={'Time limit'} projects={shownProjectsCategories.timeLim}/></> : <ProjectsList arr={shownProjectsList}/>}
 		</div>
 	);
 }

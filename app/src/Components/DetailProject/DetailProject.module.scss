@@ -4,12 +4,10 @@
 	font-family: "Poppins", sans-serif;
 	color: $Secondary-500;
 	background-color: $White;
-	// margin: 32px;
-	// max-width: 720px;
+	max-width: 720px;
 	border-radius: 10px;
-	margin-top: 32px;
-	display: grid;
-	grid-template-columns: 7fr 3fr;
+	display: flex;
+	flex-direction: column;
 	gap: 24px;
 	padding: 24px;
 }
