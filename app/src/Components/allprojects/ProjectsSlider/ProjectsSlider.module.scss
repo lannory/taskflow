@@ -14,7 +14,7 @@
 	margin-bottom: 18px;
 	display: flex;
 	align-items: center;
-	// max-width: 1124px;
+	max-width: 1124px;		
 	justify-content: space-between;
 }
 
@@ -22,7 +22,7 @@
 	display: flex;
 	align-items: center;
 	column-gap: 10px;
-
+	
 }
 
 .slick-slide > div {
@@ -30,9 +30,9 @@
 	box-sizing: border-box;
 }
 
-// .slick-slide {
-// 	width: auto !important;
-// }
+.slick-slide {
+	width: auto !important;
+}
 
 
 .icon{

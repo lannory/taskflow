@@ -1,22 +1,17 @@
 import React from 'react';
-import { useRef } from 'react';
 import styles from './ProjectsNavigation.module.scss';
 import { SortAscendingOutlined, SortDescendingOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeShown, changeSort, sorting } from '../../../store/Projects/projectsSlice';
-import BigButton from '../../BigButton/BigButton';
+import { changeShown, changeSort, sorting, setSearchValue} from '../../../store/projects/projectsSlice';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import BigButton from '../../BigButton/BigButton';
 
 function ProjectsNavigation() {
 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
 
   const categories = [
@@ -103,45 +98,48 @@ function ProjectsNavigation() {
   ];
 
 
-
-  const searchRef = useRef();
+  const searchValue = useSelector(state => state.projects.searchValue)
 
   const shown = useSelector(state => state.projects.shownBy);
   const sortBy = useSelector(state => state.projects.sortType), direction = useSelector(state => state.projects.sortDirection);
 
+  const handleChange = (e) => {
+    dispatch(setSearchValue(e.target.value));
+  }
 
-  return (
-    <nav className={styles.projectsNav}>
-      <div>
-        <BigButton text='New&nbsp;Project' style='purple' onClick={() => navigate('/createproject')} />
-      </div>
-      <form action="">
-        <input
-          type="text"
-          className={styles.searchInput}
-          placeholder="Search  Project"
-          ref={searchRef}
-        />
-        <button type="button" className={styles.searchBtn}>
-          <i className={styles.navIcon + " fa-solid fa-magnifying-glass"}></i>
-        </button>
-      </form>
 
+return (
+  <nav className={styles.projectsNav}>
+    <div>
+      <BigButton text='New&nbsp;Project' style='purple' onClick={() => navigate('/createproject')} />
+    </div>
+    <form action="">
+      <input
+        type="text"
+        className={styles.searchInput}
+        placeholder="Search  Project"
+        value={searchValue}
+        onChange={(e) => handleChange(e)}
+      />
+      <button type="button" className={styles.searchBtn}>
+      {searchValue ? <i onClick={() => dispatch(setSearchValue(''))} className="fa-solid fa-xmark"></i> : <i className={styles.navIcon + " fa-solid fa-magnifying-glass"}></i>
+}      </button>
+    </form>
       <div className={styles.navBtns}>
         <div className={styles.categoryMenu}>
           <Dropdown menu={{ items: categories }} trigger={['click']}>
             <button className={`${styles.categoryBtn} ${styles.btn}`}>
               <i className={styles.navIcon + " fa-solid fa-list"}></i>
               Show By : {shown}
-            </button>
+					  </button>
           </Dropdown>
-        </div>
+				</div>
 
-        <div className={styles.sortMenu}>
+				<div className="sortMenu">
           <Dropdown menu={{ items: sort }} trigger={['click']}>
             <button className={`${styles.sortBtn} ${styles.btn}`}>
-              <i className={styles.navIcon + " fa-solid fa-arrow-down-wide-short"}></i>
-              Sort By : {sortBy || 'default'} {direction == 'decrease' ? <i className="fa-solid fa-arrow-down"></i> : <i className="fa-solid fa-arrow-up"></i>}
+              <i className={styles.navIcon + " fa-regular fa-sort"}></i>
+              Sort By : {sortBy || 'default'} {direction  == 'decrease'? <i className="fa-solid fa-arrow-down"></i> : direction == 'increase' ? <i className="fa-solid fa-arrow-up"></i> : ''}
             </button>
           </Dropdown>
         </div>

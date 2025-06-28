@@ -3,6 +3,7 @@ import ProjectsItem from '../ProjectsItem/ProjectsItem';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Empty } from 'antd';
 import styles from './ProjectsSlider.module.scss';
 import SmallTitle from '../../SmallTitle/SmallTitle';
 
@@ -27,14 +28,16 @@ function ProjectsSlider({ title, projects }) {
 					</button>
 					<button className={styles.next} onClick={() => sliderRef?.current?.slickNext()}>
 						<i className="fa-solid fa-arrow-right"></i>
-						<img src="../../../arrow-right.svg" alt="" />
 					</button>
 				</div>
 			</div>
 			<div className={styles.projectsSlider}>
-				<Slider ref={sliderRef} {...settings}>
-					{projects.map(item => <ProjectsItem obj={item} />)}
-				</Slider>
+				{projects.length == 0 ? <Empty/> : 
+					<Slider ref={sliderRef} {...settings}>
+						{projects.map(item => <ProjectsItem obj={item} />)}
+					</Slider>
+					}
+				
 			</div>
 		</div>
 	);
