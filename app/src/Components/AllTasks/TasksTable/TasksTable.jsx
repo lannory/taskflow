@@ -253,7 +253,7 @@ export default function TasksTable() {
                                 </tr>
                                 {expandedRows.includes(task.id) && (
                                     <tr className={styles.accordionRow}>
-                                        <td colSpan={5}>
+                                        <td colSpan={6}>
                                             <p className={styles.accordionContent}>{task.description}</p>
                                         </td>
                                     </tr>
