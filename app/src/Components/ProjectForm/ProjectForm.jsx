@@ -4,9 +4,10 @@ import * as Yup from 'yup';
 import BigTitle from '../BigTitle/BigTitle';
 import BigButton from '../BigButton/BigButton';
 import styles from './ProjectForm.module.scss';
+import SelectProjectManager from './SelectProjectManager/SelectProjectManager';
 
 export default function ProjectForm({
-    initialValues = { name: '', description: '', managerId: '' },
+    initialValues = { name: '', description: '', deadline: '', managerId: '' },
     onSubmit,
     users = [],
     isEdit
@@ -18,6 +19,8 @@ export default function ProjectForm({
             .min(2, 'Minimum 2 characters'),
         description: Yup.string()
             .max(300, 'Maximum 300 characters'),
+        deadline: Yup.string()
+            .required('Deadline is required'),
         managerId: Yup.string()
             .required('Manager is required'),
     });
@@ -50,7 +53,6 @@ export default function ProjectForm({
                     </div>
 
                     <div className={styles.formGroup}>
-                        {/* <label htmlFor="description" className={styles.label}>Description</label> */}
                         <Field as="textarea"
                                 name="description"
                                 rows="4"
@@ -61,14 +63,24 @@ export default function ProjectForm({
                     </div>
 
                     <div className={styles.formGroup}>
+                        <label htmlFor="deadline" className={styles.label}>Project Deadline</label>
+                        <Field type="date"
+                                name="deadline"
+                                className={styles.input}
+                        />
+                        <ErrorMessage name="deadline" component="div" className={styles.error} />
+                    </div>
+
+                    <div className={styles.formGroup}>
                         <label htmlFor="managerId" className={styles.label}>Project Manager</label>
-                        <Field name="managerId" as="select" className={styles.select}>
-                            <option value="">Select Project Manager</option>
-                            {users.filter(user => user.role === 'manager').map((user) => (
-                                <option key={user.id} value={user.id}>
-                                    {user.name} ({user.role})
-                                </option>
-                            ))}
+                        <Field name="managerId">
+                            {({ field, form }) => (
+                                <SelectProjectManager
+                                    users={users}
+                                    value={field.value}
+                                    onChange={value => form.setFieldValue('managerId', value)}
+                                />
+                            )}
                         </Field>
                         <ErrorMessage name="managerId" component="div" className={styles.error} />
                     </div>
