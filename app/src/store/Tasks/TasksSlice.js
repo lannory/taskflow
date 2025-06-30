@@ -3,103 +3,135 @@ import tasks from '../../../public/tasks';
 
 
 const initialState = {
-    tasks: tasks,
-    searchValue: '',
-    activeStatus: '',
-    sortField: null,
-    sortDirection: null,
-    allTasksTicked: false,
-    expandedRows: [],
-    searchDate: '',
-    editTask: '',
+  tasks: tasks,
+  searchValue: '',
+  activeStatus: '',
+  sortField: null,
+  sortDirection: null,
+  allTasksTicked: false,
+  expandedRows: [],
+  searchDate: '',
+  editTask: null,
 };
 
 const tasksSlice = createSlice({
-    name: 'tasks',
-    initialState,
-    reducers: {
-        setSearchValue(state, action) {
-            state.searchValue = action.payload;
-        },
-        setActiveStatus(state, action) {
-            state.activeStatus = action.payload;
-        },
-        toggleSort(state, action) {
-            const field = action.payload;
-            if (state.sortField !== field) {
-                state.sortField = field;
-                state.sortDirection = 'asc';
-            } else if (state.sortDirection === 'asc') {
-                state.sortDirection = 'desc';
-            } else {
-                state.sortField = null;
-                state.sortDirection = null;
-            }
-        },
-        toggleTask(state, action) {
-            const id = action.payload;
-            const task = state.tasks.find(task => task.id === id);
-            if (task) {
-                if (task.tick === true) {
-                    state.allTasksTicked = false;
-                }
-                task.tick = !task.tick;
-            }
-        },
-        toggleAllTasks(state) {
-            const allSelected = state.tasks.every(t => t.tick);
-            const newValue = !allSelected;
-
-            state.tasks.forEach(t => t.tick = newValue);
-            state.allTasksTicked = newValue;
-        },
-        changeTaskStatus(state, action) {
-            const { id, status } = action.payload;
-            const task = state.tasks.find(task => task.id === id);
-            task.status = status;
-        },
-        setExtendetRow(state, action) {
-            const id = action.payload;
-            const index = state.expandedRows.indexOf(id);
-            if (index === -1) {
-                state.expandedRows.push(id);
-            } else {
-                state.expandedRows.splice(index, 1);
-            }
-        },
-        searchByDate(state, action) {
-            const date = action.payload;
-            if (state.searchDate === date) {
-                state.searchDate = '';
-            } else {
-                state.searchDate = date;
-            }
-        },
-        addEditTask(state, action) {
-            // записквати в editTask 
-        },
-        saveEditedTask(state, action) {
-            // зберігаєш відредагований такс 
-        },
-        deleteTask(state, action) {
-            state.tasks = state.tasks.filter(item => item.id !== action.payload);
+  name: 'tasks',
+  initialState,
+  reducers: {
+    setSearchValue(state, action) {
+      state.searchValue = action.payload;
+    },
+    setActiveStatus(state, action) {
+      state.activeStatus = action.payload;
+    },
+    toggleSort(state, action) {
+      const field = action.payload;
+      if (state.sortField !== field) {
+        state.sortField = field;
+        state.sortDirection = 'asc';
+      } else if (state.sortDirection === 'asc') {
+        state.sortDirection = 'desc';
+      } else {
+        state.sortField = null;
+        state.sortDirection = null;
+      }
+    },
+    toggleTask(state, action) {
+      const id = action.payload;
+      const task = state.tasks.find(task => task.id === id);
+      if (task) {
+        if (task.tick === true) {
+          state.allTasksTicked = false;
         }
+        task.tick = !task.tick;
+      }
+    },
+    toggleAllTasks(state) {
+      const allSelected = state.tasks.every(t => t.tick);
+      const newValue = !allSelected;
 
+      state.tasks.forEach(t => t.tick = newValue);
+      state.allTasksTicked = newValue;
+    },
+    changeTaskStatus(state, action) {
+      const { id, status } = action.payload;
+      const task = state.tasks.find(task => task.id === id);
+      task.status = status;
+    },
+    setExtendetRow(state, action) {
+      const id = action.payload;
+      const index = state.expandedRows.indexOf(id);
+      if (index === -1) {
+        state.expandedRows.push(id);
+      } else {
+        state.expandedRows.splice(index, 1);
+      }
+    },
+    searchByDate(state, action) {
+      const date = action.payload;
+      if (state.searchDate === date) {
+        state.searchDate = '';
+      } else {
+        state.searchDate = date;
+      }
+    },
+    addEditTask(state, action) {
+      // записквати в editTask 
+      const taskId = action.payload;
+      const task = state.tasks.find(t => t.id === taskId);
+      state.editTask = task ? { ...task } : null;
 
-
+    },
+    saveEditedTask(state, action) {
+      // зберігаєш відредагований такс 
+      const editedTask = action.payload;
+      const index = state.tasks.findIndex(t => t.id === editedTask.id);
+      if (index !== -1) {
+        state.tasks[index] = editedTask;
+      }
+      state.editTask = null;
+    },
+    deleteTask(state, action) {
+      state.tasks = state.tasks.filter(item => item.id !== action.payload);
     }
+    
+  }
 })
 
+export const formatDate = (input) => {
+  const digitsOnly = input.replace(/\D/g, '').slice(0, 8);
+  let day = digitsOnly.slice(0, 2);
+  let month = digitsOnly.slice(2, 4);
+  let year = digitsOnly.slice(4, 8);
+
+  if (month.length === 2 && +month > 12) {
+    month = '12';
+  }
+
+  if (year.length === 4 && +year > 2025) {
+    year = '2025';
+  }
+
+  let formatted = '';
+  if (day) formatted += day;
+  if (month) formatted += '/' + month;
+  if (year) formatted += '/' + year;
+
+  return formatted;
+};
+
 export const {
-    setSearchValue,
-    setActiveStatus,
-    toggleSort,
-    toggleTask,
-    toggleAllTasks,
-    changeTaskStatus,
-    setExtendetRow,
-    deleteTask,
-    searchByDate,
+  setSearchValue,
+  setActiveStatus,
+  toggleSort,
+  toggleTask,
+  toggleAllTasks,
+  changeTaskStatus,
+  setExtendetRow,
+  deleteTask,
+  searchByDate,
+  addEditTask,
+  saveEditedTask,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
