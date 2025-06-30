@@ -25,6 +25,8 @@ export default function ProjectForm({
             .required('Manager is required'),
     });
 
+    // console.log(values)
+
     return(
         <div className={styles.wrapper}>
             <div className={styles.header}>
