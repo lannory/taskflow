@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './DetailProject.module.scss';
 import { useSelector } from 'react-redux';
-
+import TaskTable from '../AllTasks/TasksTable/TasksTable'
 
 function DetailProject({id}) {
 
 	const projects = useSelector(state => state.projects.projectsList);
 	const project = projects.find(proj => proj.id == id);
+
+
+	const tasks = useSelector(state => state.tasks.tasks);
+	const displayedTasks = tasks.filter(task => task.projectId == id);
+
 
 	return (
 		<div className={styles.wrapper}>
@@ -37,14 +42,7 @@ function DetailProject({id}) {
 				</div>
 				<div className={styles.listWrapper}>
 					<h3 className={styles.subtitle}>Tasks</h3>
-					{/* <ul className={styles.list}>
-						{list.map((item, index) => (
-							<li key={index} className={styles.listItem}>
-								<div><i className="fa-solid fa-check" style={{ color: "#ffffff" }}></i></div>
-								{item}
-							</li>
-						))}
-					</ul> */}
+					<TaskTable tasks={displayedTasks} isProjectsTasks={true}/>
 				</div>
 			</div>
 		</div>

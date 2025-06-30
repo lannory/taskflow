@@ -1,7 +1,7 @@
 const tasks = [
     {
         id: 1,
-        prodjectID: 'Taskflow',
+        projectId: 1,
         tick: true,
         title: 'Tech requirements',
         taskCreated: '2024-01-04',
@@ -11,7 +11,7 @@ const tasks = [
     },
     {
         id: 2,
-        prodjectID: 'it blog',
+        projectId: 2,
         tick: false,
         title: 'UI Design Draft',
         taskCreated: '2024-01-12',
@@ -21,7 +21,7 @@ const tasks = [
     },
     {
         id: 3,
-        prodjectID: 'it blog',
+        projectId: 2,
         tick: false,
         title: 'Backend Integration',
         taskCreated: '2024-01-07',
@@ -31,7 +31,7 @@ const tasks = [
     },
     {
         id: 4,
-        prodjectID: 'ToDo list',
+        projectId: 1,
         tick: false,
         title: 'Team Feedback Review',
         taskCreated: '2024-01-09',
@@ -41,7 +41,7 @@ const tasks = [
     },
     {
         id: 5,
-        prodjectID: 'ToDo list',
+        projectId: 4,
         tick: true,
         title: 'Deployment Setup',
         taskCreated: '2024-01-12',
@@ -51,7 +51,7 @@ const tasks = [
     },
     {
         id: 6,
-        prodjectID: 'Taskflow',
+        projectId: 5,
         tick: false,
         title: 'UI Design Draft',
         taskCreated: '2024-01-12',
