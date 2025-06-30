@@ -16,6 +16,8 @@ export default function AllTasks() {
 
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
+    const tasks = useSelector((state) => state.tasks.tasks)
+
     const StatusButtons = [
         { text: 'Approved' },
         { text: 'Re work' },
@@ -50,7 +52,7 @@ export default function AllTasks() {
                 <BigTitle text={activeStatus ? activeStatus : 'All Tasks'} />
                 <BigButton text="Create Task" style="purple" onClick={() => navigate('/createtask')}/>
             </div>
-            <TasksTable />
+            <TasksTable  tasks={tasks}/>
         </>
     );
 }
