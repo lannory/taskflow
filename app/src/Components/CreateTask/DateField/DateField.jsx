@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './DateField.module.scss';
-import { formatDate } from '../../../store/Tasks/TasksSlice';
 
 const isValidDate = (val) => {
   const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
@@ -19,6 +18,28 @@ const isValidDate = (val) => {
     return 'Год не может быть больше 2025';
   }
   return '';
+};
+
+export const formatDate = (input) => {
+  const digitsOnly = input.replace(/\D/g, '').slice(0, 8);
+  let day = digitsOnly.slice(0, 2);
+  let month = digitsOnly.slice(2, 4);
+  let year = digitsOnly.slice(4, 8);
+
+  if (month.length === 2 && +month > 12) {
+    month = '12';
+  }
+
+  if (year.length === 4 && +year > 2025) {
+    year = '2025';
+  }
+
+  let formatted = '';
+  if (day) formatted += day;
+  if (month) formatted += '/' + month;
+  if (year) formatted += '/' + year;
+
+  return formatted;
 };
 
 const DateField = ({ value, onChange, placeholder, label }) => {

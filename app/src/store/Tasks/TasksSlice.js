@@ -98,28 +98,6 @@ const tasksSlice = createSlice({
   }
 })
 
-export const formatDate = (input) => {
-  const digitsOnly = input.replace(/\D/g, '').slice(0, 8);
-  let day = digitsOnly.slice(0, 2);
-  let month = digitsOnly.slice(2, 4);
-  let year = digitsOnly.slice(4, 8);
-
-  if (month.length === 2 && +month > 12) {
-    month = '12';
-  }
-
-  if (year.length === 4 && +year > 2025) {
-    year = '2025';
-  }
-
-  let formatted = '';
-  if (day) formatted += day;
-  if (month) formatted += '/' + month;
-  if (year) formatted += '/' + year;
-
-  return formatted;
-};
-
 export const {
   setSearchValue,
   setActiveStatus,
