@@ -16,6 +16,9 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Overview from './Pages/Overview/Overview';
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "./store/Auth/AuthSlice";
+import { fetchTasks } from "./store/Tasks/TasksSlice";
+import { fetchUsers } from "./store/Users/usersSlice";
+import { fetchProjects } from "./store/projects/projectsSlice";
 
 
 function App() {
@@ -31,6 +34,14 @@ function App() {
       dispatch(setAuth(token));
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isAuth) {
+      dispatch(fetchTasks());
+      dispatch(fetchUsers());
+      dispatch(fetchProjects());
+    }
+  }, [dispatch, isAuth]);
 
   if (!isAuth) {
     return <LoginForm />;
