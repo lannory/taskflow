@@ -22,7 +22,7 @@ app.post('/signin', async (req, res) => {
     return res.status(401).json({ message: 'Invalid credentials' });
   }
   // payload, secretKey, config
-  const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '5min' });
+  const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '30min' });
 
   res.json({ token });
 });
