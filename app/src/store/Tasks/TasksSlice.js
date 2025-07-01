@@ -1,9 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import tasks from '../../../public/tasks';
-
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    tasks: tasks,
+    tasks: [],
     searchValue: '',
     activeStatus: '',
     sortField: null,
@@ -13,6 +11,26 @@ const initialState = {
     searchDate: '',
     editTask: '',
 };
+
+export const fetchTasks = createAsyncThunk('tasks/fetch', async (_, { getState, rejectWithValue }) => {
+    try {
+        const token = getState().auth.token;
+        const res = await fetch('http://localhost:3000/api/tasks', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!res.ok) {
+            const data = await res.json();
+            return rejectWithValue(data.message || 'Error fetching tasks');
+        }
+
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return rejectWithValue(err.message || 'Network error');
+    }
+}
+);
 
 const tasksSlice = createSlice({
     name: 'tasks',
@@ -87,8 +105,19 @@ const tasksSlice = createSlice({
 
 
 
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchTasks.fulfilled, (state, action) => {
+                state.tasks = action.payload;
+            })
+            .addCase(fetchTasks.rejected, (state, action) => {
+                console.error('Помилка при завантаженні задач:', action.payload);
+            });
     }
+
 })
+
 
 export const {
     setSearchValue,
