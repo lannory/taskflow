@@ -3,6 +3,8 @@ import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import tasks from './tasks.js';
+import projects from './projects.js';
+import team from './team.js';
 
 const app = express();
 app.use(cors());
@@ -42,6 +44,14 @@ const authMiddleware = (req, res, next) => {
 
 app.get('/api/tasks', authMiddleware, (req, res) => {
   res.json(tasks);
+});
+
+app.get('/api/projects', authMiddleware, (req, res) => {
+  res.json(projects);
+});
+
+app.get('/api/team', authMiddleware, (req, res) => {
+  res.json(team);
 });
 
 
