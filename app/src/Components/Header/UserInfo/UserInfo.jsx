@@ -1,6 +1,5 @@
 import styles from './UserInfo.module.scss';
 import SmallTitle from '../../SmallTitle/SmallTitle';
-import userPhoto from '../../../../public/team/default-user.jpg';
 import React from "react"
 import { Dropdown } from 'antd';
 import { useDispatch } from 'react-redux';
@@ -28,7 +27,7 @@ export default function UserInfo() {
             <div className={styles.userInfoRight}>
                 {/* <span className={styles.headerAlert}><i className="fa-regular fa-bell"></i></span> */}
                 <Dropdown menu={{ items }} trigger={['click']}>
-                    <img className={styles.userPhoto} src={userPhoto} alt="User photo" />
+                    <img className={styles.userPhoto} src="/team/default-user.jpg" alt="User photo" />
                 </Dropdown>
 
             </div>

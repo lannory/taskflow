@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  tasks: tasks,
+  tasks: '',
   searchValue: '',
   activeStatus: '',
   sortField: null,
@@ -112,18 +112,25 @@ const tasksSlice = createSlice({
       state.tasks = state.tasks.filter(item => item.id !== action.payload);
     }
     
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchTasks.fulfilled, (state, action) => {
+        state.tasks = action.payload;
+      })
+      .addCase(fetchTasks.rejected, (state, action) => {
+        console.error('Помилка при завантаженні задач:', action.payload);
+      });
   }
-
-    },
-    extraReducers: builder => {
-        builder
-            .addCase(fetchTasks.fulfilled, (state, action) => {
-                state.tasks = action.payload;
-            })
-            .addCase(fetchTasks.rejected, (state, action) => {
-                console.error('Помилка при завантаженні задач:', action.payload);
-            });
-    }
+  // extraReducers: builder => {
+  //   builder
+  //     .addCase(fetchTasks.fulfilled, (state, action) => {
+  //       state.tasks = action.payload;
+  //     })
+  //     .addCase(fetchTasks.rejected, (state, action) => {
+  //       console.error('Помилка при завантаженні задач:', action.payload);
+  //     });
+  // }
 })
 
 
