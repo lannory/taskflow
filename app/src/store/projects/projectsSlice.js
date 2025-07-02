@@ -155,10 +155,26 @@ const projectsSlice = createSlice({
 		setSearchValue: (state, action) => {
 			state.searchValue = action.payload;
 			return state;
+		},
+		addProject: (state, action) => {
+			const project = action.payload;
+
+			const newId = Date.now();
+			const newProject = { ...project, id: newId };
+		  
+			const category = project.category || 'newProj';
+
+			if (state.projectsCategories[category]) {
+			  state.projectsCategories[category].push(newProject);
+			} else {
+			  state.projectsCategories[category] = [newProject];
+			}
+
+			state.projectsList = Object.values(state.projectsCategories).flat();
 		}
 	}
 });
 
-export const {changeSort, changeShown, sorting, deleteProject, setSearchValue} = projectsSlice.actions;
+export const {changeSort, changeShown, sorting, deleteProject, setSearchValue, addProject} = projectsSlice.actions;
 
 export default projectsSlice.reducer;

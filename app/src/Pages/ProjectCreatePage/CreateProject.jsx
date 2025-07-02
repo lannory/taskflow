@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { addProject } from '../../store/projects/projectsSlice';
 import ProjectForm from "../../Components/ProjectForm/ProjectForm";
 
 const users = [
@@ -8,8 +11,13 @@ const users = [
 ];
 
 export default function CreateProject() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handleCreate = (data) => {
         console.log('Project created:', data);
+        dispatch(addProject(data));
+        navigate('/allprojects');
     };
 
     return (
