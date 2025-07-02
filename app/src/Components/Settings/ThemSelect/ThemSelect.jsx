@@ -15,7 +15,7 @@ const ThemSelect = () => {
 
   return (
     <div className={styles.field}>
-      <label>Them</label>
+      <label>Theme</label>
       <select value={theme} onChange={handleChange}>
         <option value="dark">Dark</option>
         <option value="light">Light</option>

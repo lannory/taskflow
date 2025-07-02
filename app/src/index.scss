@@ -7,6 +7,6 @@ html, body {
 }
 
 #root {
-  background-color: $Backgroung;
+  background-color: var(--Backgroung);
   min-height: 100%;
 }

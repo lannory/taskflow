@@ -13,14 +13,14 @@
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  border: 1px solid $Default-border;
+  border: 1px solid var(--Default-border);
   border-radius: 8px;
   cursor: pointer;
-  background-color: $White;
+  background-color: var(--White);
 }
 
 .placeholder {
-  color: $Gray-500;
+  color: var(--Gray-500);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -30,8 +30,8 @@
   position: absolute;
   width: 100%;
   margin-top: 4px;
-  background: $White;
-  border: 1px solid $Default-border;
+  background: var(--White);
+  border: 1px solid var(--Default-border);
   border-radius: 8px;
   z-index: 10;
 }
@@ -44,7 +44,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $White-hover;
+    background-color: var(--White-hover);
   }
 }
 

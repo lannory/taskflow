@@ -23,15 +23,15 @@
     height: auto;
     padding: 10px 14px;
     border-radius: 8px;
-    border: solid 1px $Gray-300;
+    border: solid 1px var(--Gray-300);
     font: 400 14px 'Poppins', sans-serif;
     line-height: 20px;
-    color: $Gray-900;
-    background-color: $White;
+    color: var(--Gray-900);
+    background-color: var(--White);
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: $Gray-500;
+      border-color: var(--Gray-500);
       outline: none;
     }
   }

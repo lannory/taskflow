@@ -59,7 +59,7 @@
 
 
 :root[data-theme='dark'] {
-    --White: #1e1e1e;
+    --White: #444444;
     --White-hover: #2a2a2a;
 
     --Default-border: #3a3a3a;
@@ -72,7 +72,7 @@
 
     --Base-purple: #8898ff;
     --Base-purple-hover: #5e70ff;
-    --Disabled-button: #555555;
+    --Disabled-button: #818181;
 
     --Error-red: #ff6b66;
     --Error-red-hover: #e25c58;
@@ -99,7 +99,7 @@
 
     --Message: #ff5c75;
 
-    --Grey: #3f3f46;
+    --Grey: #6c6c72;
     --Gray-50: #1f2937;
     --Gray-200: #374151;
     --Gray-300: #4b5563;
@@ -107,7 +107,7 @@
     --Gray-500: #9ca3af;
     --Gray-600: #d1d5db;
     --Gray-900: #f9fafb;
-    
+
     --Projects-blue: #7aa6ff;
     --Project-link: #38bdf8;
     --Project-split: #4b5563;

@@ -19,7 +19,6 @@ import { setAuth } from "./store/Auth/AuthSlice";
 import { fetchTasks } from "./store/Tasks/TasksSlice";
 import { fetchUsers } from "./store/Users/usersSlice";
 import { fetchProjects } from "./store/projects/projectsSlice";
-import '../src/assets/styles/darkTheme.scss';
 
 
 function App() {

@@ -8,9 +8,9 @@
 .TasksSearchInput {
     width: 478px;
     height: 50px;
-    border: solid 1px $Gray-300;
+    border: solid 1px var(--Gray-300);
     border-radius: 10px;
-    background-color: $White;
+    background-color: var(--White);
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -18,16 +18,16 @@
     padding-left: 28px;
     padding-right: 65px;
     box-sizing: border-box;
-    color: $Secondary-400;
+    color: var(--Secondary-400);
 
 
     &:focus {
-        border-color: $Gray-500;
+        border-color: var(--Gray-500);
         outline: none;
     }
 
     &::placeholder {
-        color: $Secondary-400;
+        color: var(--Secondary-400);
     }
 }
 
@@ -37,5 +37,5 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: $Secondary-300;
+    color: var(--Secondary-300);
 }

@@ -3,8 +3,8 @@
 .statusButton {
     width: 76px;
     height: 28px;
-    background-color: $Gray-300;
-    color: $Gray-600;
+    background-color: var(--Gray-300);
+    color: var(--Gray-600);
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -15,36 +15,36 @@
 
     &:hover,
     &.active {
-        background-color: $Gray-400;
+        background-color: var(--Gray-400);
     }
 }
 
 .green {
-    color: $Approved;
-    background-color: $Approved-background;
+    color: var(--Approved);
+    background-color: var(--Approved-background);
 
     &:hover,
     &.active {
-        background-color: $Approved-hover-light;
+        background-color: var(--Approved-hover-light);
     }
 }
 
 .yellow {
-    color: $Pending;
-    background-color: $Pending-background;
+    color: var(--Pending);
+    background-color: var(--Pending-background);
 
     &:hover,
     &.active {
-        background-color: $Pending-hover-light;
+        background-color: var(--Pending-hover-light);
     }
 }
 
 .red {
-    color: $Error-red;
-    background-color: $Error-red-background;
+    color: var(--Error-red);
+    background-color: var(--Error-red-background);
 
     &:hover,
     &.active {
-        background-color: $Error-red-hover-light;
+        background-color: var(--Error-red-hover-light);
     }
 }
