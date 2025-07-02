@@ -1,3 +1,5 @@
+@use '../src/assets/styles/colorVariables.scss' as *;
+
 html, body {
   min-height: 100%;
   margin: 0;
@@ -5,6 +7,6 @@ html, body {
 }
 
 #root {
-  background-color: #FFFAFA;
+  background-color: $Backgroung;
   min-height: 100%;
 }

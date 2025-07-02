@@ -11,6 +11,7 @@ const settingsSlice = createSlice({
     reducers:{
         setTheme: (state, action) => {
             state.theme = action.payload;
+            localStorage.setItem('theme', action.payload);
         },
         setLanguage: (state, action) => {
             state.language = action.payload;
