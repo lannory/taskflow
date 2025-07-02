@@ -48,7 +48,11 @@ export default function LoginForm() {
                     enableReinitialize={true}
                     validationSchema={LoginSchem}
                     onSubmit={async (values, { resetForm }) => {
-                        await dispatch(signInAsync({ username: values.login, password: values.password }))
+                        await dispatch(signInAsync({
+                            username: values.login,
+                            password: values.password,
+                            rememberMe: values.rememberMe
+                        }));
                         resetForm();
                     }}
                 >

@@ -6,10 +6,9 @@ import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, s
 import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function TasksTable() {
+export default function TasksTable({tasks, isProjectsTasks = false}) {
     const dispatch = useDispatch();
 
-    const tasks = useSelector((state) => state.tasks.tasks);
     const sortField = useSelector((state) => state.tasks.sortField);
     const sortDirection = useSelector((state) => state.tasks.sortDirection);
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
@@ -17,6 +16,8 @@ export default function TasksTable() {
     const allTasksTicked = useSelector((state) => state.tasks.allTasksTicked);
     const expandedRows = useSelector((state) => state.tasks.expandedRows);
     const searchDate = useSelector((state) => state.tasks.searchDate);
+    const projects = useSelector(state => state.projects.projectsList);
+
 
     // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
@@ -25,6 +26,18 @@ export default function TasksTable() {
 
     // Створюємо копію tasks
     let displayedTasks = [...tasks];
+    
+    if(!isProjectsTasks){
+        displayedTasks = displayedTasks.map(task => {
+            const taskId = task.prodjectId;
+            const project = projects.find(proj => proj.id == taskId );
+            
+            const projectName = project ? project.title : 'Unknown';
+            const newTask = {...task, projectName};
+            return newTask;
+        })
+    }
+
 
     if (searchValue) {
         displayedTasks = displayedTasks.filter(task =>
@@ -185,7 +198,7 @@ export default function TasksTable() {
                                     </span>
                                 )}
                             </td>
-                            <td>Project</td>
+                            {isProjectsTasks ? '' : <td>Project</td>}
                             <td>Status</td>
                             <td></td>
                         </tr>
@@ -216,7 +229,7 @@ export default function TasksTable() {
                                     </td>
                                     <td>{formatDate(task.taskCreated)}</td>
                                     <td>{formatDate(task.duoDate)}</td>
-                                    <td>{task.prodjectID}</td>
+                                    {isProjectsTasks ? '' : <td>{task.projectName}</td>}
                                     <td>
                                         <Dropdown
                                             menu={{ items: getTaskStatuses(task) }}
@@ -253,7 +266,7 @@ export default function TasksTable() {
                                 </tr>
                                 {expandedRows.includes(task.id) && (
                                     <tr className={styles.accordionRow}>
-                                        <td colSpan={5}>
+                                        <td colSpan={6}>
                                             <p className={styles.accordionContent}>{task.description}</p>
                                         </td>
                                     </tr>

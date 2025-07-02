@@ -7,14 +7,17 @@ import { configureStore } from '@reduxjs/toolkit';
 import taskReduser from './store/Tasks/TasksSlice.js';
 import AuthReducer from './store/Auth/AuthSlice.js';
 import projectsReducer from './store/projects/projectsSlice.js';
+import UsersReducer from './store/Users/usersSlice.js'
+import SettingsReducer from './store/Settings/settingsSlice.js';
 import { BrowserRouter } from 'react-router-dom';
-
 
 const store = configureStore({
   reducer: {
     auth: AuthReducer,
     tasks: taskReduser,
-    projects: projectsReducer
+    projects: projectsReducer,
+    users: UsersReducer,
+    settings: SettingsReducer,
   }
 })
 

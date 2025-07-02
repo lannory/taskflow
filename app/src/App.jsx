@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './App.module.scss';
 import '../src/assets/styles/resetStyles.scss';
 import '../src/assets/styles/colorVariables.scss';
@@ -14,14 +14,34 @@ import CreateTask from './Pages/CreateTask/CreateTask';
 import SettingsForm from './Pages/SettingsForm/SettingsForm';
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Overview from './Pages/Overview/Overview';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuth } from "./store/Auth/AuthSlice";
+import { fetchTasks } from "./store/Tasks/TasksSlice";
+import { fetchUsers } from "./store/Users/usersSlice";
+import { fetchProjects } from "./store/projects/projectsSlice";
+
 
 function App() {
   const { isAuth } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   const location = useLocation();
-  const isFullHeader = location.pathname !== '/team';
+  const isFullHeader = !(location.pathname === '/team' || location.pathname === '/settings');
 
+  useEffect(() => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (token) {
+      dispatch(setAuth(token));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isAuth) {
+      dispatch(fetchTasks());
+      dispatch(fetchUsers());
+      dispatch(fetchProjects());
+    }
+  }, [dispatch, isAuth]);
 
   if (!isAuth) {
     return <LoginForm />;
