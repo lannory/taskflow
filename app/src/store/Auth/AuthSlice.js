@@ -5,8 +5,8 @@ const getInitialToken = () => {
 };
 
 const initialState = {
-  // isAuth: !!getInitialToken(),
-  isAuth: true,
+  isAuth: !!getInitialToken(),
+  // isAuth: true,
   token: getInitialToken(),
   error: null
 };
