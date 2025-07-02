@@ -29,10 +29,10 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
     
     if(!isProjectsTasks){
         displayedTasks = displayedTasks.map(task => {
-            const taskId = task.projectId;
+            const taskId = task.prodjectId;
             const project = projects.find(proj => proj.id == taskId );
             
-            const projectName = project.title;
+            const projectName = project ? project.title : 'Unknown';
             const newTask = {...task, projectName};
             return newTask;
         })
