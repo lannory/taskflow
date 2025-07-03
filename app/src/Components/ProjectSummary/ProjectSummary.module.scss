@@ -1,7 +1,7 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
 .ProjectSummaryContainer {
-    width: max-content;
+    width: 700px;
     color: $Black;
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -11,7 +11,8 @@
     .ProjectSummaryHeader {
         display: flex;
         align-items: center;
-        gap: 60px;
+        justify-content: space-between;
+        // gap: 60px;
 
         .ProjectSummaryTitle {
             font-weight: 400;
@@ -35,6 +36,12 @@
                 align-items: center;
                 gap: 10px;
                 border-radius: 17px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $Gray-300;
+                }
 
                 i {
                     font-size: 12px;

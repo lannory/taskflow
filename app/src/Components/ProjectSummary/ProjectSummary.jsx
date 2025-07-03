@@ -1,90 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ProjectSummary.module.scss'
-import { Dropdown } from 'antd';
+import { Dropdown, Empty } from 'antd';
 import StatusButton from '../AllTasks/StatusButton/StatusButton';
+import { useSelector } from 'react-redux';
 
 
 function ProjectSummary() {
-	const getProjects = () => [
-		{
-			key: 'Project1',
-			label: 'Project1',
-		},
-		{
-			key: 'Project2',
-			label: 'Project2',
-		},
-	];
 
-	const getManagers = () => [
-		{
-			key: 'Manager1',
-			label: 'Manager1',
-		},
-		{
-			key: 'Manager2',
-			label: 'Manager2',
-		},
-	];
+	const projects = useSelector(state => state.projects.projectsList);
+	const team = useSelector(state => state.users.users);
 
-	const getStatus = () => [
-		{
-			key: 'Active',
-			label: 'Active',
-		},
-		{
-			key: 'Completed',
-			label: 'Completed',
-		},
-		{
-			key: 'On Hold',
-			label: 'On Hold',
-		}
-	];
+	const [selectedProject, setSelectedProject] = useState(null);
+	const [selectedManager, setSelectedManager] = useState(null);
+
+	let displayedProjects = [...projects];
+
+	if (selectedProject) {
+		displayedProjects = displayedProjects.filter(project => project.id === selectedProject);
+	}
+
+	if (selectedManager) {
+		displayedProjects = displayedProjects.filter(project => project.managerID === selectedManager);
+	}
+
+	const getProjects = () =>
+		projects.map(project => ({
+			key: project.id,
+			label: project.title,
+			onClick: () => setSelectedProject(project.id)
+		}));
+
+	const getManagers = () =>
+		team.map(user => {
+			if (user.role === 'manager') {
+				return {
+					key: user.id,
+					label: user.name,
+					onClick: () => setSelectedManager(user.id)
+				};
+			}
+		});
+
+	// const getStatus = () => [
+	// 	{
+	// 		key: 'Active',
+	// 		label: 'Active',
+	// 	},
+	// 	{
+	// 		key: 'Completed',
+	// 		label: 'Completed',
+	// 	},
+	// 	{
+	// 		key: 'On Hold',
+	// 		label: 'On Hold',
+	// 	}
+	// ];
 
 
-	const getTaskStatuses = () => [
-		{
-			key: 'Approved',
-			label: (
-				<StatusButton text='Approved' />
-			),
-			onClick: (e) => {
-				e.domEvent.stopPropagation();
-				// dispatch(changeTaskStatus({ id: task.id, status: 'Approved' }))
-			}
-		},
-		{
-			key: 'Re work',
-			label: (
-				<StatusButton text='Re work' />
-			),
-			onClick: (e) => {
-				e.domEvent.stopPropagation();
-				// dispatch(changeTaskStatus({ id: task.id, status: 'Re work' }))
-			}
-		},
-		{
-			key: 'Pending',
-			label: (
-				<StatusButton text='Pending' />
-			),
-			onClick: (e) => {
-				e.domEvent.stopPropagation();
-				// dispatch(changeTaskStatus({ id: task.id, status: 'Pending' }))
-			}
-		},
-		{
-			key: 'In progress',
-			label: (
-				<StatusButton text='In progress' />
-			),
-			onClick: (e) => {
-				e.domEvent.stopPropagation();
-				// dispatch(changeTaskStatus({ id: task.id, status: 'In progress' }))
-			}
-		},
-	]
+	// const getTaskStatuses = () => [
+	// 	{
+	// 		key: 'Approved',
+	// 		label: (
+	// 			<StatusButton text='Approved' />
+	// 		),
+	// 		onClick: (e) => {
+	// 			e.domEvent.stopPropagation();
+	// 			// dispatch(changeTaskStatus({ id: task.id, status: 'Approved' }))
+	// 		}
+	// 	},
+	// 	{
+	// 		key: 'Re work',
+	// 		label: (
+	// 			<StatusButton text='Re work' />
+	// 		),
+	// 		onClick: (e) => {
+	// 			e.domEvent.stopPropagation();
+	// 			// dispatch(changeTaskStatus({ id: task.id, status: 'Re work' }))
+	// 		}
+	// 	},
+	// 	{
+	// 		key: 'Pending',
+	// 		label: (
+	// 			<StatusButton text='Pending' />
+	// 		),
+	// 		onClick: (e) => {
+	// 			e.domEvent.stopPropagation();
+	// 			// dispatch(changeTaskStatus({ id: task.id, status: 'Pending' }))
+	// 		}
+	// 	},
+	// 	{
+	// 		key: 'In progress',
+	// 		label: (
+	// 			<StatusButton text='In progress' />
+	// 		),
+	// 		onClick: (e) => {
+	// 			e.domEvent.stopPropagation();
+	// 			// dispatch(changeTaskStatus({ id: task.id, status: 'In progress' }))
+	// 		}
+	// 	},
+	// ]
 
 	return (
 		<div className={styles.ProjectSummaryContainer}>
@@ -96,7 +110,10 @@ function ProjectSummary() {
 						trigger={['click']}
 					>
 						<span className={styles.dropdownElement}>
-							Project<i className="fa-solid fa-angle-down"></i>
+							{selectedProject ? projects.find(p => p.id === selectedProject)?.title : 'Project'}
+							{selectedProject === null ?
+							<i className="fa-solid fa-angle-down"></i> :
+							<i className="fa-solid fa-xmark" onClick={() => setSelectedProject(null)}></i>}
 						</span>
 					</Dropdown>
 					<Dropdown
@@ -104,95 +121,68 @@ function ProjectSummary() {
 						trigger={['click']}
 					>
 						<span className={styles.dropdownElement}>
-							Manager<i className="fa-solid fa-angle-down"></i>
+							{selectedManager ? team.find(m => m.id === selectedManager)?.name : 'Manager'}
+							{selectedManager === null ?
+							<i className="fa-solid fa-angle-down"></i> :
+							<i className="fa-solid fa-xmark" onClick={() => setSelectedManager(null)}></i>}
 						</span>
 					</Dropdown>
-					<Dropdown
+					{/* <Dropdown
 						menu={{ items: getStatus() }}
 						trigger={['click']}
 					>
 						<span className={styles.dropdownElement}>
 							Status<i className="fa-solid fa-angle-down"></i>
 						</span>
-					</Dropdown>
+					</Dropdown> */}
 				</div>
 
 			</div>
-			<table className={styles.ProjectSummaryTable}>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Project manager</th>
-						<th>Due date</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Web page Design</td>
-						<td>Kiran kan</td>
-						<td>May 25, 2024</td>
-						<td>
-							<Dropdown
-								menu={{ items: getTaskStatuses() }}
-								trigger={['click']}
-								getPopupContainer={(triggerNode) => triggerNode.parentNode}
-							>
-								<span
-									onClick={(e) => {
-										e.stopPropagation();
-										e.preventDefault();
-									}}
-								>
-									<StatusButton text={'Approved'} />
-								</span>
-							</Dropdown>
-						</td>
-					</tr>
-					<tr>
-						<td>Uolyft AI app </td>
-						<td>Neelesh kumar </td>
-						<td>Jun 20, 2024</td>
-						<td>
-							<Dropdown
-								menu={{ items: getTaskStatuses() }}
-								trigger={['click']}
-								getPopupContainer={(triggerNode) => triggerNode.parentNode}
-							>
-								<span
-									onClick={(e) => {
-										e.stopPropagation();
-										e.preventDefault();
-									}}
-								>
-									<StatusButton text={'Approved'} />
-								</span>
-							</Dropdown>
-						</td>
-					</tr>
-					<tr>
-						<td>Marketing and Branding</td>
-						<td>Rakesh Kumar</td>
-						<td>July 13, 2024</td>
-						<td>
-							<Dropdown
-								menu={{ items: getTaskStatuses() }}
-								trigger={['click']}
-								getPopupContainer={(triggerNode) => triggerNode.parentNode}
-							>
-								<span
-									onClick={(e) => {
-										e.stopPropagation();
-										e.preventDefault();
-									}}
-								>
-									<StatusButton text={'Approved'} />
-								</span>
-							</Dropdown>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			{displayedProjects.length === 0 ? (
+				<Empty />
+			) : (
+				<table className={styles.ProjectSummaryTable}>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Project manager</th>
+							<th>Deadline</th>
+							<th>Progress</th>
+						</tr>
+					</thead>
+					<tbody>
+						{displayedProjects.map((project, index) => (
+							<React.Fragment key={index}>
+								<tr>
+									<td>{project.title}</td>
+									<td>{team.find(member => member.id === project.managerID)?.name || 'Unknown'}</td>
+									<td>{project.deadlineAmount} {project.deadlineUnit}</td>
+									<td>
+										{project.progress}%
+										{/* <Dropdown
+											menu={{ items: getTaskStatuses() }}
+											trigger={['click']}
+											getPopupContainer={(triggerNode) => triggerNode.parentNode}
+										>
+											<span
+												onClick={(e) => {
+													e.stopPropagation();
+													e.preventDefault();
+												}}
+											>
+												<StatusButton text={'Approved'} />
+											</span>
+										</Dropdown> */}
+									</td>
+								</tr>
+							</React.Fragment>
+						))}
+
+
+					</tbody>
+				</table>
+			)}
+
 		</div>
 	);
 }
