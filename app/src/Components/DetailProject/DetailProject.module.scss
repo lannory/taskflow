@@ -53,7 +53,8 @@
 
 .widget {
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	gap: 20px;
 
 	p {
@@ -66,7 +67,7 @@
 		column-gap: 5px;
 	}
 
-	margin-bottom: 31px;
+	margin-bottom: 20px;
 }
 
 .subtitle {
@@ -117,4 +118,8 @@ img {
 	box-sizing: border-box;
 		border-radius: 5px;
 
+}
+
+.user{
+	width: 20px;
 }

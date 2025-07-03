@@ -1,13 +1,14 @@
 const team = [
 		{
 			name: "Jessica Jane",
-			job: "Web Developer",
+			job: "Project Manager",
 			desc: "Hi, I'm Jessica Jane. I am a doctoral student at Harvard University majoring in Web . . . ",
 			taskCount: 40,
 			rating: 4.7,
 			reviews: 750,
             role: "manager",
-			img: "01"
+			img: "01",
+			id: 1
 		},
 		{
 			name: "Alex Stanton",
@@ -17,7 +18,8 @@ const team = [
 			rating: 4.9,
 			reviews: 970,
             role: "developer",
-			img: "02"
+			img: "02",
+			id: 2
 		},
 		{
 			name: "Antoine Griezmann",
@@ -27,7 +29,8 @@ const team = [
 			rating: 4.8,
 			reviews: 830,
             role: "developer",
-			img: "03"
+			img: "03",
+			id: 3
 		},
 		{
 			name: "Anna White",
@@ -37,17 +40,19 @@ const team = [
 			rating: 4.8,
 			reviews: 870,
             role: "developer",
-			img: "04"
+			img: "04",
+			id: 4
 		},
 		{
 			name: "Richard Kyle",
-			job: "2D Design",
+			job: "Project Manager",
 			desc: "Hi, I'm Richard Kyle. I'm a professional 2D Designer at Photoshop company . . .",
 			taskCount: 60,
 			rating: 4.7,
 			reviews: 730,
             role: "manager",
-			img: "05"
+			img: "05",
+			id: 5
 		},
 		{
 			name: "Julia Philips",
@@ -57,7 +62,8 @@ const team = [
 			rating: 4.9,
 			reviews: 910,
             role: "developer",
-			img: "06"
+			img: "06",
+			id: 6
 		},
 
 	]

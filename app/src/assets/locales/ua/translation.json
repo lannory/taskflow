@@ -1,0 +1,109 @@
+{
+  "sidebar":{
+	"overview": "Огляд",
+	"projects": "Проєкти",
+	"tasks": "Завдання",
+	"yourTeam": "Ваша команда",
+	"settings": "Налаштування"
+  },
+  "tabs": {
+    "all": "Усі",
+    "approved": "Підтверджені",
+    "pending": "В очікуванні",
+    "completed": "Завершені"
+  },
+  "header":{
+	  "greeting": "Привіт!",
+	  "taskReminder": "Давай закінчимо твоє завдання сьогодні!",
+    "logout": "вийти"
+  },
+  "settings":{
+    "themeLabel": "Тема",
+    "dark": "Темна",
+    "light": "Світла",
+    "language": "Мова"
+  },
+  	"actions": {
+	   "edit": "Редагувати",
+      "delete": "Видалити"
+    },
+  "projects": {
+    "actions": {
+      "new": "Новий проєкт",
+      "search": "Пошук проєкту"
+    },
+    "view": {
+      "showBy": "Показати за",
+      "category": "Категорії",
+      "list": "Списком"
+    },
+    "sort": {
+      "sortBy": "Сортувати за",
+      "default": "Типово",
+      "deadline": "Дедлайн",
+      "progress": "Прогрес"
+    },
+	"deadline": {
+    	"left": "залишилось",
+		"days": "дні",
+		"day": "день",
+		"hour": "година",
+		"hours": "години"
+    },
+	"labels": {
+      "progress": "Прогрес",
+	  "manager": "Менеджер проекту: ",
+	  "desc": "Опис",
+	  "tasks": "Завдання"
+    },
+	"title": {
+      "newProject": "Новий проєкт",
+      "timeLimit": "Часовий ліміт",
+      "allProjects": "Всі проєкти"
+    },
+	"form": {
+      "editTitle": "Редагувати проєкт",
+      "createTitle": "Створити проєкт",
+      "saveButton": "Зберегти проєкт",
+      "createButton": "Створити проєкт",
+      "projectName": "Назва проєкту",
+      "namePlaceholder": "Введіть назву проєкту",
+      "descriptionPlaceholder": "Введіть опис...",
+      "deadline": "Дедлайн проєкту",
+      "manager": "Менеджер проєкту"
+    }
+  },
+  "tasks": {
+	"status": {
+    	"Approved": "Схвалено",
+   		"Re work": "Перероблюється",
+    	"Pending": "Очікується",
+		"In progress": "В роботі"
+  	},
+	"search": "Пошук завдання",
+	"table": {
+      "taskName": "Назва завдання",
+      "taskCreated": "Дата створення",
+      "duoDate": "Термін",
+      "project": "Проєкт",
+      "status": "Статус"
+    },
+	"title": "Всі Завдання",
+	"btn": "Нове Завдання",
+	"pendingToday": "Рецензії, що очікують сьогодні",
+	"form": {
+      "createTitle": "Створити завдання",
+      "projectName": "Назва завдання",
+      "descriptionPlaceholder": "Введіть опис...",
+      "deadline": "Дедлайн завдання",
+      "datePlaceholder": "ДД/ММ/РРРР",
+      "managerPlaceholder": "Оберіть менеджера проєкту"
+    }
+  },
+  "team":{
+    "task": "Завдань",
+    "title": "Твоя Команда та Менеджери",
+    "proj": "Проекти"
+  }
+  
+}

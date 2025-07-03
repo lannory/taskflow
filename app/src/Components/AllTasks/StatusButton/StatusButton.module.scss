@@ -1,7 +1,8 @@
 @use '../../../assets/styles/colorVariables.scss' as *;
 
 .statusButton {
-    width: 76px;
+    padding: 0 8px;
+    min-width: 76px;
     height: 28px;
     background-color: $Gray-300;
     color: $Gray-600;
