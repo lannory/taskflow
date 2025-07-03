@@ -1,0 +1,8 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.OverviewWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    padding-top: 17px;
+}
