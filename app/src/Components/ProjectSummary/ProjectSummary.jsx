@@ -20,7 +20,7 @@ function ProjectSummary() {
 	}
 
 	if (selectedManager) {
-		displayedProjects = displayedProjects.filter(project => project.managerID === selectedManager);
+		displayedProjects = displayedProjects.filter(project => project.managerId === selectedManager);
 	}
 
 	const getProjects = () =>
@@ -155,7 +155,7 @@ function ProjectSummary() {
 							<React.Fragment key={index}>
 								<tr>
 									<td>{project.title}</td>
-									<td>{team.find(member => member.id === project.managerID)?.name || 'Unknown'}</td>
+									<td>{team.find(member => member.id === project.managerId)?.name || 'Unknown'}</td>
 									<td>{project.deadlineAmount} {project.deadlineUnit}</td>
 									<td>
 										{project.progress}%
