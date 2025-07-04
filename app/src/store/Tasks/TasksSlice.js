@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  tasks: '',
+  tasks: [],
   searchValue: '',
   activeStatus: '',
   sortField: null,
