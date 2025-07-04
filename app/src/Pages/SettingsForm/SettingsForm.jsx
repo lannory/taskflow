@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SettingsForm.module.scss';
 import LanguageSelect from '../../Components/Settings/LanguageSelect/LanguageSelect';
-import ThemSelect from '../../Components/Settings/ThemSelect/TimezoneSelect';
+import ThemSelect from '../../Components/Settings/ThemSelect/ThemSelect';
 
 const SettingsForm = () => {
   const [language, setLanguage] = useState('default');
