@@ -11,7 +11,7 @@ tbody tr + tr {
 }
 
 .emptyBox{
-    width: 476px;
+    width: 300px;
     margin-top: 19px;
 }
 
@@ -29,7 +29,7 @@ tbody tr + tr {
     margin: 0;
     margin-right: 10px;
     border-radius: 6px;
-    border: 1px solid $Gray-300;
+    border: 1px solid var(--Gray-300);
     cursor: pointer;
 }
 
@@ -38,7 +38,7 @@ tbody tr + tr {
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    color: $Black;
+    color: var(--Black);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

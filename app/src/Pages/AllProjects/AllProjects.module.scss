@@ -1,5 +1,5 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 .container{
-	color: $Secondary-500;
+	color: var(--Secondary-500);
 	font-family: "Plus Jakarta Sans", sans-serif;
 }

@@ -16,7 +16,7 @@
   .titleTask {
     font-size: 24px;
     font-weight: 600;
-    color: $Gray-900;
+    color: var(--Gray-900);
   }
   .createTaskForm {
     display: flex;
@@ -37,11 +37,11 @@
       font: 400 16px 'Poppins', sans-serif;
       line-height: 24px;
       border-radius: 8px;
-      border: 1px solid $Default-border;
-      background-color: $White;
-      color: $Gray-500;
+      border: 1px solid var(--Default-border);
+      background-color: var(--White);
+      color: var(--Gray-500);
       &:focus-visible {
-        border: 1px solid $Default-border;
+        border: 1px solid var(--Default-border);
       }
       &::placeholder {
         font: 400 16px 'Poppins', sans-serif;
@@ -55,10 +55,10 @@
       appearance: none;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 L70,100 L120,50' stroke='%23666' stroke-width='15' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;
       background-size: 16px;
-      background-color: $White;
+      background-color: var(--White);
     }
     .error {
-      color: $Error-red;
+      color: var(--Error-red);
       font-size: 14px;
       margin-top: 10px;
     }

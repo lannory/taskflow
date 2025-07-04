@@ -135,10 +135,10 @@ return (
           </Dropdown>
 				</div>
 
-				<div className="sortMenu">
+				<div className={styles.sortMenu}>
           <Dropdown menu={{ items: sort }} trigger={['click']}>
             <button className={`${styles.sortBtn} ${styles.btn}`}>
-              <i className={styles.navIcon + " fa-regular fa-sort"}></i>
+              <i className={styles.navIcon + " fa-solid fa-sort"}></i>
               Sort By : {sortBy || 'default'} {direction  == 'decrease'? <i className="fa-solid fa-arrow-down"></i> : direction == 'increase' ? <i className="fa-solid fa-arrow-up"></i> : ''}
             </button>
           </Dropdown>

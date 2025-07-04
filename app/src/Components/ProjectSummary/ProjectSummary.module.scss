@@ -2,7 +2,7 @@
 
 .ProjectSummaryContainer {
     width: 700px;
-    color: $Black;
+    color: var(--Black);
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@
             gap: 8px;
 
             .dropdownElement {
-                color: $Black;
-                background-color: $Gray-400;
+                color: var(--Black);
+                background-color: var(--Gray-400);
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 21px;
@@ -40,7 +40,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $Gray-300;
+                    background-color: var(--Gray-300);
                 }
 
                 i {
@@ -58,7 +58,7 @@
         line-height: 21px;
 
         thead {
-            border-bottom: 1px solid $Gray-300;
+            border-bottom: 1px solid var(--BlackGray-300);
 
             th {
                 padding-bottom: 10px;
