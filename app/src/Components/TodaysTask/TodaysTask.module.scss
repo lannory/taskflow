@@ -1,11 +1,7 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
-.TodaysTaskWrapper{
-    padding-top: 17px;
-}
-
 .TodayTasksTable {
-    width: max-content;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 19px;   
 }
@@ -20,7 +16,7 @@ tbody tr + tr {
 }
 
 .colTitle {
-    width: 400px;
+    width: 100%;
 }
 
 .colAction {
