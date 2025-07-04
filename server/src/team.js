@@ -1,5 +1,6 @@
 const team = [
 		{
+			id: 1,
 			name: "Jessica Jane",
 			job: "Project Manager",
 			desc: "Hi, I'm Jessica Jane. I am a doctoral student at Harvard University majoring in Web . . . ",
@@ -11,6 +12,7 @@ const team = [
 			id: 1
 		},
 		{
+			id: 2,
 			name: "Alex Stanton",
 			job: "UI / UX Designer",
 			desc: "Hi, I'm Alex Stanton. I am a doctoral student at Oxford University majoring in UI / UX  . . .  ",
@@ -22,6 +24,7 @@ const team = [
 			id: 2
 		},
 		{
+			id: 3,
 			name: "Antoine Griezmann",
 			job: "Android Developer",
 			desc: "Hi, I'm Antoine Griezmann. I'm an Android Developer at Google company . . .",
@@ -33,6 +36,7 @@ const team = [
 			id: 3
 		},
 		{
+			id: 4,
 			name: "Anna White",
 			job: "3D Design",
 			desc: "Hi, I'm Anna White. I'm a professional 3D Designer at Blender company . . .",
@@ -44,6 +48,7 @@ const team = [
 			id: 4
 		},
 		{
+			id: 5,
 			name: "Richard Kyle",
 			job: "Project Manager",
 			desc: "Hi, I'm Richard Kyle. I'm a professional 2D Designer at Photoshop company . . .",
@@ -55,6 +60,7 @@ const team = [
 			id: 5
 		},
 		{
+			id: 6,
 			name: "Julia Philips",
 			job: "IOS Developer",
 			desc: "Hi, I'm Julia Philips. I'm a senior manager at Apple company . . .",

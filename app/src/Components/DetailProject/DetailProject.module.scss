@@ -2,8 +2,8 @@
 
 .wrapper {
 	font-family: "Poppins", sans-serif;
-	color: $Secondary-500;
-	background-color: $White;
+	color: var(--Secondary-500);
+	background-color: var(--White);
 	max-width: 720px;
 	border-radius: 10px;
 	display: flex;
@@ -38,7 +38,7 @@
 	letter-spacing: -0.28px;
 
 	p:first-child {
-		color: $Secondary-400;
+		color: var(--Secondary-400);
 		padding-right: 10px;
 	}
 
@@ -46,9 +46,9 @@
 }
 
 .link {
-	color: $Project-link;
+	color: var(--Project-link);
 	padding-left: 10px;
-	border-left: 1px solid $Project-split;
+	border-left: 1px solid var(--Project-split);
 }
 
 .widget {
@@ -103,7 +103,7 @@
 	div {
 		width: 20px;
 		height: 20px;
-		background-color: $Projects-blue;
+		background-color: var(--Projects-blue);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;

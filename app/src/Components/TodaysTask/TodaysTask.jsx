@@ -15,7 +15,13 @@ export default function TodaysTask() {
 
 
     const today = new Date().toISOString().split('T')[0];
+
+    if(tasks.length === 0) {
+        return
+    }
     let displayedTasks = tasks.filter(task => task.duoDate === today);
+    
+    
 
     const getTaskStatuses = (task) => [
         {

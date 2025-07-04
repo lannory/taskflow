@@ -1,55 +1,114 @@
 // font-family: "Inter", sans-serif;
 // font-family: "Poppins", sans-serif;
 
-$White: #ffffff;
-$White-hover: #F5F5F7;
 
-$Default-border: #ccc;
+:root {
+    --White: #ffffff;
+    --White-hover: #F5F5F7;
 
-$Black: #000000;
+    --Default-border: #ccc;
 
-$Login-border: #878787;
+    --Black: #000000;
 
-$Backgroung: #FFFAFA;
+    --Login-border: #878787;
 
-$Base-purple: #5577FF;
-$Base-purple-hover: #3e5ed6;
-$Disabled-button: #ABABAB;
+    --Backgroung: #FFFAFA;
 
-$Error-red: #EE201C;
-$Error-red-hover: #c41816;
-$Error-red-background: #EE201C2E;
-$Error-red-hover-light: #ee201c4a;
+    --Base-purple: #5577FF;
+    --Base-purple-hover: #3e5ed6;
+    --Disabled-button: #ABABAB;
 
-$Approved: #1A932E;
-$Approved-background: #1A932E2E;
-$Approved-hover-light: #1A932E4a;
+    --Error-red: #EE201C;
+    --Error-red-hover: #c41816;
+    --Error-red-background: #EE201C2E;
+    --Error-red-hover-light: #ee201c4a;
 
-$Pending: #FEB701;
-$Pending-background: #FABB1826;
-$Pending-hover-light: #FABB184a;
+    --Approved: #1A932E;
+    --Approved-background: #1A932E2E;
+    --Approved-hover-light: #1A932E4a;
 
-$On-going: #E65F2B;
-$On-going-background: #E65F2B2E;
+    --Pending: #FEB701;
+    --Pending-background: #FABB1826;
+    --Pending-hover-light: #FABB184a;
 
-$Brand-100: #F4EBFF;
-$Brand-600: #7F56D9;
+    --On-going: #E65F2B;
+    --On-going-background: #E65F2B2E;
 
-$Secondary-300: #8E92BC;
-$Secondary-400: #54577A;
-$Secondary-500: #141522;
+    --Brand-100: #F4EBFF;
+    --Brand-600: #7F56D9;
 
-$Message: #FF4D5E;
+    --Secondary-300: #8E92BC;
+    --Secondary-400: #54577A;
+    --Secondary-500: #141522;
 
-$Grey: #D0D5DD;
-$Gray-50: #F9FAFB;
-$Gray-200: #E4E7EC;
-$Gray-300: #D0D5DD;
-$Gray-400: #98A2B3;
-$Gray-500: #667085;
-$Gray-600: #475467;
-$Gray-900: #101828;
+    --Message: #FF4D5E;
 
-$Projects-blue: #546FFF;
-$Project-link: #04A4F4;
-$Project-split: #DFDFDF;
+    --Grey: #D0D5DD;
+    --Gray-50: #F9FAFB;
+    --Gray-200: #E4E7EC;
+    --Gray-300: #D0D5DD;
+    --Gray-400: #98A2B3;
+    --Gray-500: #667085;
+    --Gray-600: #475467;
+    --Gray-900: #101828;
+
+    --Projects-blue: #546FFF;
+    --Project-link: #04A4F4;
+    --Project-split: #DFDFDF;
+}
+
+
+:root[data-theme='dark'] {
+    --White: #444444;
+    --White-hover: #2a2a2a;
+
+    --Default-border: #3a3a3a;
+
+    --Black: #ffffff;
+
+    --Login-border: #555555;
+
+    --Backgroung: #121212;
+
+    --Base-purple: #8898ff;
+    --Base-purple-hover: #5e70ff;
+    --Disabled-button: #818181;
+
+    --Error-red: #ff6b66;
+    --Error-red-hover: #e25c58;
+    --Error-red-background: rgba(255, 107, 102, 0.2);
+    --Error-red-hover-light: rgba(255, 107, 102, 0.3);
+
+    --Approved: #3ddc84;
+    --Approved-background: rgba(61, 220, 132, 0.2);
+    --Approved-hover-light: rgba(61, 220, 132, 0.3);
+    
+    --Pending: #fcd34d;
+    --Pending-background: rgba(252, 211, 77, 0.15);
+    --Pending-hover-light: rgba(252, 211, 77, 0.25);
+
+    --On-going: #fb923c;
+    --On-going-background: rgba(251, 146, 60, 0.2);
+
+    --Brand-100: #3f3cbb;
+    --Brand-600: #a78bfa;
+
+    --Secondary-300: #a1a1aa;
+    --Secondary-400: #71717a;
+    --Secondary-500: #d4d4d8;
+
+    --Message: #ff5c75;
+
+    --Grey: #6c6c72;
+    --Gray-50: #1f2937;
+    --Gray-200: #374151;
+    --Gray-300: #4b5563;
+    --Gray-400: #6b7280;
+    --Gray-500: #9ca3af;
+    --Gray-600: #d1d5db;
+    --Gray-900: #f9fafb;
+
+    --Projects-blue: #7aa6ff;
+    --Project-link: #38bdf8;
+    --Project-split: #4b5563;
+}

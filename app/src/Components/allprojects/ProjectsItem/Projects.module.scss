@@ -17,12 +17,13 @@
 	max-width: 328px;
 	position: relative;
 	border-radius: 10px;
-	background-color: $White;
+	background-color: var(--White);
 	box-sizing: border-box;
 }
 
 
 .projectTitle {
+	color: var(--Black);
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 600;
@@ -32,7 +33,7 @@
 }
 
 .projectSubtitle {
-	color: $Secondary-400;
+	color: var(--Secondary-400);
 	font-size: 12px;
 	font-weight: 500;
 	letter-spacing: -0.24px;
@@ -50,13 +51,18 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 12px;
+
+	p:first-child {
+		color: var(--Black);
+	}
 }
 
 .progress {
-	color: $Projects-blue;
+	color: var(--Projects-blue);
 }
 
 .deadline {
+	color: var(--Black);
 	display: flex;
 	align-items: center;
 	column-gap: 8px;

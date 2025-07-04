@@ -23,6 +23,8 @@ import { fetchProjects } from "./store/projects/projectsSlice";
 
 function App() {
   const { isAuth } = useSelector(state => state.auth);
+  const theme = useSelector(state => state.settings.theme);
+
   const dispatch = useDispatch();
 
   const location = useLocation();
@@ -34,6 +36,12 @@ function App() {
       dispatch(setAuth(token));
     }
   }, [dispatch]);
+
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
 
   useEffect(() => {
     if (isAuth) {

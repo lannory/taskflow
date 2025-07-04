@@ -9,7 +9,7 @@
     flex-direction: column;
     gap: 36px;
     padding: 24px 18px 18px 18px;
-    background-color: $White;
+    background-color: var(--White);
     border-radius: 10px;
 }
 
@@ -27,13 +27,13 @@
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
-    color: $Secondary-500;
+    color: var(--Secondary-500);
     margin: 0;
 }
 
 .navBtn{
     font-size: 14px;
-    color: $Secondary-400;
+    color: var(--Secondary-400);
     border: none;
     background-color: transparent;
     margin: 0;
@@ -63,20 +63,22 @@
 }
 
 .day:hover{
-    background-color: $White-hover;
+    background-color: var(--White-hover);
 }
 
 .day:hover .dayNumber {
-  background-color: $White;
+  background-color: var(--White);
 }
 
 .dayName{
     margin-bottom: 12px;
     margin-top: 4px;
+    color: var(--Black);
 }
 
 .dayNumber{
-    background-color: $White-hover;
+    background-color: var(--White-hover);
+    color: var(--Black);
     width: 32px;
     aspect-ratio: 1/1;
     display: flex;
@@ -86,14 +88,14 @@
 }
 
 .day.active {
-    background-color: $Base-purple;
+    background-color: var(--Base-purple);
 }
 
 
 .day.active > .dayName{
-    color: $White;
+    color: var(--White);
 }
 
 .day.active > .dayNumber{
-    background-color: $White;
+    background-color: var(--White);
 }

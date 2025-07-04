@@ -24,12 +24,12 @@
 .activeToggle {
   padding: 10px 16px;
   border-radius: 8px;
-  border: 1px solid $Gray-300;
-  background-color: $White;
-  color: $Secondary-500;
+  border: 1px solid var(--Gray-300);
+  background-color: var(--White);
+  color: var(--Secondary-500);
   cursor: pointer;
 }
 
 .activeToggle {
-  background-color: $White-hover;
+  background-color: var(--White-hover);
 }
