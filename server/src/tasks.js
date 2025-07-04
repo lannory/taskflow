@@ -27,7 +27,7 @@ const tasks = [
         tick: false,
         title: 'Backend Integration',
         taskCreated: '2024-01-07',
-        duoDate: '2025-06-28',
+        duoDate: '2025-07-03',
         status: 'Pending',
         description: 'Connect frontend with the REST API endpoints and test CRUD operations.',
         userID: 3,

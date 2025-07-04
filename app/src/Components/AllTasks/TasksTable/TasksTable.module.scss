@@ -4,9 +4,9 @@
     border-collapse: collapse;
     width: 100%;
     // max-width: 1124px;
-}
 
-.colTitle {
+
+    .colTitle {
     width: 528px;
 }
 .colDate {
@@ -113,3 +113,5 @@ tbody tr td:not(:first-child) {
         margin-left: 5px;
     }
 }
+}
+

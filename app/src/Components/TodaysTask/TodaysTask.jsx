@@ -59,7 +59,7 @@ export default function TodaysTask() {
 
     return (
         <div className={styles.TodaysTaskWrapper}>
-            <SmallTitle text='Today’s Pending Reviews' />
+            <SmallTitle text='Today’s Tasks' />
             {displayedTasks.length === 0 ? (
                 <div className={styles.emptyBox}>
                     <Empty />
