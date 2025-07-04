@@ -3,12 +3,12 @@
 .StatisticWrapper {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    color: $Black;
+    color: var(--Black);
     width: 329px;
     height: 210px;
     box-sizing: border-box;
     padding: 24px 24px 20px 29px;
-    background-color: $White;
+    background-color: var(--White);
 
     .StatisticTitle {
         font-size: 19.6px;
@@ -31,8 +31,8 @@
         }
 
         .StatisticIcon {
-            color: $Projects-blue;
-            background-color: $Pending-background;
+            color: var(--Projects-blue);
+            background-color: var(--Pending-background);
             border-radius: 26px;
             font-size: 46px;
             width: 106px;

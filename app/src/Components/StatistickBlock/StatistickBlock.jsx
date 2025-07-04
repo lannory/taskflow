@@ -8,6 +8,9 @@ export default function StatistickBlock({ type }) {
 
     let number = 0;
 
+    if(tasks.length === 0) {
+        return
+    }
     switch (type) {
         case 'total_tasks':
             number = tasks.filter(task => task.tick === true).length;
