@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import InputField from '../../Components/CreateTask/InputField/InputField';
@@ -7,7 +8,7 @@ import DateField from '../../Components/CreateTask/DateField/DateField';
 import UserSelect from '../../Components/CreateTask/SelectField/UserSelect';
 import BigButton from '../../Components/BigButton/BigButton';
 import styles from "./CreateTaskForm.module.scss";
-import { useNavigate } from 'react-router-dom';
+
 
 const CreateTaskForm = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const CreateTaskForm = () => {
       .max(300, 'Maximum 300 characters'),
     deadline: Yup.string()
       .required('Deadline is required'),
-      usersId: Yup.string()
+    usersId: Yup.string()
       .required('User is required'),
   });
 
@@ -48,16 +49,17 @@ const CreateTaskForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, setFieldValue, isSubmitting }) => (
+        {({ setFieldValue, isSubmitting }) => (
           <Form className={styles.createTaskForm}>
-            <div className={styles.formGroup}>
+ , ,            <div className={styles.formGroup}>
               <label className={styles.label}>Project Name</label>
               <Field name="projectName">
                 {({ field }) => (
                   <InputField
+                    name={field.name}
                     value={field.value}
                     onChange={field.onChange}
-                    name={field.name}
+                    onBlur={field.onBlur}
                     placeholder="Project Name"
                   />
                 )}
@@ -69,9 +71,10 @@ const CreateTaskForm = () => {
               <Field name="description">
                 {({ field }) => (
                   <TextAreaField
+                    name={field.name}
                     value={field.value}
                     onChange={field.onChange}
-                    name={field.name}
+                    onBlur={field.onBlur}
                     placeholder="Enter a description..."
                   />
                 )}
