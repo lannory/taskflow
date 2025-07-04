@@ -5,11 +5,14 @@ import { Dropdown, Empty } from 'antd';
 import StatusButton from '../AllTasks/StatusButton/StatusButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow } from '../../store/Tasks/TasksSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function TodaysTask() {
 
     const tasks = useSelector((state) => state.tasks.tasks);
     const dispatch = useDispatch();
+    const {t} = useTranslation();
+
 
     const today = new Date().toISOString().split('T')[0];
 
@@ -63,9 +66,10 @@ export default function TodaysTask() {
         },
     ]
 
+
     return (
         <div className={styles.TodaysTaskWrapper}>
-            <SmallTitle text='Today’s Tasks' />
+            <SmallTitle text={t('tasks.pendingToday')}/>
             {displayedTasks.length === 0 ? (
                 <div className={styles.emptyBox}>
                     <Empty />

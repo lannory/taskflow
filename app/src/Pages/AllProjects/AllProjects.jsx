@@ -5,6 +5,7 @@ import styles from './AllProjects.module.scss'
 import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/ProjectsSlider';
 import { useSelector } from 'react-redux';
 import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
+import {useTranslation}from 'react-i18next';
 
 function AllProjects() {
 
@@ -12,6 +13,7 @@ function AllProjects() {
 		projectsList = useSelector(state => state.projects.projectsList),
 		searchValue = useSelector(state => state.projects.searchValue);
 
+	const {t} = useTranslation()
 
 	let shownProjectsCategories = {...projectsCategories},
 		shownProjectsList = [...projectsList];
@@ -30,8 +32,10 @@ function AllProjects() {
 		<div className={styles.container}>
 			<ProjectsNavigation />
 			{shownBy == 'category' ?
-				<><ProjectsSlider title={'New Project'} projects={shownProjectsCategories.newProj}/>
-				<ProjectsSlider title={'Time limit'} projects={shownProjectsCategories.timeLim}/></> : <ProjectsList arr={shownProjectsList}/>}
+				<><ProjectsSlider title={t('projects.title.newProject')} projects={shownProjectsCategories.newProj} />
+				  <ProjectsSlider title={t('projects.title.timeLimit')} projects={shownProjectsCategories.timeLim} />
+				</>
+ 				: <ProjectsList arr={shownProjectsList}/>}
 		</div>
 	);
 }

@@ -7,12 +7,12 @@ import { changeShown, changeSort, sorting, setSearchValue} from '../../../store/
 import { useNavigate } from 'react-router-dom';
 import BigButton from '../../BigButton/BigButton';
 
+import { useTranslation } from 'react-i18next';
+
 function ProjectsNavigation() {
-
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const categories = [
     {
@@ -22,19 +22,11 @@ function ProjectsNavigation() {
         dispatch(changeShown('category'));
         dispatch(sorting());
       },
-      label: (
-        <a rel="noopener noreferrer">
-          Category
-        </a>
-      ),
+      label: <a>{t('projects.view.category')}</a>,
     },
     {
       key: '2',
-      label: (
-        <button rel="noopener noreferrer">
-          List
-        </button>
-      ),
+      label: <button>{t('projects.view.list')}</button>,
       onClick: () => {
         dispatch(changeShown('list'));
         dispatch(sorting());
@@ -45,11 +37,7 @@ function ProjectsNavigation() {
   const sort = [
     {
       key: '1',
-      label: (
-        <button rel="noopener noreferrer">
-          Deadline
-        </button>
-      ),
+      label: <button>{t('projects.sort.deadline')}</button>,
       icon: <SortDescendingOutlined />,
       onClick: () => {
         dispatch(changeSort({ type: 'deadline', direction: 'increase' }));
@@ -58,88 +46,90 @@ function ProjectsNavigation() {
     },
     {
       key: '2',
-      label: (
-        <button rel="noopener noreferrer">
-          Deadline
-        </button>
-      ),
+      label: <button>{t('projects.sort.deadline')}</button>,
+      icon: <SortAscendingOutlined />,
       onClick: () => {
         dispatch(changeSort({ type: 'deadline', direction: 'decrease' }));
         dispatch(sorting());
-      },
-      icon: <SortAscendingOutlined />,
+      }
     },
     {
       key: '3',
-      label: (
-        <button rel="noopener noreferrer">
-          Progress
-        </button>
-      ),
+      label: <button>{t('projects.sort.progress')}</button>,
+      icon: <SortDescendingOutlined />,
       onClick: () => {
         dispatch(changeSort({ type: 'progress', direction: 'increase' }));
         dispatch(sorting());
-      },
-      icon: <SortDescendingOutlined />,
+      }
     },
     {
       key: '4',
-      label: (
-        <button rel="noopener noreferrer">
-          Progress
-        </button>
-      ),
+      label: <button>{t('projects.sort.progress')}</button>,
+      icon: <SortAscendingOutlined />,
       onClick: () => {
         dispatch(changeSort({ type: 'progress', direction: 'decrease' }));
         dispatch(sorting());
-      },
-      icon: <SortAscendingOutlined />,
+      }
     }
   ];
 
-
-  const searchValue = useSelector(state => state.projects.searchValue)
-
+  const searchValue = useSelector(state => state.projects.searchValue);
   const shown = useSelector(state => state.projects.shownBy);
-  const sortBy = useSelector(state => state.projects.sortType), direction = useSelector(state => state.projects.sortDirection);
+  const sortBy = useSelector(state => state.projects.sortType);
+  const direction = useSelector(state => state.projects.sortDirection);
 
   const handleChange = (e) => {
     dispatch(setSearchValue(e.target.value));
-  }
+  };
 
-
-return (
-  <nav className={styles.projectsNav}>
-    <div>
-      <BigButton text='New&nbsp;Project' style='purple' onClick={() => navigate('/createproject')} />
-    </div>
-    <form action="">
-      <input
-        type="text"
-        className={styles.searchInput}
-        placeholder="Search  Project"
-        value={searchValue}
-        onChange={(e) => handleChange(e)}
-      />
-      <button type="button" className={styles.searchBtn}>
-      {searchValue ? <i onClick={() => dispatch(setSearchValue(''))} className="fa-solid fa-xmark"></i> : <i className={styles.navIcon + " fa-solid fa-magnifying-glass"}></i>
-}      </button>
-    </form>
+  return (
+    <nav className={styles.projectsNav}>
+      <div>
+        <BigButton
+          text={t('projects.actions.new')}
+          style="purple"
+          onClick={() => navigate('/createproject')}
+        />
+      </div>
+      <form>
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder={t('projects.actions.search')}
+          value={searchValue}
+          onChange={handleChange}
+        />
+        <button type="button" className={styles.searchBtn}>
+          {searchValue ? (
+            <i
+              onClick={() => dispatch(setSearchValue(''))}
+              className="fa-solid fa-xmark"
+            ></i>
+          ) : (
+            <i className={`${styles.navIcon} fa-solid fa-magnifying-glass`}></i>
+          )}
+        </button>
+      </form>
       <div className={styles.navBtns}>
         <div className={styles.categoryMenu}>
           <Dropdown menu={{ items: categories }} trigger={['click']}>
             <button className={`${styles.categoryBtn} ${styles.btn}`}>
-              <i className={styles.navIcon + " fa-solid fa-list"}></i>
-              Show By : {shown}
-					  </button>
+              <i className={`${styles.navIcon} fa-solid fa-list`}></i>
+              {t('projects.view.showBy')} : {t(`projects.view.${shown}`)}
+            </button>
           </Dropdown>
-				</div>
+        </div>
 
-				<div className={styles.sortMenu}>
+        <div className="sortMenu">
           <Dropdown menu={{ items: sort }} trigger={['click']}>
             <button className={`${styles.sortBtn} ${styles.btn}`}>
-              <i className={styles.navIcon + " fa-solid fa-sort"}></i>
-              Sort By : {sortBy || 'default'} {direction  == 'decrease'? <i className="fa-solid fa-arrow-down"></i> : direction == 'increase' ? <i className="fa-solid fa-arrow-up"></i> : ''}
+              <i className={`${styles.navIcon} fa-regular fa-sort`}></i>
+              {t('projects.sort.sortBy')} : {sortBy ? t(`projects.sort.${sortBy}`) : t('projects.sort.default')} {' '}
+              {direction === 'decrease' ? (
+                <i className="fa-solid fa-arrow-down"></i>
+              ) : direction === 'increase' ? (
+                <i className="fa-solid fa-arrow-up"></i>
+              ) : null}
             </button>
           </Dropdown>
         </div>

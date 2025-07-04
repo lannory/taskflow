@@ -10,6 +10,8 @@ import projectsReducer from './store/projects/projectsSlice.js';
 import UsersReducer from './store/Users/usersSlice.js'
 import SettingsReducer from './store/Settings/settingsSlice.js';
 import { BrowserRouter } from 'react-router-dom';
+import './i18n'; 
+
 
 const store = configureStore({
   reducer: {

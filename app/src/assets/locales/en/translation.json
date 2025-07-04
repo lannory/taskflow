@@ -1,0 +1,110 @@
+{
+	"sidebar": {
+		"overview": "Overview",
+		"projects": "Projects",
+		"tasks": "Tasks",
+		"yourTeam": "Your Team",
+		"settings": "Settings"
+	},
+	"tabs": {
+		"all": "All",
+		"approved": "Approved",
+		"pending": "Pending",
+		"completed": "Completed"
+  	},
+	"header":{
+		"greeting": "Hi There!",
+		"taskReminder": "Let's finish your task today!",
+		"logout": "logout"
+	},
+	"settings":{
+		"themeLabel": "Theme",
+		"dark": "Dark",
+		"light": "Light",
+		"language": "Language"
+  	},
+	"actions": {
+		"edit": "Edit",
+     	"delete": "Delete"
+	},
+	"projects": {
+		"actions": {
+			"new": "New Project",
+			"search": "Search Project"
+		},
+		"view": {
+			"showBy": "Show By",
+			"category": "Category",
+			"list": "List"
+		},
+		"sort": {
+			"sortBy": "Sort By",
+			"default": "Default",
+			"deadline": "Deadline",
+			"progress": "Progress"
+		},
+		"deadline": {
+			"left": "left",
+			"days": "days",
+			"day": "day",
+			"hour": "hour",
+			"hours": "hours"
+		},
+		"labels": {
+      		"progress": "Progress",
+			"manager": "Project Manager: ",
+	  		"desc": "Description",
+	  		"tasks": "Tasks"
+    	},
+		"title": {
+			"newProject": "New Project",
+			"timeLimit": "Time limit",
+			"allProjects": "All Projects"
+   		},
+		"form": {
+			"editTitle": "Edit Project",
+			"createTitle": "Create Project",
+			"saveButton": "Save Project",
+			"createButton": "Create Project",
+			"projectName": "Project Name",
+			"namePlaceholder": "Enter Project name",
+			"descriptionPlaceholder": "Enter a description...",
+			"deadline": "Project Deadline",
+			"manager": "Project Manager"
+    	}
+
+  	},
+	"tasks": {
+		"status": {
+			"Approved": "Approved",
+			"Re work": "Re work",
+			"Pending": "Pending",
+			"In progress": "In progress"
+		},
+		"search": "Search Task",
+		"table": {
+			"taskName": "Task name",
+			"taskCreated": "Task Created",
+			"duoDate": "Duo Date",
+			"project": "Project",
+			"status": "Status"
+    	},
+		"title": "All Tasks",
+		"btn": "New Task",
+		"pendingToday": "Today’s Pending Reviews",
+		"form": {
+			"createTitle": "Create Task",
+			"projectName": "Task Name",
+			"descriptionPlaceholder": "Enter a description...",
+			"deadline": "Task Deadline",
+			"datePlaceholder": "DD/MM/YYYY",
+			"managerPlaceholder": "Select Project Manager"
+    	}
+	},
+	"team":{
+		"task": "Task",
+		"title": "Your Team and & Managers",
+		"proj": "Projects"
+  	}
+	
+}

@@ -8,8 +8,14 @@ import UserSelect from '../../Components/CreateTask/SelectField/UserSelect';
 import BigButton from '../../Components/BigButton/BigButton';
 import styles from "./CreateTaskForm.module.scss";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const CreateTaskForm = () => {
+  const [projectName, setProjectName] = useState('');
+  const [description, setDescription] = useState('');
+  const [deadline, setDeadline] = useState('');
+  const [manager, setManager] = useState('');
+  const {t} = useTranslation();
   const navigate = useNavigate();
 
   const initialValues = {
@@ -40,9 +46,9 @@ const CreateTaskForm = () => {
   return (
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
-        <h2 className={styles.titleTask}>Create Task</h2>
+        <h2 className={styles.titleTask}>{t('tasks.form.createTitle')}</h2>
       </div>
-
+                                          
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

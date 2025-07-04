@@ -9,8 +9,8 @@ const projects = {
 			deadlineAmount: '3',
 			deadlineUnit: 'days',
 			people: 3,
-			desc: 'Follow the video tutorial above. Understand how to use each tool in the Figma application. Also learn how to make a good and correct design. Starting from spacing, typography, content, and many other design hierarchies. Then try to make it yourself with your imagination and inspiration.',
-			managerId: 1,
+			desc: 'Follow the video tutorial above. Understand how to use each tool in the Figma application. Also learn how to make a good and correct design. Starting from spacing, typography, content, and many other design hierarchies. Then try to make it yourself with your imagination and inspiration.',Setting
+			managerId: 5
 		},
 		{
 			id: 2,
@@ -22,7 +22,7 @@ const projects = {
 			deadlineUnit: 'days',
 			people: 43,
 			desc: 'Build a modern and responsive website using HTML, CSS, and JavaScript. Learn how to create clean layouts, optimize performance, and ensure a great user experience. Use animations and interactions that enhance, not distract. Then, try to recreate a landing page from your favorite site.',
-			managerId: 5,
+			managerId: 1
 		},
 		{
 			id: 3,
@@ -34,7 +34,7 @@ const projects = {
 			deadlineUnit: 'days',
 			people: 221,
 			desc: 'Design an intuitive mobile interface that focuses on user flow and functionality. Explore how to create wireframes, apply consistent styles, and maintain design harmony across screens. Practice by reimagining an existing app with your own design improvements.',
-			managerId: 1,
+			managerId: 1
 		},
 		{
 			id: 4,
@@ -46,7 +46,7 @@ const projects = {
 			deadlineUnit: 'day',
 			people: 4,
 			desc: 'Develop a native Android application using Kotlin or Java. Learn how to manage layouts, work with APIs, and implement smooth navigation. Focus on clean code structure and good UX principles. Try building a simple to-do or weather app.',
-			managerId: 5,
+			managerId: 5
 		},
 	],
 	timeLim: [
@@ -72,7 +72,7 @@ const projects = {
 			deadlineUnit: 'hours',
 			people: 122,
 			desc: 'Create a sleek and fresh website design tailored for a portfolio or blog. Learn how to apply modern UI patterns, responsive design, and lightweight frameworks. Focus on clean code and elegant animations to enhance user engagement.',
-			managerId: 5,
+			managerId: 5
 		},
 		{
 			id: 7,
