@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './UserSelect.module.scss';
 
 const users = [
-  { name: 'Anna', avatar: '/avatars/anna.jpg' },
-  { name: 'John', avatar: '/avatars/john.jpg' },
-  { name: 'Kira', avatar: '/avatars/kira.jpg' },
+  { name: 'Anna', avatar: '/avatars/anna.jpg', role: "developer"},
+  { name: 'John', avatar: '/avatars/john.jpg', role: "developer"},
+  { name: 'Kira', avatar: '/avatars/kira.jpg', role: "developer"},
 ];
 
 const UserSelect = ({ value, onChange, placeholder }) => {
