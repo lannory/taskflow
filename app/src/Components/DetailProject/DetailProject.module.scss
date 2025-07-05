@@ -2,14 +2,15 @@
 
 .wrapper {
 	font-family: "Poppins", sans-serif;
-	color: $Secondary-500;
-	background-color: $White;
+	color: var(--Secondary-500);
+	background-color: var(--White);
 	max-width: 720px;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
 	padding: 24px;
+	margin-top: 24px;
 }
 
 // .descWrapper {
@@ -38,7 +39,7 @@
 	letter-spacing: -0.28px;
 
 	p:first-child {
-		color: $Secondary-400;
+		color: var(--Secondary-400);
 		padding-right: 10px;
 	}
 
@@ -46,14 +47,15 @@
 }
 
 .link {
-	color: $Project-link;
+	color: var(--Project-link);
 	padding-left: 10px;
-	border-left: 1px solid $Project-split;
+	border-left: 1px solid var(--Project-split);
 }
 
 .widget {
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	gap: 20px;
 
 	p {
@@ -66,7 +68,7 @@
 		column-gap: 5px;
 	}
 
-	margin-bottom: 31px;
+	margin-bottom: 20px;
 }
 
 .subtitle {
@@ -102,7 +104,7 @@
 	div {
 		width: 20px;
 		height: 20px;
-		background-color: $Projects-blue;
+		background-color: var(--Projects-blue);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -117,4 +119,8 @@ img {
 	box-sizing: border-box;
 		border-radius: 5px;
 
+}
+
+.user{
+	width: 20px;
 }

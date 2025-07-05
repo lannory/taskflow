@@ -8,14 +8,12 @@
   width: 100%;
   max-width: 500px;
   gap: 8px;
-  margin: 19px 0 0 0;
 
   .DateFieldLabel {
     width: 100%;
-    max-width: 120px;
     height: auto;
     font: 500 14px/20px 'Inter', sans-serif;
-    color: #344054;
+    color: var(--Black);
   }
 
   .DateField {
@@ -24,16 +22,16 @@
     height: auto;
     padding: 14px 10px;
     border-radius: 8px;
-    border: 1px solid $Gray-300;
+    border: 1px solid var(--Gray-300);
     font: 400 14px 'Poppins', sans-serif;
     line-height: 20px;
-    color: #111827;
-    background-color: #f9fafb;
+    color: var(--Gray-900);
+    background-color: var(--White);
     transition: border-color 0.3s ease;
-    background-color: $White;
+    background-color: var(--White);
 
     &:focus {
-      border-color: $Gray-500;
+      border-color: var(--Gray-500);
     }
   }
 }

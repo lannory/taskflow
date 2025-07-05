@@ -3,16 +3,20 @@ import React from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStatus } from '../../../store/Tasks/TasksSlice';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 export default function TaskTabs() {
 
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   const tabs = [
-    { text: 'All', dispatch: '', },
-    { text: 'Approved', dispatch: 'Approved', },
-    { text: 'Pending', dispatch: 'Pending', },
-    { text: 'Completed', dispatch: 'Completed', },
+    { text: t('tabs.all'), dispatch: '' },
+    { text: t('tabs.approved'), dispatch: 'Approved' },
+    { text: t('tabs.pending'), dispatch: 'Pending' },
+    { text: t('tabs.completed'), dispatch: 'Completed' },
   ];
 
   const dispatch = useDispatch();

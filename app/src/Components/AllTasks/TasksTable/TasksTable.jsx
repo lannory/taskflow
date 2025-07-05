@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
 import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow } from '../../../store/Tasks/TasksSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { t } from 'i18next';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function TasksTable({tasks, isProjectsTasks = false}) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const sortField = useSelector((state) => state.tasks.sortField);
     const sortDirection = useSelector((state) => state.tasks.sortDirection);
@@ -29,7 +32,7 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
     
     if(!isProjectsTasks){
         displayedTasks = displayedTasks.map(task => {
-            const taskId = task.prodjectId;
+            const taskId = task.projectId;
             const project = projects.find(proj => proj.id == taskId );
             
             const projectName = project ? project.title : 'Unknown';
@@ -83,7 +86,7 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
             key: 'edit',
             label: (
                 <span className={styles.dropdownItem}>
-                    <i className="fa-solid fa-pen-to-square"></i> Edit
+                    <i className="fa-solid fa-pen-to-square"></i> {t("actions.edit")}
                 </span>
             ),
             onClick: (e) => {
@@ -94,7 +97,7 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
             key: 'delete',
             label: (
                 <span className={styles.dropdownItem}>
-                    <i className="fa-solid fa-trash"></i> Delete
+                    <i className="fa-solid fa-trash"></i> {t("actions.delete")}
                 </span>
             ),
             onClick: (e) => {
@@ -167,39 +170,39 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
                         <tr className={styles.tableHeadRow}>
                             <td>
                                 <div className={styles.cellContent}>
-                                    <input
-                                        type="checkbox"
-                                        className={styles.tableCheckbox}
-                                        checked={allTasksTicked}
-                                        onChange={() => dispatch(toggleAllTasks())}
-                                    />
-                                    Task name
+                                <input
+                                    type="checkbox"
+                                    className={styles.tableCheckbox}
+                                    checked={allTasksTicked}
+                                    onChange={() => dispatch(toggleAllTasks())}
+                                />
+                                {t('tasks.table.taskName')}
                                 </div>
                             </td>
                             <td onClick={() => handleSort('taskCreated')} className={styles.sortColumn}>
-                                Task Created
+                                {t('tasks.table.taskCreated')}
                                 {sortField === 'taskCreated' && (
-                                    <span>
-                                        {sortDirection === 'asc'
-                                            ? <i className="fa-solid fa-arrow-up"></i>
-                                            : <i className="fa-solid fa-arrow-down"></i>
-                                        }
-                                    </span>
+                                <span>
+                                    {sortDirection === 'asc'
+                                    ? <i className="fa-solid fa-arrow-up"></i>
+                                    : <i className="fa-solid fa-arrow-down"></i>
+                                    }
+                                </span>
                                 )}
                             </td>
                             <td onClick={() => handleSort('duoDate')} className={styles.sortColumn}>
-                                Duo Date
+                                {t('tasks.table.duoDate')}
                                 {sortField === 'duoDate' && (
-                                    <span>
-                                        {sortDirection === 'asc'
-                                            ? <i className="fa-solid fa-arrow-up"></i>
-                                            : <i className="fa-solid fa-arrow-down"></i>
-                                        }
-                                    </span>
+                                <span>
+                                    {sortDirection === 'asc'
+                                    ? <i className="fa-solid fa-arrow-up"></i>
+                                    : <i className="fa-solid fa-arrow-down"></i>
+                                    }
+                                </span>
                                 )}
                             </td>
-                            {isProjectsTasks ? '' : <td>Project</td>}
-                            <td>Status</td>
+                            {!isProjectsTasks && <td>{t('tasks.table.project')}</td>}
+                            <td>{t('tasks.table.status')}</td>
                             <td></td>
                         </tr>
                     </thead>
@@ -229,7 +232,11 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
                                     </td>
                                     <td>{formatDate(task.taskCreated)}</td>
                                     <td>{formatDate(task.duoDate)}</td>
-                                    {isProjectsTasks ? '' : <td>{task.projectName}</td>}
+                                    {isProjectsTasks ? '' : <td onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(`/allprojects/${task.projectId}`);
+                                        // to={`/allprojects/${obj.id}`}
+                                    }}>{task.projectName}</td>}
                                     <td>
                                         <Dropdown
                                             menu={{ items: getTaskStatuses(task) }}

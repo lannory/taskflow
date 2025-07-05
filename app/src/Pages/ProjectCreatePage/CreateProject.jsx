@@ -19,13 +19,13 @@ export default function CreateProject() {
         navigate('/allprojects');
     };
 
-    return (
-        <div>
-            <ProjectForm
-                users={users}
-                onSubmit={handleCreate}
-                isEdit={false}
-            />
-        </div>
-    );
+  return (
+    <div>
+      <ProjectForm
+        users={users}
+        onSubmit={handleCreate}
+        isEdit={false}
+      />
+    </div>
+  );
 };

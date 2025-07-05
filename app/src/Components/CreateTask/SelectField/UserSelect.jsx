@@ -1,20 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './ManagerSelect.module.scss';
+import styles from './UserSelect.module.scss';
 
-const managers = [
+const users = [
   { name: 'Anna', avatar: '/avatars/anna.jpg' },
   { name: 'John', avatar: '/avatars/john.jpg' },
   { name: 'Kira', avatar: '/avatars/kira.jpg' },
 ];
 
-const ManagerSelect = ({ value, onChange, placeholder }) => {
+const UserSelect = ({ value, onChange, placeholder }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  const selected = managers.find((m) => m.name === value);
+  const selected = users.find((m) => m.name === value);
 
-  const handleSelect = (manager) => {
-    onChange(manager.name);
+  const handleSelect = (user) => {
+    onChange(user.name);
     setOpen(false);
   };
 
@@ -38,13 +38,13 @@ const ManagerSelect = ({ value, onChange, placeholder }) => {
             <span>{selected.name}</span>
           </>
         ) : (
-          <span className={styles.placeholder}>{placeholder}</span>
+            <span className={styles.placeholder}>{placeholder}</span>
         )}
       </div>
 
       {open && (
         <div className={styles.dropdown}>
-          {managers.map((manager) => (
+          {users.map((manager) => (
             <div
               key={manager.name}
               className={styles.option}
@@ -60,4 +60,4 @@ const ManagerSelect = ({ value, onChange, placeholder }) => {
   );
 };
 
-export default ManagerSelect;
+export default UserSelect;
