@@ -120,10 +120,10 @@ function ProjectsNavigation() {
           </Dropdown>
         </div>
 
-        <div className="sortMenu">
+        <div className={styles.sortMenu}>
           <Dropdown menu={{ items: sort }} trigger={['click']}>
             <button className={`${styles.sortBtn} ${styles.btn}`}>
-              <i className={`${styles.navIcon} fa-regular fa-sort`}></i>
+              <i className={`${styles.navIcon} fa-solid fa-sort`}></i>
               {t('projects.sort.sortBy')} : {sortBy ? t(`projects.sort.${sortBy}`) : t('projects.sort.default')} {' '}
               {direction === 'decrease' ? (
                 <i className="fa-solid fa-arrow-down"></i>
