@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,11 +19,15 @@ export default function CreateTaskForm({
     prodjectID: ''
   },
   onSubmit,
-  users = [],
   isEdit
 }) {
   const dispatch = useDispatch();
-  const { error } = useSelector(state => state.tasks);
+  const { error, tasks } = useSelector(state => state.tasks);
+
+  // Отслеживаем изменения в tasks
+  useEffect(() => {
+    console.log('Tasks in store updated. Total tasks:', tasks.length);
+  }, [tasks.length]);
 
   const validationSchema = Yup.object().shape({
     title: Yup.string()
@@ -40,14 +44,31 @@ export default function CreateTaskForm({
   });
 
   const handleSubmit = async (values, { resetForm }) => {
+    console.log('=== FORM SUBMISSION START ===');
     console.log('Form submitted with values:', values);
+    console.log('Form validation passed');
+    console.log('Current tasks in store:', tasks.length);
+    
     try {
+      console.log('Dispatching createTask action...');
       const result = await dispatch(createTask(values)).unwrap();
-      console.log('Task created successfully:', result);
-      if (!isEdit) resetForm();
-      if (onSubmit) onSubmit(values);
+      console.log('Task created successfully in store:', result);
+      console.log('Total tasks in store after creation:', tasks.length + 1);
+      
+      if (!isEdit) {
+        console.log('Resetting form...');
+        resetForm();
+      }
+      
+      if (onSubmit) {
+        console.log('Calling onSubmit callback...');
+        onSubmit(values);
+      }
+      
+      console.log('=== FORM SUBMISSION COMPLETE ===');
     } catch (error) {
       console.error('Failed to create task:', error);
+      console.log('=== FORM SUBMISSION FAILED ===');
     }
   };
 

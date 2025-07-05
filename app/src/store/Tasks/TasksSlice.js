@@ -35,7 +35,7 @@ export const fetchTasks = createAsyncThunk('tasks/fetch', async (_, { getState, 
 }
 );
 
-export const createTask = createAsyncThunk('tasks/create', async (taskData, { dispatch, getState, rejectWithValue }) => {
+export const createTask = createAsyncThunk('tasks/create', async (taskData, { getState, rejectWithValue }) => {
   console.log('createTask called with data:', taskData);
   try {
     // Создаем новую задачу с локальным ID
@@ -53,9 +53,7 @@ export const createTask = createAsyncThunk('tasks/create', async (taskData, { di
 
     console.log('Creating new task locally:', newTask);
     
-    // Добавляем задачу в store используя addTask reducer
-    dispatch(addTask(newTask));
-    
+    // Возвращаем новую задачу для обработки в extraReducers
     return newTask;
   } catch (err) {
     console.error('Error creating task:', err);
@@ -170,21 +168,22 @@ const tasksSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      // .addCase(createTask.fulfilled, (state, action) => {
-      //   // Используем существующий addTask reducer
-      //   tasksSlice.caseReducers.addTask(state, action);
-      //   state.loading = false;
-      //   state.error = null;
-      // })
-      // .addCase(createTask.rejected, (state, action) => {
-      //   console.error('Помилка при створенні задачі:', action.payload);
-      //   state.loading = false;
-      //   state.error = action.payload;
-      // })
-      // .addCase(createTask.pending, (state) => {
-      //   state.loading = true;
-      //   state.error = null;
-      // });
+      .addCase(createTask.fulfilled, (state, action) => {
+        // Добавляем новую задачу в store
+        state.tasks.push(action.payload);
+        state.loading = false;
+        state.error = null;
+        console.log('Task added to store. Total tasks:', state.tasks.length);
+      })
+      .addCase(createTask.rejected, (state, action) => {
+        console.error('Помилка при створенні задачі:', action.payload);
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(createTask.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      });
   }
 })
 
