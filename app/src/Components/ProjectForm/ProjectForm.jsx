@@ -7,14 +7,14 @@ import styles from './ProjectForm.module.scss';
 import SelectProjectManager from './SelectProjectManager/SelectProjectManager';
 
 export default function ProjectForm({
-    initialValues = { name: '', description: '', deadline: '', managerId: '' },
+    initialValues = { title: '', description: '', deadline: '', managerId: '' },
     onSubmit,
     users = [],
     isEdit
   }) {
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string()
+        title: Yup.string()
             .required('Project name is required')
             .min(2, 'Minimum 2 characters'),
         description: Yup.string()
@@ -24,8 +24,6 @@ export default function ProjectForm({
         managerId: Yup.string()
             .required('Manager is required'),
     });
-
-    // console.log(values)
 
     return(
         <div className={styles.wrapper}>
@@ -38,16 +36,16 @@ export default function ProjectForm({
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values, { resetForm }) => {
-                    onSubmit(values);
+                    onSubmit({ ...values, id: Date.now(), category: 'newProj', img: '01' });
                     if (!isEdit) resetForm();
                 }}
             >
             {({ isSubmitting }) => (
                 <Form className={styles.form}>
                     <div className={styles.formGroup}>
-                        <label htmlFor="name" className={styles.label}>Project Name</label>
+                        <label htmlFor="title" className={styles.label}>Project Name</label>
                         <Field type="text"
-                                name="name"
+                                name="title"
                                 className={styles.input}
                                 placeholder='Enter Project name'
                             />

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
 
 export const fetchProjects = createAsyncThunk(
 	'projects/fetch',
@@ -83,10 +84,11 @@ const projectsSlice = createSlice({
 		},
 		addProject: (state, action) => {
 			const project = action.payload;
+			
+			const deadlineAmount = calculateDaysLeft(project.deadline);
 
-			const newId = Date.now();
-			const newProject = { ...project, id: newId };
-		  
+			const newProject = { ...project, deadlineAmount };
+
 			const category = project.category || 'newProj';
 
 			if (state.projectsCategories[category]) {
@@ -101,8 +103,22 @@ const projectsSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchProjects.fulfilled, (state, action) => {
-				state.projectsCategories = action.payload || {};
-				state.projectsList = Object.values(state.projectsCategories).flat();
+				const rawCategories = action.payload || {};
+
+  				const enrichedCategories = Object.fromEntries(
+    				Object.entries(rawCategories).map(([category, arr]) => [
+      					category,
+      					arr.map(project => ({
+        					...project,
+        					deadlineAmount: calculateDaysLeft(project.deadline)
+      					}))
+    				])
+  				);
+
+  				state.projectsCategories = enrichedCategories;
+  				state.projectsList = Object.values(enrichedCategories).flat();
+				// state.projectsCategories = action.payload || {};
+				// state.projectsList = Object.values(state.projectsCategories).flat();
 			})
 			.addCase(fetchProjects.rejected, (state, action) => {
 				console.error('Failed to fetch projects:', action.payload);

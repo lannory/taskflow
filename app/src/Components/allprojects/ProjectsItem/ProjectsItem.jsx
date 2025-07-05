@@ -11,6 +11,8 @@ function ProjectsItem({obj}) {
 
 	const dispatch = useDispatch();
 
+	console.log(obj)
+
 	const dropdownMenu = [
 		{
 		  key: '1',
@@ -63,7 +65,12 @@ function ProjectsItem({obj}) {
 				<div className={styles.projectDeadline}>
 					<div className={styles.deadline}>
 						<i className={styles.icon + " fa-regular fa-clock"}></i>
-						{obj.deadlineAmount} {obj.deadlineUnit} left
+						{obj.deadlineAmount > 0 
+						? `${obj.deadlineAmount} days left` 
+						: obj.deadlineAmount === 0
+    					? 'Deadline is today!'
+    					: 'Overdue'}
+						{/* {obj.deadlineAmount} {obj.deadlineUnit} left */}
 					</div>
 				</div>
 			
