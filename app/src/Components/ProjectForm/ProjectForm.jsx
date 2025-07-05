@@ -85,7 +85,11 @@ export default function ProjectForm({
               <ErrorMessage name="managerId" component="div" className={styles.error} />
             </div>
 
-            <BigButton disabled={isSubmitting} text={isEdit ? 'Save Project' : 'Create Project'} style='purple' />
+            <BigButton
+              disabled={isSubmitting}
+              text={isEdit ? 'Save Project' : 'Create Project'} style='purple'
+              type="submit"
+            />
           </Form>
         )}
       </Formik>

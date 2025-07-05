@@ -2,7 +2,7 @@ import styles from './BigButton.module.scss';
 import React from "react"
 
 
-export default function BigButton({ text, style, onClick }) {
+export default function BigButton({ text, style, onClick, type = "button", disabled }) {
   let colorClass = '';
 
   if (style === 'purple') {
@@ -14,6 +14,13 @@ export default function BigButton({ text, style, onClick }) {
   const className = `${styles.BigButton} ${colorClass}`;
 
   return (
-    <button className={className} onClick={onClick}>{text}</button>
+    <button 
+      className={className} 
+      onClick={onClick} 
+      type={type}
+      disabled={disabled}
+    >
+      {text}
+    </button>
   );
 }

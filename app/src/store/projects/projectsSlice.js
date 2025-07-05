@@ -94,6 +94,12 @@ const projectsSlice = createSlice({
 	}
 });
 
-export const { changeSort, changeShown, sorting, deleteProject, setSearchValue } = projectsSlice.actions;
+export const {
+  changeSort,
+  changeShown,
+  sorting,
+  deleteProject, 
+  setSearchValue
+} = projectsSlice.actions;
 
 export default projectsSlice.reducer;
