@@ -9,7 +9,6 @@ const team = [
 			reviews: 750,
             role: "manager",
 			img: "01",
-			id: 1
 		},
 		{
 			id: 2,
@@ -21,7 +20,6 @@ const team = [
 			reviews: 970,
             role: "developer",
 			img: "02",
-			id: 2
 		},
 		{
 			id: 3,
@@ -33,7 +31,6 @@ const team = [
 			reviews: 830,
             role: "developer",
 			img: "03",
-			id: 3
 		},
 		{
 			id: 4,
@@ -45,7 +42,6 @@ const team = [
 			reviews: 870,
             role: "developer",
 			img: "04",
-			id: 4
 		},
 		{
 			id: 5,
@@ -57,7 +53,6 @@ const team = [
 			reviews: 730,
             role: "manager",
 			img: "05",
-			id: 5
 		},
 		{
 			id: 6,
@@ -69,7 +64,6 @@ const team = [
 			reviews: 910,
             role: "developer",
 			img: "06",
-			id: 6
 		},
 
 	]
