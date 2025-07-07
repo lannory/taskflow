@@ -1,0 +1,48 @@
+@use "../../assets/styles/colorVariables.scss" as *;
+
+.StatisticWrapper {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: var(--Black);
+    width: 329px;
+    height: 210px;
+    box-sizing: border-box;
+    padding: 24px 24px 20px 29px;
+    background-color: var(--White);
+    border-radius: 24px;
+
+    .StatisticTitle {
+        font-size: 19.6px;
+        line-height: 29px;
+        font-weight: 400;
+        margin-bottom: 32px;
+    }
+
+
+    .StatisticContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .StatisticNumber {
+            font-weight: 400;
+            font-size: 30.8px;
+            line-height: 46px;
+        }
+
+        .StatisticIcon {
+            color: var(--Projects-blue);
+            background-color: var(--Pending-background);
+            border-radius: 26px;
+            font-size: 46px;
+            width: 106px;
+            height: 106px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+
+}

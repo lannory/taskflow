@@ -1,0 +1,76 @@
+@use '../../assets/styles/colorVariables.scss' as *;
+
+.ProjectSummaryContainer {
+    width: 700px;
+    color: var(--Black);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .ProjectSummaryHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // gap: 60px;
+
+        .ProjectSummaryTitle {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .ProjectSummaryDropdowns {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .dropdownElement {
+                color: var(--Black);
+                background-color: var(--Gray-400);
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                padding: 6.5px 14px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-radius: 17px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--Gray-300);
+                }
+
+                i {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .ProjectSummaryTable {
+        width: 100%;
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+
+        thead {
+            border-bottom: 1px solid var(--BlackGray-300);
+
+            th {
+                padding-bottom: 10px;
+            }
+        }
+
+        tbody {
+            tr:first-child {
+                td {
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+}

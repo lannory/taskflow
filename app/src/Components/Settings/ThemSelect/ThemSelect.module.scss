@@ -12,9 +12,12 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
+  color: var(--Black);
 }
 
 .field select {
+  color: var(--Black);
+  background-color: var(--White);
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -23,9 +26,9 @@
   height: 50px;
   padding: 8px;
   border-radius: 6px;
-  border: 1px solid $Gray-300;
+  border: 1px solid var(--Gray-300);
 
   &:focus-visible {
-    border-color: $Gray-500;
+    border-color: var(--Gray-500);
   }
 }

@@ -3,18 +3,23 @@ import styles from "./Sidebar.module.scss";
 import SidebarItem from "../SidebarItem/SidebarItem";
 import logo from "../../assets/Hillel-Logo.png";
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const menuItems = [
-    { icon: "fa-solid fa-table-cells-large", label: "Overview", link: '/', },
-    { icon: "fa-solid fa-folder", label: "Projects", link: '/allprojects', },
-    { icon: "fa-solid fa-book-open", label: "Tasks", link: '/alltasks', },
-    { icon: "fa-solid fa-user", label: "Your Team", link: '/team', },
-    { icon: "fa-solid fa-gear", label: "Settings", link: '/settings', },
-];
+
 
 export default function Sidebar() {
     const navigate = useNavigate();
     const location = useLocation();
+    
+    const {t} = useTranslation();
+
+    const menuItems = [
+        { icon: "fa-solid fa-table-cells-large", label: t("sidebar.overview"), link: '/', },
+        { icon: "fa-solid fa-folder", label: t("sidebar.projects"), link: '/allprojects', },
+        { icon: "fa-solid fa-book-open", label: t("sidebar.tasks"), link: '/alltasks', },
+        { icon: "fa-solid fa-user", label: t("sidebar.yourTeam"), link: '/team', },
+        { icon: "fa-solid fa-gear", label: t("sidebar.settings"), link: '/settings', },
+    ];
 
 
     return (

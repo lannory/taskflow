@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  tasks: [],
-  editTask: null,
-  selectedProjectId: null,
+  tasks: '',
   searchValue: '',
   activeStatus: '',
   sortField: null,
@@ -11,8 +9,7 @@ const initialState = {
   allTasksTicked: false,
   expandedRows: [],
   searchDate: '',
-  loading: false,
-  error: null,
+  editTask: null,
 };
 
 export const fetchTasks = createAsyncThunk('tasks/fetch', async (_, { getState, rejectWithValue }) => {
@@ -140,17 +137,8 @@ const tasksSlice = createSlice({
     },
     deleteTask(state, action) {
       state.tasks = state.tasks.filter(item => item.id !== action.payload);
-      if (state.editTask?.id === action.payload) {
-        state.editTask = null;
-      }
-    },
-    addTask(state, action) {
-      const newTask = action.payload;
-      state.tasks.push(newTask);
-    },
-    clearEditTask(state) {
-      state.editTask = null;
-    },
+    }
+    
   },
   extraReducers: builder => {
     builder
@@ -200,9 +188,6 @@ export const {
   searchByDate,
   addEditTask,
   saveEditedTask,
-  setSelectedProject,
-  addTask,
-  clearEditTask,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

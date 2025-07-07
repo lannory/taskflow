@@ -32,12 +32,12 @@
       font-size: 16px;
       line-height: 24px;
       border-radius: 8px;
-      border: 1px solid $Default-border;
-      background-color: $White;
-      color: $Gray-500;
+      border: 1px solid var(--Default-border);
+      background-color: var(--White);
+      color: var(--Gray-500);
 
       &:focus-visible {
-        border: 1px solid $Default-border;
+        border: 1px solid var(--Default-border);
       }
 
       &::placeholder {
@@ -50,10 +50,12 @@
 
     .textarea {
       resize: none;
+
+
     }
 
     .error {
-      color: $Error-red;
+      color: var(--Error-red);
       font-size: 14px;
       margin-top: 10px;
     }
@@ -62,7 +64,14 @@
       appearance: none;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 L70,100 L120,50' stroke='%23666' stroke-width='15' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;
       background-size: 16px;
-      background-color: $White;
+      background-color: var(--White);
+    }
+
+    &::placeholder {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }

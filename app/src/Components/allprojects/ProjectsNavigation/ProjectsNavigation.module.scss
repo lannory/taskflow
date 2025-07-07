@@ -31,33 +31,34 @@
 	letter-spacing: -0.24px;
 
 	border-radius: 10px;
-	border: 1px solid $White-hover;
+	border: 1px solid var(--White-hover);
 	padding: 14px 28px;
 	font-family: "Poppins", sans-serif;
 
 }
 
 .searchInput {
-	background-color: $White;
+	background-color: var(--White);
 	border-radius: 10px;
-	border: 1px solid $White-hover;
+	border: 1px solid var(--White-hover);
 	padding: 14px 28px;
 	min-width: 480px;
 
 	&::placeholder {
-		color: $Secondary-400;
+		color: var(--Secondary-400);
 		font-size: 12px;
 		letter-spacing: -0.12px;
 	}
 
 	    &:focus {
-        border-color: $Gray-500;
+        border-color: var(--Gray-500);
         outline: none;
     }
 
 }
 
 .searchBtn {
+	color: var(--Black);
 	position: absolute;
 	transform: translateY(-50%);
 	top: 50%;
@@ -65,5 +66,10 @@
 }
 
 .categoryMenu, .sortMenu{
-	background-color: $White;
+
+	button{
+		color: var(--Black);
+		background-color: var(--White);
+		border-radius: 10px;
+	}
 }

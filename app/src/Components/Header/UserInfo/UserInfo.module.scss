@@ -18,7 +18,7 @@
     font-size: 16px;
     line-height: 28px;
     width: max-content;
-    color: $Secondary-400;
+    color: var(--Secondary-400);
     margin: 8px 0 0 0;
     padding: 0;
 }
@@ -35,7 +35,7 @@
 .headerAlert {
     width: 52px;
     height: 52px;
-    border: 1px solid $White-hover;
+    border: 1px solid var(--White-hover);
     border-radius: 50%;
     background-color: transparent;
     display: flex;
@@ -47,12 +47,12 @@
 
 .headerAlert i {
     font-size: 24px;
-    color: $Secondary-300;
+    color: var(--Secondary-300);
     line-height: 1;
 }
 
 .headerAlert:hover {
-    background-color: $White-hover;
+    background-color: var(--White-hover);
 }
 
 .headerAlert i {

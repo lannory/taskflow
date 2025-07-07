@@ -1,0 +1,36 @@
+@use '../../../assets/styles/colorVariables.scss' as *;
+
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  gap: 8px;
+  padding: 6px auto;
+
+  .LabelField{
+    height: auto;
+    font: 500 14px/20px 'Inter', sans-serif;
+  }
+
+  .inputField{
+    width: 100%;
+    max-width: 470px;
+    height: auto;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: solid 1px var(--Gray-300);
+    font: 400 14px 'Poppins', sans-serif;
+    line-height: 20px;
+    color: var(--Gray-900);
+    background-color: var(--White);
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: var(--Gray-500);
+      outline: none;
+    }
+  }
+}

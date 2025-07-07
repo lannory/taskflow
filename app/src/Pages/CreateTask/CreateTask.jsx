@@ -10,9 +10,25 @@ import BigButton from '../../Components/BigButton/BigButton';
 import ProjectSelect from "../../Components/CreateTask/ProjectSelect/ProjectSelect"
 import styles from "./CreateTaskForm.module.scss";
 
+
 export default function CreateTaskForm({
   initialValues = {
     title: '',
+
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+
+const CreateTaskForm = () => {
+  const [projectName, setProjectName] = useState('');
+  const [description, setDescription] = useState('');
+  const [deadline, setDeadline] = useState('');
+  const [manager, setManager] = useState('');
+  const {t} = useTranslation();
+  const navigate = useNavigate();
+
+  const initialValues = {
+    projectName: '',
     description: '',
     duoDate: '',
     userID: '',
@@ -75,10 +91,9 @@ export default function CreateTaskForm({
   return (
     <div className={styles.create_task}>
       <div className={styles.createTaskHeader}>
-        <BigTitle text={isEdit ? 'Edit Task' : 'Create Task'} />
-      </div>
 
-      {error && <div className={styles.error}>Error: {error}</div>}
+        <h2 className={styles.titleTask}>{t('tasks.form.createTitle')}</h2>
+      </div>
 
       <Formik
         initialValues={initialValues}

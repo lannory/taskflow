@@ -8,7 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 24px;
-	background-color: $White;
+	background-color: var(--White);
 }
 
 .person {
@@ -31,7 +31,7 @@
 }
 
 .job {
-	color: $Secondary-400;
+	color: var(--Secondary-400);
 
 
 	font-size: 12px;
@@ -39,7 +39,7 @@
 }
 
 .text {
-	color: $Secondary-300;
+	color: var(--Secondary-300);
 
 	font-size: 14px;
 	font-weight: 500;
@@ -55,6 +55,10 @@
 	display: flex;
 	column-gap: 8px;
 	align-items: center;
+
+	&:hover{
+		color: var(--Projects-blue)
+	}
 	
 }
 
@@ -66,5 +70,5 @@
 }
 
 .icon{
-	color: $Secondary-400;
+	color: var(--Secondary-400);
 }

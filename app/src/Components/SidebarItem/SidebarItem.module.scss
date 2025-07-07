@@ -6,7 +6,7 @@
     gap: 12px;
     padding: 10px 16px;
     border-radius: 10px;
-    color: $Secondary-300;
+    color: var(--Secondary-300);
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
@@ -14,12 +14,12 @@
 }
 
 .menuItem:hover {
-    color: $Secondary-500;
+    color: var(--Secondary-500);
 }
 
 .active {
-    background-color: $White-hover;
-    color: $Black;
+    background-color: var(--White-hover);
+    color: var(--Black);
 }
 
 .icon {

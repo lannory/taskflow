@@ -1,19 +1,19 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 
 .purpleButton {
-  background-color: $Base-purple;
+  background-color: var(--Base-purple);
 }
 
 .purpleButton:hover {
-  background-color: $Base-purple-hover; /* темніший синьо-фіолетовий */
+  background-color: var(--Base-purple-hover); /* темніший синьо-фіолетовий */
 }
 
 .redButton {
-  background-color: $Error-red;
+  background-color: var(--Error-red);
 }
 
 .redButton:hover {
-  background-color: $Error-red-hover; /* темніший червоний */
+  background-color: var(--Error-red-hover); /* темніший червоний */
 }
 
 
@@ -25,7 +25,7 @@
     padding: 8px 42px;
     border-radius: 8px;
     border: none;
-    color: $White;
+    color: var(--White);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
 }

@@ -18,16 +18,16 @@
 :global(.ant-select-single .ant-select-selector) {
     padding: 10px 14px !important;
     border-radius: 8px;
-    border: 1px solid $Default-border!important;
-    background-color: $White;
+    border: 1px solid var(--Default-border)!important;
+    background-color: var(--White) !important;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     line-height: 24px;
-    color: $Gray-500;
+    color: var(--Gray-500);
 }
 
 :global(.ant-select-selection-placeholder) {
-    color: $Gray-500;
+    color: var(--Gray-500) !important;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -35,6 +35,6 @@
 }
 
 :global(.ant-select-focused .ant-select-selector) {
-    border-color: $Default-border;
+    border-color: var(--Default-border);
     box-shadow: none;
 }

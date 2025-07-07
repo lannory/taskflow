@@ -23,6 +23,10 @@
 	align-items: center;
 	column-gap: 10px;
 	
+	button{
+		color: var(--Black);
+	}
+	
 }
 
 .slick-slide > div {
@@ -36,10 +40,10 @@
 
 
 .icon{
-	color: $Secondary-400;
+	color: var(--Secondary-400);
 }
 
 .navIcon{
-	color: $Secondary-300;
+	color: var(--Secondary-300);
 }
 

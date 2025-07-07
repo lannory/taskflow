@@ -1,5 +1,10 @@
 @use '../../assets/styles/colorVariables.scss' as *;
 .container{
-	color: $Secondary-500;
+	color: var(--Secondary-500);
 	font-family: "Plus Jakarta Sans", sans-serif;
+	width: 1408px;
+}
+.btn{
+	width: 150px;
+	margin: 20px auto;
 }
