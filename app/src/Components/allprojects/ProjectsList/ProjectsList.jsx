@@ -4,14 +4,28 @@ import styles from './ProjectsList.module.scss';
 import ProjectsItem from '../ProjectsItem/ProjectsItem';
 import { Empty } from 'antd';
 import {useTranslation} from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 function ProjectsList({ arr }) {
 
 	const {t} = useTranslation();
+	const filtred = useSelector(state => state.projects.filtred);
+	const users = useSelector(state => state.users.users);
+
+
+	let user;
+
+	if(filtred.isFiltred){
+		console.log(users)
+		user = users.find(usr => usr.id == filtred.filtredBy);
+	}
+
 
 	return (
 		<div className={styles.wrapper}>
-			<SmallTitle text={t('projects.title.allProjects')} />
+			<div className={styles.title}>
+				<SmallTitle text={!filtred.isFiltred ? t('projects.title.allProjects') : t('projects.labels.manager') + user.name} />
+			</div>
 			<div className={styles.list}>
 				{arr.length == 0 ? <Empty/> :arr.map(item => <ProjectsItem obj={item} key={item.title}/>)}
 			</div>

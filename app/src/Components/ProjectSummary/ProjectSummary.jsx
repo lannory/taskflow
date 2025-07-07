@@ -3,9 +3,12 @@ import styles from './ProjectSummary.module.scss'
 import { Dropdown, Empty } from 'antd';
 import StatusButton from '../AllTasks/StatusButton/StatusButton';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 
 function ProjectSummary() {
+
+	const {t} = useTranslation();
 
 	const projects = useSelector(state => state.projects.projectsList);
 	const team = useSelector(state => state.users.users);
@@ -110,7 +113,7 @@ function ProjectSummary() {
 						trigger={['click']}
 					>
 						<span className={styles.dropdownElement}>
-							{selectedProject ? projects.find(p => p.id === selectedProject)?.title : 'Project'}
+							{selectedProject ? projects.find(p => p.id === selectedProject)?.title : t('projSummary.labels.proj')}
 							{selectedProject === null ?
 							<i className="fa-solid fa-angle-down"></i> :
 							<i className="fa-solid fa-xmark" onClick={() => setSelectedProject(null)}></i>}
@@ -121,7 +124,7 @@ function ProjectSummary() {
 						trigger={['click']}
 					>
 						<span className={styles.dropdownElement}>
-							{selectedManager ? team.find(m => m.id === selectedManager)?.name : 'Manager'}
+							{selectedManager ? team.find(m => m.id === selectedManager)?.name : t('projSummary.labels.manager')}
 							{selectedManager === null ?
 							<i className="fa-solid fa-angle-down"></i> :
 							<i className="fa-solid fa-xmark" onClick={() => setSelectedManager(null)}></i>}
@@ -144,10 +147,10 @@ function ProjectSummary() {
 				<table className={styles.ProjectSummaryTable}>
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Project manager</th>
-							<th>Deadline</th>
-							<th>Progress</th>
+							<th>{t('projSummary.name')}</th>
+							<th>{t('projSummary.manager')}</th>
+							<th>{t('projSummary.deadline')}</th>
+							<th>{t('projSummary.progress')}</th>
 						</tr>
 					</thead>
 					<tbody>

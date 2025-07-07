@@ -55,6 +55,10 @@
 	display: flex;
 	column-gap: 8px;
 	align-items: center;
+
+	&:hover{
+		color: var(--Projects-blue)
+	}
 	
 }
 

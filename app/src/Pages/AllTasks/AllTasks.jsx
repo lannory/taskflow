@@ -52,7 +52,7 @@ export default function AllTasks() {
                 </div>
             </div>
             <div className={styles.allTasksTitle}>
-                <BigTitle text={activeStatus ? activeStatus : t("tasks.title")} />
+                <BigTitle text={activeStatus ? t(`tasks.status.${activeStatus}`) : t("tasks.title")} />
                 <BigButton text={t("tasks.btn")} style="purple" onClick={() => navigate('/createtask')}/>
             </div>
             <TasksTable  tasks={tasks}/>

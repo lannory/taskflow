@@ -10,7 +10,7 @@ const projects = {
 			deadlineUnit: 'days',
 			people: 3,
 			desc: 'Follow the video tutorial above. Understand how to use each tool in the Figma application. Also learn how to make a good and correct design. Starting from spacing, typography, content, and many other design hierarchies. Then try to make it yourself with your imagination and inspiration.',
-			managerId: 5
+			managerId: 5,
 		},
 		{
 			id: 2,
