@@ -19,6 +19,7 @@ import { setAuth } from "./store/Auth/AuthSlice";
 import { fetchTasks } from "./store/Tasks/TasksSlice";
 import { fetchUsers } from "./store/Users/usersSlice";
 import { fetchProjects } from "./store/projects/projectsSlice";
+import EditProject from "./Pages/ProjectEditPage/EditProject";
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
             <Route path='/allprojects/:id' element={<DetailProjectPage />} />
             <Route path='/team' element={<TeamPage />} />
             <Route path='/settings' element={<SettingsForm />} />
+            <Route path="/projects/edit/:id" element={<EditProject />} />
           </Routes>
         </div>
       </div>

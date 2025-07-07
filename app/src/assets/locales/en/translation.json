@@ -48,7 +48,8 @@
 			"days": "days",
 			"day": "day",
 			"hour": "hour",
-			"hours": "hours"
+			"hours": "hours",
+			"overdue": "Overdue"
 		},
 		"labels": {
       		"progress": "Progress",

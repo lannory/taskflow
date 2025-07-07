@@ -49,6 +49,14 @@ const projectsSlice = createSlice({
 		sorting: (state, action) => {
 			let entries = Object.entries(state.projectsCategories);
 
+			entries = entries.map(([key, arr]) => [
+				key,
+				arr.map(project => ({
+				  	...project,
+				  	deadlineAmount: calculateDaysLeft(project.deadline)
+				}))
+			]);
+
 			if(state.sortType == 'deadline'){
 				if(state.sortDirection == 'increase'){
 					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
@@ -84,7 +92,7 @@ const projectsSlice = createSlice({
 		},
 		addProject: (state, action) => {
 			const project = action.payload;
-			
+
 			const deadlineAmount = calculateDaysLeft(project.deadline);
 
 			const newProject = { ...project, deadlineAmount };
@@ -97,6 +105,30 @@ const projectsSlice = createSlice({
 			  state.projectsCategories[category] = [newProject];
 			}
 
+			state.projectsList = Object.values(state.projectsCategories).flat();
+		},
+		editProject: (state, action) => {
+			const updatedProject = action.payload;
+			const entries = Object.entries(state.projectsCategories);
+
+			state.projectsCategories = Object.fromEntries(
+			  	entries.map(([key, arr]) => [
+					key,
+					arr.map(project => project.id === updatedProject.id ? updatedProject : project)
+			  	])
+			);
+
+			state.projectsList = Object.values(state.projectsCategories).flat();
+		},
+		updateProject: (state, action) => {
+			const updated = action.payload;
+			const entries = Object.entries(state.projectsCategories);
+			state.projectsCategories = Object.fromEntries(
+			  	entries.map(([key, arr]) => [
+					key,
+					arr.map((item) => (item.id === updated.id ? updated : item))
+			  	])
+			);
 			state.projectsList = Object.values(state.projectsCategories).flat();
 		}
 	},
@@ -117,8 +149,6 @@ const projectsSlice = createSlice({
 
   				state.projectsCategories = enrichedCategories;
   				state.projectsList = Object.values(enrichedCategories).flat();
-				// state.projectsCategories = action.payload || {};
-				// state.projectsList = Object.values(state.projectsCategories).flat();
 			})
 			.addCase(fetchProjects.rejected, (state, action) => {
 				console.error('Failed to fetch projects:', action.payload);
@@ -126,6 +156,6 @@ const projectsSlice = createSlice({
 	}
 });
 
-export const {changeSort, changeShown, sorting, deleteProject, setSearchValue, addProject} = projectsSlice.actions;
+export const {changeSort, changeShown, sorting, deleteProject, setSearchValue, addProject, editProject, updateProject} = projectsSlice.actions;
 
 export default projectsSlice.reducer;

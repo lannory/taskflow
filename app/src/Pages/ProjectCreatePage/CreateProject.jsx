@@ -19,13 +19,21 @@ export default function CreateProject() {
         navigate('/allprojects');
     };
 
-  return (
-    <div>
-      <ProjectForm
-        users={users}
-        onSubmit={handleCreate}
-        isEdit={false}
-      />
-    </div>
-  );
+    const initialValues = {
+        title: '',
+        desc: '',
+        deadline: '',
+        managerId: '',
+    };
+
+    return (
+        <div>
+            <ProjectForm
+                initialValues = {initialValues}
+                users={users}
+                onSubmit={handleCreate}
+                isEdit={false}
+            />
+        </div>
+    );
 };
