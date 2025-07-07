@@ -3,17 +3,21 @@ import React from 'react';
 import ProjectsNavigation from '../../Components/allprojects/ProjectsNavigation/ProjectsNavigation';
 import styles from './AllProjects.module.scss'
 import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/ProjectsSlider';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
 import {useTranslation}from 'react-i18next';
+import BigButton from '../../Components/BigButton/BigButton';
+import { filterProjects } from '../../store/projects/projectsSlice';
 
 function AllProjects() {
 
 	const projectsCategories = useSelector(state => state.projects.projectsCategories),	
 		projectsList = useSelector(state => state.projects.projectsList),
-		searchValue = useSelector(state => state.projects.searchValue);
+		searchValue = useSelector(state => state.projects.searchValue),
+		filtred = useSelector(state => state.projects.filtred);
 
-	const {t} = useTranslation()
+	const {t} = useTranslation();
+	const dispatch = useDispatch();
 
 	let shownProjectsCategories = {...projectsCategories},
 		shownProjectsList = [...projectsList];
@@ -28,14 +32,38 @@ function AllProjects() {
 		console.log(shownProjectsCategories);
 	}
 
+	if(filtred.isFiltred){
+		shownProjectsList = projectsList.filter(proj => proj.managerId == filtred.filtredBy);
+	}
+
+	const handleShowAll = () =>{
+		shownProjectsList = [...projectsList];
+		console.log(filtred.isFiltred)
+		dispatch(filterProjects());
+		console.log(filtred.isFiltred)
+
+	}
+
 	return (
 		<div className={styles.container}>
-			<ProjectsNavigation />
-			{shownBy == 'category' ?
-				<><ProjectsSlider title={t('projects.title.newProject')} projects={shownProjectsCategories.newProj} />
-				  <ProjectsSlider title={t('projects.title.timeLimit')} projects={shownProjectsCategories.timeLim} />
+			
+			{!filtred.isFiltred ? 
+				(<>
+					<ProjectsNavigation/>
+					{shownBy == 'category' ?
+					<><ProjectsSlider title={t('projects.title.newProject')} projects={shownProjectsCategories.newProj} />
+					<ProjectsSlider title={t('projects.title.timeLimit')} projects={shownProjectsCategories.timeLim} />
+					</>
+					: <ProjectsList arr={shownProjectsList}/>}
 				</>
- 				: <ProjectsList arr={shownProjectsList}/>}
+				) 
+				: (<>
+						<ProjectsList arr={shownProjectsList}/>
+						<div className={styles.btn}>
+							<BigButton onClick={handleShowAll} text='Show All' style='purple'/>
+						</div>
+				</>)
+			}
 		</div>
 	);
 }

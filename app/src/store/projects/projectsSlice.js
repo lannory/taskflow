@@ -28,7 +28,11 @@ const initialState = {
 	shownBy: 'category',
 	sortType: null,
 	sortDirection: null,
-	searchValue: ''
+	searchValue: '',
+	filtred: {
+		isFiltred: false,
+		filtredBy: null
+	}
 }
 
 
@@ -80,6 +84,14 @@ const projectsSlice = createSlice({
 		setSearchValue: (state, action) => {
 			state.searchValue = action.payload;
 			return state;
+		},
+		filterProjects: (state, action) =>{
+			if(action.payload){
+				state.filtred.isFiltred = true;
+			}else{
+				state.filtred.isFiltred = false;
+			}
+			state.filtred.filtredBy = action.payload;
 		}
 	},
 	extraReducers: (builder) => {
@@ -94,6 +106,6 @@ const projectsSlice = createSlice({
 	}
 });
 
-export const { changeSort, changeShown, sorting, deleteProject, setSearchValue } = projectsSlice.actions;
+export const { changeSort, changeShown, sorting, deleteProject, setSearchValue, filterProjects } = projectsSlice.actions;
 
 export default projectsSlice.reducer;
