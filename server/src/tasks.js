@@ -16,7 +16,7 @@ const tasks = [
         tick: false,
         title: 'UI Design Draft',
         taskCreated: '2024-01-12',
-        duoDate: '2025-06-17',
+        duoDate: '2025-07-07',
         status: 'Re work',
         description: 'Initial draft of the UI mockups for the dashboard and user profile pages.',
         userId: 3,

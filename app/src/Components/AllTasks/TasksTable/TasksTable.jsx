@@ -6,10 +6,13 @@ import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, s
 import { useDispatch, useSelector } from 'react-redux';
 import { t } from 'i18next';
 import BigButton from '../../BigButton/BigButton';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function TasksTable({tasks, isProjectsTasks = false}) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const sortField = useSelector((state) => state.tasks.sortField);
     const sortDirection = useSelector((state) => state.tasks.sortDirection);
@@ -211,6 +214,7 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
                             </td>
                             {!isProjectsTasks && <td>{t('tasks.table.project')}</td>}
                             <td>{t('tasks.table.status')}</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -239,7 +243,11 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
                                     </td>
                                     <td>{formatDate(task.taskCreated)}</td>
                                     <td>{formatDate(task.duoDate)}</td>
-                                    {isProjectsTasks ? '' : <td>{task.projectName}</td>}
+                                    {isProjectsTasks ? '' : <td onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(`/allprojects/${task.projectId}`);
+                                        // to={`/allprojects/${obj.id}`}
+                                    }}>{task.projectName}</td>}
                                     <td>
                                         <Dropdown
                                             menu={{ items: getTaskStatuses(task) }}
