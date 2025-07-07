@@ -7,9 +7,15 @@ import StatistickBlock from "../../Components/StatistickBlock/StatistickBlock";
 export default function Overview() {
     return (
         <div className={styles.OverviewWrapper}>
-            <TodaysTask />
-            <ProjectSummary />
-            <StatistickBlock type="total_tasks" />
+            <div className={styles.OverviewLeft}>
+                <TodaysTask />
+                <ProjectSummary />
+            </div>
+            <div className={styles.OverviewRight}>
+                <StatistickBlock type="total_tasks" />
+                {/* <StatistickBlock type="total_tasks" /> */}
+                {/* <StatistickBlock type="total_tasks" /> */}
+            </div>
         </div>
     )
 }
