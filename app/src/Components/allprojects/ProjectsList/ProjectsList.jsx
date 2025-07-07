@@ -23,7 +23,9 @@ function ProjectsList({ arr }) {
 
 	return (
 		<div className={styles.wrapper}>
-			<SmallTitle text={!filtred.isFiltred ? t('projects.title.allProjects') : t('projects.labels.manager') + user.name} />
+			<div className={styles.title}>
+				<SmallTitle text={!filtred.isFiltred ? t('projects.title.allProjects') : t('projects.labels.manager') + user.name} />
+			</div>
 			<div className={styles.list}>
 				{arr.length == 0 ? <Empty/> :arr.map(item => <ProjectsItem obj={item} key={item.title}/>)}
 			</div>

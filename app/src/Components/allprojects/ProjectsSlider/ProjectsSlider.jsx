@@ -15,6 +15,7 @@ function ProjectsSlider({ title, projects }) {
 		speed: 500,
 		slidesToShow: 3.2,
 		slidesToScroll: 1,
+		arrows: false,
 	};
 
 	const sliderRef = useRef();

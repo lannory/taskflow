@@ -2,9 +2,10 @@ import React, {  } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
-import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow } from '../../../store/Tasks/TasksSlice';
+import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow, filterTasks } from '../../../store/Tasks/TasksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { t } from 'i18next';
+import BigButton from '../../BigButton/BigButton';
 
 
 export default function TasksTable({tasks, isProjectsTasks = false}) {
@@ -18,7 +19,8 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
     const expandedRows = useSelector((state) => state.tasks.expandedRows);
     const searchDate = useSelector((state) => state.tasks.searchDate);
     const projects = useSelector(state => state.projects.projectsList);
-
+    const filtred = useSelector(state => state.tasks.filtred);
+    
 
     // Обробка кліку по заголовку таблиці для сортування
     const handleSort = (field) => {
@@ -70,6 +72,10 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
             task.duoDate === searchDate
         )
     };
+
+    if(filtred.isFiltred){
+        displayedTasks = displayedTasks.filter(task => task.userId == filtred.filtredBy)
+    }
 
     // Форматування дати
     function formatDate(dateStr) {
@@ -148,6 +154,10 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
         },
     ]
 
+    const handleShowAll = () =>{
+        dispatch(filterTasks());
+        displayedTasks = [...tasks];
+    }
 
 
     return (
@@ -276,6 +286,9 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
                     </tbody>
                 </table>
             )}
+            {filtred.isFiltred && <div className={styles.showBtn}>
+                <BigButton style='purple' text={t("show")} onClick={handleShowAll}/>
+            </div>}
         </>
     );
 }

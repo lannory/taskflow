@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {filterProjects} from '../../../store/projects/projectsSlice';
+import { filterTasks } from '../../../store/Tasks/TasksSlice';
 
 
 function TeamItem({obj}) {
@@ -29,7 +30,8 @@ function TeamItem({obj}) {
 			dispatch(filterProjects(obj.id));
 			navigate('/allprojects');
 		}else{
-			dispatch
+			dispatch(filterTasks(obj.id));
+			navigate('/alltasks')
 		}
 		
 	}

@@ -38,10 +38,7 @@ function AllProjects() {
 
 	const handleShowAll = () =>{
 		shownProjectsList = [...projectsList];
-		console.log(filtred.isFiltred)
 		dispatch(filterProjects());
-		console.log(filtred.isFiltred)
-
 	}
 
 	return (
@@ -60,7 +57,7 @@ function AllProjects() {
 				: (<>
 						<ProjectsList arr={shownProjectsList}/>
 						<div className={styles.btn}>
-							<BigButton onClick={handleShowAll} text='Show All' style='purple'/>
+							<BigButton onClick={handleShowAll} text={t("show")} style='purple'/>
 						</div>
 				</>)
 			}
