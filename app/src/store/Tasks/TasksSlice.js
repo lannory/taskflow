@@ -98,6 +98,10 @@ const tasksSlice = createSlice({
         state.searchDate = date;
       }
     },
+    addTask(state, action) {
+      const newTask = action.payload;
+      state.tasks.push(newTask);
+    },
     addEditTask(state, action) {
       // записквати в editTask 
       const taskId = action.payload;
@@ -160,6 +164,7 @@ export const {
   addEditTask,
   saveEditedTask,
   filterTasks,
+  addTask,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

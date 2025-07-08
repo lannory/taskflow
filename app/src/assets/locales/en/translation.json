@@ -93,12 +93,19 @@
 		"btn": "New Task",
 		"pendingToday": "Today’s Pending Reviews",
 		"form": {
+			"editTitle": "Edit Task",
 			"createTitle": "Create Task",
 			"projectName": "Task Name",
 			"descriptionPlaceholder": "Enter a description...",
 			"deadline": "Task Deadline",
 			"datePlaceholder": "DD/MM/YYYY",
-			"managerPlaceholder": "Select Project Manager"
+			"managerPlaceholder": "Select Project Manager",
+
+			"projectPlaceholder": "Select Project",
+			"saveButton": "Save Task",
+			"createButton": "Create Task",
+			"namePlaceholder": "Enter Task name",
+			"manager": "Task Developer"
     	}
 	},
 	"team":{
