@@ -10,6 +10,11 @@ const initialState = {
   expandedRows: [],
   searchDate: '',
   editTask: null,
+  filtred: {
+		isFiltred: false,
+		filtredBy: null
+	}
+
 };
 
 export const fetchTasks = createAsyncThunk('tasks/fetch', async (_, { getState, rejectWithValue }) => {
@@ -93,6 +98,10 @@ const tasksSlice = createSlice({
         state.searchDate = date;
       }
     },
+    addTask(state, action) {
+      const newTask = action.payload;
+      state.tasks.push(newTask);
+    },
     addEditTask(state, action) {
       // записквати в editTask 
       const taskId = action.payload;
@@ -110,7 +119,15 @@ const tasksSlice = createSlice({
     },
     deleteTask(state, action) {
       state.tasks = state.tasks.filter(item => item.id !== action.payload);
-    }
+    },
+    filterTasks: (state, action) =>{
+			if(action.payload){
+				state.filtred.isFiltred = true;
+			}else{
+				state.filtred.isFiltred = false;
+			}
+			state.filtred.filtredBy = action.payload;
+		}
     
   },
   extraReducers: builder => {
@@ -146,6 +163,8 @@ export const {
   searchByDate,
   addEditTask,
   saveEditedTask,
+  filterTasks,
+  addTask,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
