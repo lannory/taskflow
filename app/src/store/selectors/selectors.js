@@ -5,30 +5,22 @@ import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
 export const selectTasks = state => state.tasks.tasks;
 export const selectProjects = state => state.projects.projectsList;
 
-export const selectProjectsWithProgress = createSelector(
-    [selectProjects, selectTasks],
-    (projects, tasks) => {
-        if (!projects || !tasks) return { newProj: [], timeLim: [] };
+export const selectProjectsEnriched = createSelector(
+  [selectProjects, selectTasks],
+  (projects, tasks) => {
+    if (!projects || !tasks) return { list: [], categories: { newProj: [], timeLim: [] } };
 
-        const categorized = { newProj: [], timeLim: [] };
+    const list = projects.map(project => {
+      const progress = calculateProjectProgress(tasks, project.id);
+      const daysLeft = calculateDaysLeft(project.deadline);
+      return { ...project, progress, daysLeft };
+    });
 
-        projects.forEach(project => {
-            const progress = calculateProjectProgress(tasks, project.id);
-            const daysLeft = calculateDaysLeft(project.deadline);
+    const categories = {
+      newProj: list.filter(p => p.daysLeft === null || p.daysLeft > 7),
+      timeLim: list.filter(p => p.daysLeft !== null && p.daysLeft <= 7),
+    };
 
-            const projectWithExtras = {
-                ...project,
-                progress,
-                daysLeft,
-            };
-
-            if (daysLeft !== null && daysLeft <= 5) {
-                categorized.timeLim.push(projectWithExtras);
-            } else {
-                categorized.newProj.push(projectWithExtras);
-            }
-        });
-
-        return categorized;
-    }
+    return { list, categories };
+  }
 );

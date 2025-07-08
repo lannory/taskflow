@@ -5,12 +5,13 @@ import StatusButton from '../AllTasks/StatusButton/StatusButton';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { getDeadlineLabel } from '../../utils/deadlineUtils';
+import { selectProjectsEnriched } from '../../store/selectors/selectors';
 
 
 function ProjectSummary() {
 	const { t } = useTranslation();
+	const { list: projects } = useSelector(selectProjectsEnriched);
 
-	const projects = useSelector(state => state.projects.projectsList);
 	const team = useSelector(state => state.users.users);
 
 	const [selectedProject, setSelectedProject] = useState(null);

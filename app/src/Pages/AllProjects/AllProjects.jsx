@@ -5,7 +5,7 @@ import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/Projects
 import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { selectProjectsWithProgress } from '../../store/selectors/selectors';
+import { selectProjectsEnriched } from '../../store/selectors/selectors';
 import BigButton from '../../Components/BigButton/BigButton';
 import { filterProjects } from '../../store/projects/projectsSlice';
 
@@ -13,7 +13,8 @@ function AllProjects() {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
 
-	const projectsCategories = useSelector(selectProjectsWithProgress);
+	const { categories: projectsCategories } = useSelector(selectProjectsEnriched);
+
 	const searchValue = useSelector(state => state.projects.searchValue);
 	const shownBy = useSelector(state => state.projects.shownBy);
 	const filtred = useSelector(state => state.projects.filtred);

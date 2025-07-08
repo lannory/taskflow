@@ -15,9 +15,8 @@ export default function EditProject() {
   const { users } = useSelector((state) => state.users);
 
   useEffect(() => {
-      dispatch(fetchProjects());
       dispatch(fetchUsers());
-  }, [dispatch, allProjects.length, users.length]);
+  }, [dispatch, users.length]);
 
   const project = allProjects.find((p) => p.id === +id);
 
@@ -25,7 +24,6 @@ export default function EditProject() {
     dispatch(updateProject(data));
     navigate(`/allprojects/${data.id}`);
   };
-  console.log(allProjects)
 
   if (!allProjects.length || !project) return <p>Loading...</p>;
 

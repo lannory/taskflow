@@ -25,7 +25,6 @@ export default function ProjectForm({
         managerId: Yup.string()
             .required('Manager is required'),
     });
-    console.log("initialValues in ProjectForm:", initialValues);
 
     return(
         <div className={styles.wrapper}>
