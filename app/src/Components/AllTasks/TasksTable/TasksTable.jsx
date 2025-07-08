@@ -2,7 +2,7 @@ import React, {  } from 'react';
 import styles from './TasksTable.module.scss';
 import { Empty, Dropdown } from "antd";
 import StatusButton from '../StatusButton/StatusButton';
-import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow, filterTasks } from '../../../store/Tasks/TasksSlice';
+import { toggleSort, toggleTask, toggleAllTasks, deleteTask, changeTaskStatus, setExtendetRow, filterTasks, addEditTask } from '../../../store/Tasks/TasksSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { t } from 'i18next';
 import BigButton from '../../BigButton/BigButton';
@@ -98,6 +98,8 @@ export default function TasksTable({tasks, isProjectsTasks = false}) {
             ),
             onClick: (e) => {
                 e.domEvent.stopPropagation();
+                dispatch(addEditTask(task.id));
+                navigate('/createtask');
             },
         },
         {

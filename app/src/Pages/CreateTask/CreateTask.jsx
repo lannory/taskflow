@@ -1,25 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { addTask } from '../../store/Tasks/TasksSlice';
+import { addTask, saveEditedTask } from '../../store/Tasks/TasksSlice';
 import TaskForm from "../../Components/CreateTask/TaskForm";
 import { fetchUsers } from '../../store/Users/usersSlice';
 
 export default function CreateTask() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const { users } = useSelector(state => state.users);
+    const { editTask } = useSelector(state => state.tasks);
 
-    useEffect(() => {
-        dispatch(fetchUsers());
-      }, [dispatch]);
-
-    const handleCreate = (data) => {
-        dispatch(addTask(data));
-        navigate('/alltasks');
-    };
-
-    const initialValues = {
+    const emptyValues = {
         title: '',
         description: '',
         duoDate: '',
@@ -27,13 +20,36 @@ export default function CreateTask() {
         projectId: '',
     };
 
+    const isEdit = !!editTask;
+    const initialValues = isEdit
+        ? { ...emptyValues, ...editTask }
+        : emptyValues;
+
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+
+    const handleSubmit = (data) => {
+        if (isEdit) {
+            dispatch(saveEditedTask(data));
+            navigate('/alltasks');
+
+        } else {
+            dispatch(addTask(data));
+            navigate('/alltasks');
+        }
+
+    };
+
+
+
     return (
         <div>
             <TaskForm
-                initialValues = {initialValues}
+                initialValues={initialValues}
                 users={users}
-                onSubmit={handleCreate}
-                isEdit={false}
+                onSubmit={handleSubmit}
+                isEdit={isEdit}
             />
         </div>
     );
