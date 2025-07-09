@@ -2,17 +2,20 @@ import React from 'react';
 import { Select, Avatar } from 'antd';
 import styles from './SelectTaskProject.module.scss';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const { Option } = Select;
 
 export default function SelectTaskProject({ value, onChange }) {
   const projects = useSelector(state => state.projects.projectsList);
 
+  const {t} = useTranslation();
+
   return (
     <div className={styles.wrapper}>
     <Select
         value={value || undefined}
-        placeholder="Select Project"
+        placeholder={t("tasks.form.projectPlaceholder")}
         onChange={onChange}
         classNames={{
             popup: {

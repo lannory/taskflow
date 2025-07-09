@@ -17,16 +17,16 @@ export default function TaskForm({
     const { t } = useTranslation();
     const validationSchema = Yup.object().shape({
         title: Yup.string()
-            .required('Task name is required')
-            .min(2, 'Minimum 2 characters'),
+            .required(t('tasks.validation.title.required'))
+            .min(2, t('tasks.validation.title.min')),
         description: Yup.string()
-            .max(300, 'Maximum 300 characters'),
+            .max(300, t('tasks.validation.description.max')),
         duoDate: Yup.string()
-            .required('Deadline is required'),
+            .required(t('tasks.validation.duoDate.required')),
         userId: Yup.string()
-            .required('Developer is required'),
+            .required(t('tasks.validation.userId.required')),
         projectId: Yup.string()
-            .required('Project is required'),
+            .required(t('tasks.validation.projectId.required')),
     });
     // console.log("initialValues in TaskForm:", initialValues);
 
@@ -89,7 +89,7 @@ export default function TaskForm({
 
                         <div className={styles.formGroup}>
                             <label htmlFor="userId" className={styles.label}>
-                                {t('tasks.form.manager')}
+                                {t('tasks.form.selectDev')}
                             </label>
                             <Field name="userId">
                                 {({ field, form }) => (

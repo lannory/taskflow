@@ -1,17 +1,20 @@
 import React from 'react';
 import { Select, Avatar } from 'antd';
 import styles from './SelectTaskDeveloper.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const { Option } = Select;
 
 export default function SelectTaskDeveloper({ users, value, onChange }) {
   const developers = users.filter(user => user.role === 'developer');
 
+  const {t} = useTranslation();
+
   return (
     <div className={styles.wrapper}>
     <Select
         value={value || undefined}
-        placeholder="Select Developer"
+        placeholder={t('tasks.form.selectDev')}
         onChange={onChange}
         classNames={{
             popup: {

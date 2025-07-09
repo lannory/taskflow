@@ -20,6 +20,10 @@ export default function AllTasks() {
     const activeStatus = useSelector((state) => state.tasks.activeStatus);
 
     const tasks = useSelector((state) => state.tasks.tasks)
+    const users = useSelector(state => state.users.users);
+    const filtred = useSelector(state => state.tasks.filtred);
+    let user;
+
 
     const StatusButtons = [
         { text: 'Approved' },
@@ -35,6 +39,10 @@ export default function AllTasks() {
             dispatch(setActiveStatus(status));
         }
     };
+
+    if(filtred.isFiltred){
+        user = users.find(usr => usr.id === filtred.filtredBy)
+    }
 
     return (
         <>
@@ -52,7 +60,7 @@ export default function AllTasks() {
                 </div>
             </div>
             <div className={styles.allTasksTitle}>
-                <BigTitle text={activeStatus ? t(`tasks.status.${activeStatus}`) : t("tasks.title")} />
+                <BigTitle text={activeStatus ? t(`tasks.status.${activeStatus}`) : filtred.isFiltred ? t("tasks.dev") + ': ' + user.name : t("tasks.title") } />
                 <BigButton text={t("tasks.btn")} style="purple" onClick={() => navigate('/createtask')}/>
             </div>
             <TasksTable  tasks={tasks}/>
