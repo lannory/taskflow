@@ -21,8 +21,6 @@ function DetailProject() {
   	const user = project ? users.find(u => u.id === project.managerId) : null;
 	const displayedTasks = tasks.filter(task => task.projectId == id);
 
-  	const deadlineText = getDeadlineLabel(project?.deadline, t);
-
   	useEffect(() => {
 		if (!projects.length) {
 		  	dispatch(fetchProjects());
@@ -57,7 +55,7 @@ function DetailProject() {
 					</p>
 					<p>
 						<i className="fa-regular fa-clock" style={{ color: "#54577a" }}></i>						
-						{deadlineText}
+						{getDeadlineLabel(project.deadlineAmount, t)}
 					</p>
 				</div>
 				<div className={styles.desc}>

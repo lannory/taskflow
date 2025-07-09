@@ -5,13 +5,12 @@ import StatusButton from '../AllTasks/StatusButton/StatusButton';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { getDeadlineLabel } from '../../utils/deadlineUtils';
-import { selectProjectsEnriched } from '../../store/selectors/selectors';
 
 
 function ProjectSummary() {
 	const { t } = useTranslation();
-	const { list: projects } = useSelector(selectProjectsEnriched);
 
+	const projects = useSelector(state => state.projects.projectsList);
 	const team = useSelector(state => state.users.users);
 
 	const [selectedProject, setSelectedProject] = useState(null);
@@ -26,13 +25,6 @@ function ProjectSummary() {
 	if (selectedManager) {
 		displayedProjects = displayedProjects.filter(project => project.managerId === selectedManager);
 	}
-
-	const projectsWithDeadlineLabel = useMemo(() => {
-		return displayedProjects.map(project => ({
-		  	...project,
-		  	deadlineLabel: getDeadlineLabel(project.deadline, t)
-		}));
-	}, [displayedProjects, t]);
 
 	const getProjects = () =>
 		projects.map(project => ({
@@ -162,12 +154,12 @@ function ProjectSummary() {
 						</tr>
 					</thead>
 					<tbody>
-						{projectsWithDeadlineLabel.map((project, index) => (
+						{displayedProjects.map((project, index) => (
 							<React.Fragment key={index}>
 								<tr>
 									<td>{project.title}</td>
 									<td>{team.find(member => member.id === project.managerId)?.name || 'Unknown'}</td>
-									<td>{project.deadlineLabel}</td>
+									<td>{getDeadlineLabel(project.deadlineAmount, t)}</td>
 									<td>
 										{project.progress}%
 										{/* <Dropdown

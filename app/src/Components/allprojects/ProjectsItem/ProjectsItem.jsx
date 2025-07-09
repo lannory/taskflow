@@ -30,7 +30,6 @@ function ProjectsItem({ obj }) {
     }
   ];
 
-  const deadlineText = getDeadlineLabel(obj.deadline, t);
 
   return (
     <div className={styles.wrapper}>
@@ -63,7 +62,7 @@ function ProjectsItem({ obj }) {
 				<div className={styles.projectDeadline}>
 					<div className={styles.deadline}>
 						<i className={styles.icon + " fa-regular fa-clock"}></i>
-						{deadlineText}
+						{getDeadlineLabel(obj.deadlineAmount, t)}
 					</div>
 				</div>
 		  </div>

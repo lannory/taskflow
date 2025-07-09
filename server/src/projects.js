@@ -15,7 +15,7 @@ const projects = {
 			title: 'Creating Perfect Website',
 			img: '02',
 			subtitle: 'Web Developer',
-			deadline: '2025-07-11',
+			deadline: '2025-07-22',
 			people: 43,
 			desc: 'Build a modern and responsive website using HTML, CSS, and JavaScript. Learn how to create clean layouts, optimize performance, and ensure a great user experience. Use animations and interactions that enhance, not distract. Then, try to recreate a landing page from your favorite site.',
 			managerId: 1
@@ -47,7 +47,7 @@ const projects = {
 			title: 'Creating Awesome Mobile Apps',
 			img: '05',
 			subtitle: 'UI UX Design',
-			deadline: '2025-07-04',
+			deadline: '2025-07-07',
 			people: 513,
 			desc: 'Quickly design a high-impact mobile app concept focusing on visual appeal and usability. Use Figma or Adobe XD to sketch your ideas and turn them into clickable prototypes. Emphasize simplicity and clarity in every element you create.',
 			managerId: 1,
@@ -57,7 +57,7 @@ const projects = {
 			title: 'Creating Fresh Website',
 			img: '06',
 			subtitle: 'Web Developer',
-			deadline: '2025-09-10',
+			deadline: '2025-07-10',
 			people: 122,
 			desc: 'Create a sleek and fresh website design tailored for a portfolio or blog. Learn how to apply modern UI patterns, responsive design, and lightweight frameworks. Focus on clean code and elegant animations to enhance user engagement.',
 			managerId: 5
@@ -67,7 +67,7 @@ const projects = {
 			title: 'Creating Color Palletes',
 			img: '07',
 			subtitle: 'UI UX Design',
-			deadline: '2025-09-01',
+			deadline: '2025-07-13',
 			people: 432,
 			desc: 'Explore the fundamentals of color theory and how to build stunning palettes. Learn about contrast, accessibility, and mood setting through color. Try creating a few themed palettes for apps or websites and test them in mockups.',
 			managerId: 1
@@ -77,7 +77,7 @@ const projects = {
 			title: 'Awesome Flutter Apps',
 			img: '08',
 			subtitle: 'Web Developer',
-			deadline: '2025-10-10',
+			deadline: '2025-07-16',
 			people: 267,
 			desc: 'Develop beautiful cross-platform apps using Flutter. Learn to structure widgets, manage state efficiently, and build reusable components. Practice by cloning simple UI screens and enhancing them with your own custom touches.',
 			managerId: 5
