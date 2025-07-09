@@ -49,7 +49,8 @@
 			"day": "day",
 			"hour": "hour",
 			"hours": "hours",
-			"overdue": "Overdue"
+			"overdue": "Overdue",
+			"today": "Deadline is today"
 		},
 		"labels": {
       		"progress": "Progress",
@@ -71,7 +72,23 @@
 			"namePlaceholder": "Enter Project name",
 			"descriptionPlaceholder": "Enter a description...",
 			"deadline": "Project Deadline",
-			"manager": "Project Manager"
+			"manager": "Project Manager",
+			"managerPlaceholder": "Select Project Manager",
+			"validation": {
+				"title": {
+					"required": "Project name is required",
+					"min": "Minimum 2 characters"
+				},
+				"desc": {
+					"max": "Maximum 300 characters"
+				},
+				"deadline": {
+					"required": "Deadline is required"
+				},
+				"manager": {
+					"required": "Manager is required"
+				}
+   			}
     	}
 
   	},
@@ -145,5 +162,27 @@
 			"proj": "Project",
 			"manager":"Project Manager"
 		}
+  },
+  "auth": {
+    "welcome": "Welcome!",
+    "loginTitle": "Log in to",
+    "continue": "Continue",
+    "usernameLabel": "User name or ID",
+    "usernamePlaceholder": "Enter your user name or ID",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your Password",
+    "remember": "Remember me",
+    "loginButton": "Login",
+	"validation": {
+		"login": {
+			"min": "Login must be longer than 5 characters",
+			"max": "Login must be shorter than 20 characters",
+			"required": "Login is required"
+		},
+		"password": {
+			"min": "Password must be at least 6 characters",
+			"required": "Password is required"
+		}
   }
+}
 }

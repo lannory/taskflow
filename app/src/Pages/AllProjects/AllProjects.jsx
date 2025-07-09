@@ -14,15 +14,17 @@ function AllProjects() {
 	const dispatch = useDispatch();
 
 	const { categories: projectsCategories } = useSelector(selectProjectsEnriched);
+	const {list: projectsList} = useSelector(selectProjectsEnriched);
+
 
 	const searchValue = useSelector(state => state.projects.searchValue);
 	const shownBy = useSelector(state => state.projects.shownBy);
 	const filtred = useSelector(state => state.projects.filtred);
 
-	let flatProjectsList = Object.values(projectsCategories).flat();
+	let shownProjectsList = [...projectsList];
 
 	if (filtred.isFiltred) {
-		flatProjectsList = flatProjectsList.filter(proj => proj.managerId === filtred.filtredBy);
+		shownProjectsList = shownProjectsList.filter(proj => proj.managerId === filtred.filtredBy);
 	}
 
 	let filteredCategories = { ...projectsCategories };
@@ -36,7 +38,7 @@ function AllProjects() {
 				)
 			])
 		);
-		flatProjectsList = Object.values(filteredCategories).flat();
+		shownProjectsList = Object.values(filteredCategories).flat();
 	}
 
 	const handleShowAll = () => {
@@ -54,12 +56,12 @@ function AllProjects() {
 							<ProjectsSlider title={t('projects.title.timeLimit')} projects={filteredCategories.timeLim || []} />
 						</>
 					) : (
-						<ProjectsList arr={flatProjectsList} />
+						<ProjectsList arr={shownProjectsList} />
 					)}
 				</>
 			) : (
 				<>
-					<ProjectsList arr={flatProjectsList} />
+					<ProjectsList arr={shownProjectsList} />
 					<div className={styles.btn}>
 						<BigButton onClick={handleShowAll} text={t('show')} style='purple' />
 					</div>

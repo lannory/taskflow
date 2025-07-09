@@ -44,15 +44,16 @@
       "progress": "Прогрес"
     },
 	"deadline": {
-    	"left": "залишилось",
+    "left": "залишилось",
 		"days": "дні",
 		"day": "день",
 		"hour": "година",
 		"hours": "години",
-    "overdue": "Термін минув"
+    "overdue": "Термін минув",
+    "today": "Дедлайн сьогодні"
     },
 	"labels": {
-      "progress": "Прогрес",
+    "progress": "Прогрес",
 	  "manager": "Менеджер проекту: ",
 	  "desc": "Опис",
 	  "tasks": "Завдання"
@@ -71,7 +72,23 @@
       "namePlaceholder": "Введіть назву проєкту",
       "descriptionPlaceholder": "Введіть опис...",
       "deadline": "Дедлайн проєкту",
-      "manager": "Менеджер проєкту"
+      "manager": "Менеджер проєкту",
+			"managerPlaceholder": "Оберіть менеджера проєкту",
+      "validation": {
+        "title": {
+          "required": "Назва проєкту обов’язкова",
+          "min": "Мінімум 2 символи"
+        },
+        "desc": {
+          "max": "Максимум 300 символів"
+        },
+        "deadline": {
+          "required": "Потрібно вказати дедлайн"
+        },
+        "manager": {
+          "required": "Потрібно обрати менеджера"
+        }
+      }
     }
   },
   "tasks": {
@@ -99,8 +116,6 @@
         "descriptionPlaceholder": "Введіть опис...",
         "deadline": "Дедлайн завдання",
         "datePlaceholder": "дд.мм.рррр",
-        "managerPlaceholder": "Оберіть менеджера проєкту",
-
 
         "projectPlaceholder": "Оберіть проєкт",
         "saveButton": "Зберегти завдання",
@@ -143,6 +158,28 @@
     "labels": {
       "proj": "Проект",
       "manager":"Менеджер проєкту"
+    }
+  },
+  "auth": {
+    "welcome": "Ласкаво просимо!",
+    "loginTitle": "Увійти в",
+    "continue": "Продовжити",
+    "usernameLabel": "Ім’я користувача або ID",
+    "usernamePlaceholder": "Введіть ім’я користувача або ID",
+    "passwordLabel": "Пароль",
+    "passwordPlaceholder": "Введіть пароль",
+    "remember": "Запам’ятати мене",
+    "loginButton": "Увійти",
+    "validation": {
+      "login": {
+        "min": "Логін має містити більше 5 символів",
+        "max": "Логін має бути коротше 20 символів",
+        "required": "Логін обов'язковий"
+      },
+      "password": {
+        "min": "Пароль має бути щонайменше з 6 символів",
+        "required": "Пароль обов'язковий"
+      }
     }
   }
 
