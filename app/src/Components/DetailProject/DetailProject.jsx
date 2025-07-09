@@ -1,33 +1,31 @@
 import React, { useEffect } from 'react';
 import styles from './DetailProject.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import TaskTable from '../AllTasks/TasksTable/TasksTable'
 import { fetchProjects } from '../../store/projects/projectsSlice';
 import { useTranslation } from 'react-i18next';
+import { getDeadlineLabel } from '../../utils/deadlineUtils';
 
 
-function DetailProject({id}) {
-
+function DetailProject() {
+	const { id } = useParams();
 	const {t} = useTranslation();
-
-
 	const dispatch = useDispatch();
 
-
-	useEffect(() => {
-  		dispatch(fetchProjects());
-	}, [dispatch]);
-
-
 	const projects = useSelector(state => state.projects.projectsList);
-	const project = projects.find(proj => proj.id == id);
+  	const tasks = useSelector(state => state.tasks.tasks);
+  	const users = useSelector(state => state.users.users);
 
-	const tasks = useSelector(state => state.tasks.tasks);
+  	const project = projects.find(proj => proj.id == id);
+  	const user = project ? users.find(u => u.id === project.managerId) : null;
 	const displayedTasks = tasks.filter(task => task.projectId == id);
 
-	const users = useSelector(state => state.users.users);
-	const user = users.find((item) => project.managerId === item.id);
-
+  	useEffect(() => {
+		if (!projects.length) {
+		  	dispatch(fetchProjects());
+		}
+	}, [dispatch, projects.length]);
 
 	if (!projects || projects.length === 0) {
   		return <p>Loading projects...</p>;
@@ -36,8 +34,6 @@ function DetailProject({id}) {
 	if(!users || users.length === 0){
 		return <p>Loading users...</p>;
 	}
-
-
 
 
 	return (
@@ -59,7 +55,7 @@ function DetailProject({id}) {
 					</p>
 					<p>
 						<i className="fa-regular fa-clock" style={{ color: "#54577a" }}></i>						
-						{project.deadlineAmount} {t(`projects.deadline.${project.deadlineUnit}`)} {t('projects.deadline.left')}
+						{getDeadlineLabel(project.deadlineAmount, t)}
 					</p>
 				</div>
 				<div className={styles.desc}>

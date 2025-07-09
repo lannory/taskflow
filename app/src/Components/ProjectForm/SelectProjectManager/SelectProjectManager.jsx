@@ -10,7 +10,7 @@ export default function SelectProjectManager({ users, value, onChange }) {
   return (
     <div className={styles.wrapper}>
     <Select
-        // value={value}
+        value={value || undefined}
         placeholder="Select Project Manager"
         onChange={onChange}
         classNames={{
@@ -22,7 +22,7 @@ export default function SelectProjectManager({ users, value, onChange }) {
         {managers.map(user => (
           <Option key={user.id} value={user.id}>
             <div className={styles.option}>
-              <Avatar src={user.avatar} size="small" />
+              <Avatar src={`team/${user.img}.png`} size="small" />
               <span className={styles.name}>{user.name}</span>
             </div>
           </Option>

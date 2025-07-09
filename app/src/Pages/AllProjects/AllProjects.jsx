@@ -1,66 +1,70 @@
 import React from 'react';
-
 import ProjectsNavigation from '../../Components/allprojects/ProjectsNavigation/ProjectsNavigation';
-import styles from './AllProjects.module.scss'
+import styles from './AllProjects.module.scss';
 import ProjectsSlider from '../../Components/allprojects/ProjectsSlider/ProjectsSlider';
-import { useDispatch, useSelector } from 'react-redux';
 import ProjectsList from '../../Components/allprojects/ProjectsList/ProjectsList';
-import {useTranslation}from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { selectProjectsEnriched } from '../../store/selectors/selectors';
 import BigButton from '../../Components/BigButton/BigButton';
 import { filterProjects } from '../../store/projects/projectsSlice';
 
 function AllProjects() {
-
-	const projectsCategories = useSelector(state => state.projects.projectsCategories),	
-		projectsList = useSelector(state => state.projects.projectsList),
-		searchValue = useSelector(state => state.projects.searchValue),
-		filtred = useSelector(state => state.projects.filtred);
-
-	const {t} = useTranslation();
+	const { t } = useTranslation();
 	const dispatch = useDispatch();
 
-	let shownProjectsCategories = {...projectsCategories},
-		shownProjectsList = [...projectsList];
+	const { categories: projectsCategories } = useSelector(selectProjectsEnriched);
+
+	const searchValue = useSelector(state => state.projects.searchValue);
 	const shownBy = useSelector(state => state.projects.shownBy);
+	const filtred = useSelector(state => state.projects.filtred);
 
-	if(searchValue){
-		shownProjectsCategories = Object.fromEntries(Object.entries(projectsCategories)
-								.map(([key, arr]) => [key, 
-								arr.filter(item => 
-								item.title.toLowerCase().includes(searchValue.toLowerCase()))]));
-		shownProjectsList = Object.values(shownProjectsCategories).flat();
-		console.log(shownProjectsCategories);
+	let flatProjectsList = Object.values(projectsCategories).flat();
+
+	if (filtred.isFiltred) {
+		flatProjectsList = flatProjectsList.filter(proj => proj.managerId === filtred.filtredBy);
 	}
 
-	if(filtred.isFiltred){
-		shownProjectsList = projectsList.filter(proj => proj.managerId == filtred.filtredBy);
+	let filteredCategories = { ...projectsCategories };
+
+	if (searchValue) {
+		filteredCategories = Object.fromEntries(
+			Object.entries(projectsCategories).map(([key, arr]) => [
+				key,
+				arr.filter(project =>
+					project.title.toLowerCase().includes(searchValue.toLowerCase())
+				)
+			])
+		);
+		flatProjectsList = Object.values(filteredCategories).flat();
 	}
 
-	const handleShowAll = () =>{
-		shownProjectsList = [...projectsList];
+	const handleShowAll = () => {
 		dispatch(filterProjects());
-	}
+	};
 
 	return (
 		<div className={styles.container}>
-			
-			{!filtred.isFiltred ? 
-				(<>
-					<ProjectsNavigation/>
-					{shownBy == 'category' ?
-					<><ProjectsSlider title={t('projects.title.newProject')} projects={shownProjectsCategories.newProj} />
-					<ProjectsSlider title={t('projects.title.timeLimit')} projects={shownProjectsCategories.timeLim} />
-					</>
-					: <ProjectsList arr={shownProjectsList}/>}
+			{!filtred.isFiltred ? (
+				<>
+					<ProjectsNavigation />
+					{shownBy === 'category' ? (
+						<>
+							<ProjectsSlider title={t('projects.title.newProject')} projects={filteredCategories.newProj || []} />
+							<ProjectsSlider title={t('projects.title.timeLimit')} projects={filteredCategories.timeLim || []} />
+						</>
+					) : (
+						<ProjectsList arr={flatProjectsList} />
+					)}
 				</>
-				) 
-				: (<>
-						<ProjectsList arr={shownProjectsList}/>
-						<div className={styles.btn}>
-							<BigButton onClick={handleShowAll} text={t("show")} style='purple'/>
-						</div>
-				</>)
-			}
+			) : (
+				<>
+					<ProjectsList arr={flatProjectsList} />
+					<div className={styles.btn}>
+						<BigButton onClick={handleShowAll} text={t('show')} style='purple' />
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

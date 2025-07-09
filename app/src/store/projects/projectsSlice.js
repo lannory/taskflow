@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
+import { calculateProjectProgress } from '../../utils/calculateProjectProgress';
 
 export const fetchProjects = createAsyncThunk(
 	'projects/fetch',
@@ -15,7 +17,22 @@ export const fetchProjects = createAsyncThunk(
 				return rejectWithValue(data.message || 'Failed to fetch projects');
 			}
 			const data = await res.json();
-			return data;
+
+			const tasks = getState().tasks.tasks;
+
+			const projectsByCategory = Object.fromEntries(
+				Object.entries(data).map(([category, projects]) => [
+				  	category,
+				  	projects.map(project => ({
+						...project,
+						deadlineAmount: calculateDaysLeft(project.deadline),
+						progress: calculateProjectProgress(tasks, project.id),
+				  	}))
+				])
+			  );
+		
+			return projectsByCategory;
+			// return data;
 		} catch (err) {
 			return rejectWithValue(err.message || 'Network error');
 		}
@@ -35,7 +52,6 @@ const initialState = {
 	}
 }
 
-
 const projectsSlice = createSlice({
 	initialState,
 	name: 'projects',
@@ -54,23 +70,23 @@ const projectsSlice = createSlice({
 
 			if(state.sortType == 'deadline'){
 				if(state.sortDirection == 'increase'){
-					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
 				}
 				else{
-					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.deadlineAmount - a.deadlineAmount)]));
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => b.deadlineAmount - a.deadlineAmount)]));
 				}
 			}else{
 				if(state.sortDirection == 'increase'){
-					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => a.progress - b.progress)]));
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => a.progress - b.progress)]));
 				}
 				else{
-					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, arr.sort((a, b) => b.progress - a.progress)]));
+					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => b.progress - a.progress)]));
 				}
 			}
 
 
 			state.projectsList = Object.values(state.projectsCategories).flat();
-			return state;
+			// return state;
 		},
 		deleteProject: (state, action) => {
 			const id = action.payload;
@@ -84,6 +100,47 @@ const projectsSlice = createSlice({
 		setSearchValue: (state, action) => {
 			state.searchValue = action.payload;
 			return state;
+		},
+		addProject: (state, action) => {
+			const project = action.payload;
+
+			const deadlineAmount = calculateDaysLeft(project.deadline);
+
+			const newProject = { ...project, deadlineAmount };
+
+			const category = project.category || 'newProj';
+
+			if (state.projectsCategories[category]) {
+			  state.projectsCategories[category].push(newProject);
+			} else {
+			  state.projectsCategories[category] = [newProject];
+			}
+
+			state.projectsList = Object.values(state.projectsCategories).flat();
+		},
+		editProject: (state, action) => {
+			const updatedProject = action.payload;
+			const entries = Object.entries(state.projectsCategories);
+
+			state.projectsCategories = Object.fromEntries(
+			  	entries.map(([key, arr]) => [
+					key,
+					arr.map(project => project.id === updatedProject.id ? updatedProject : project)
+			  	])
+			);
+
+			state.projectsList = Object.values(state.projectsCategories).flat();
+		},
+		updateProject: (state, action) => {
+			const updated = action.payload;
+			const entries = Object.entries(state.projectsCategories);
+			state.projectsCategories = Object.fromEntries(
+			  	entries.map(([key, arr]) => [
+					key,
+					arr.map((item) => (item.id === updated.id ? updated : item))
+			  	])
+			);
+			state.projectsList = Object.values(state.projectsCategories).flat();
 		},
 		filterProjects: (state, action) =>{
 			if(action.payload){
@@ -106,6 +163,16 @@ const projectsSlice = createSlice({
 	}
 });
 
-export const { changeSort, changeShown, sorting, deleteProject, setSearchValue, filterProjects } = projectsSlice.actions;
+export const { 
+	changeSort, 
+	changeShown, 
+	sorting, 
+	deleteProject, 
+	setSearchValue, 
+	addProject, 
+	editProject, 
+	updateProject, 
+	filterProjects
+} = projectsSlice.actions;
 
 export default projectsSlice.reducer;

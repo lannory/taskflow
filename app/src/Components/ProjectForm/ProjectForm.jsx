@@ -8,17 +8,17 @@ import SelectProjectManager from './SelectProjectManager/SelectProjectManager';
 import { useTranslation } from "react-i18next";
 
 export default function ProjectForm({
-    initialValues = { name: '', description: '', deadline: '', managerId: '' },
+    initialValues,
     onSubmit,
     users = [],
     isEdit
   }) {
     const {t} = useTranslation();
     const validationSchema = Yup.object().shape({
-        name: Yup.string()
+        title: Yup.string()
             .required('Project name is required')
             .min(2, 'Minimum 2 characters'),
-        description: Yup.string()
+        desc: Yup.string()
             .max(300, 'Maximum 300 characters'),
         deadline: Yup.string()
             .required('Deadline is required'),
@@ -30,41 +30,43 @@ export default function ProjectForm({
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <BigTitle text={isEdit ? t('projects.form.editTitle') : t('projects.form.createTitle')} />
-                 {/* <BigButton text={isEdit ? 'Save Project' : 'Create Project'} style='purple'/> */}
             </div>
 
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values, { resetForm }) => {
-                onSubmit(values);
-                if (!isEdit) resetForm();
-                }}
+                    const payload = isEdit
+                        ? values
+                        : { ...values, id: Date.now(), category: 'newProj', img: '01' };
+                    onSubmit(payload);
+                    if (!isEdit) resetForm();
+                }} enableReinitialize
             >
                 {({ isSubmitting }) => (
                 <Form className={styles.form}>
                     <div className={styles.formGroup}>
-                        <label htmlFor="name" className={styles.label}>
+                        <label htmlFor="title" className={styles.label}>
                             {t('projects.form.projectName')}
                         </label>
                         <Field
                             type="text"
-                            name="name"
+                            name="title"
                             className={styles.input}
                             placeholder={t('projects.form.namePlaceholder')}
                         />
-                        <ErrorMessage name="name" component="div" className={styles.error} />
+                        <ErrorMessage name="title" component="div" className={styles.error} />
                     </div>
 
                     <div className={styles.formGroup}>
                         <Field
                             as="textarea"
-                            name="description"
+                            name="desc"
                             rows="4"
                             className={styles.textarea}
                             placeholder={t('projects.form.descriptionPlaceholder')}
                         />
-                        <ErrorMessage name="description" component="div" className={styles.error} />
+                        <ErrorMessage name="desc" component="div" className={styles.error} />
                     </div>
 
                     <div className={styles.formGroup}>

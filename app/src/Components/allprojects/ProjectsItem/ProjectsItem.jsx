@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteProject } from '../../../store/projects/projectsSlice';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { getDeadlineLabel } from '../../../utils/deadlineUtils';
 
 function ProjectsItem({ obj }) {
   const dispatch = useDispatch();
@@ -21,11 +22,14 @@ function ProjectsItem({ obj }) {
     },
     {
       key: '2',
-      onClick: () => {
-      },
-      label: <button>{t('actions.edit')}</button>,
+	  label: (
+		<Link to={`/projects/edit/${obj.id}`} className={styles.editLink}>
+		  {t('actions.edit')}
+		</Link>
+	  ),
     }
   ];
+
 
   return (
     <div className={styles.wrapper}>
@@ -57,8 +61,8 @@ function ProjectsItem({ obj }) {
 			</div>
 				<div className={styles.projectDeadline}>
 					<div className={styles.deadline}>
-						<i className={`${styles.icon} fa-regular fa-clock`}></i>
-						{obj.deadlineAmount} {t(`projects.deadline.${obj.deadlineUnit}`)} {t('projects.deadline.left')}
+						<i className={styles.icon + " fa-regular fa-clock"}></i>
+						{getDeadlineLabel(obj.deadlineAmount, t)}
 					</div>
 				</div>
 		  </div>
