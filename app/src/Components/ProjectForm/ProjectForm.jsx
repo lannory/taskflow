@@ -16,14 +16,14 @@ export default function ProjectForm({
     const {t} = useTranslation();
     const validationSchema = Yup.object().shape({
         title: Yup.string()
-            .required('Project name is required')
-            .min(2, 'Minimum 2 characters'),
+            .required(t('projects.form.validation.title.required'))
+            .min(2, t('projects.form.validation.title.min')),
         desc: Yup.string()
-            .max(300, 'Maximum 300 characters'),
+            .max(300, t('projects.form.validation.desc.max')),
         deadline: Yup.string()
-            .required('Deadline is required'),
+            .required(t('projects.form.validation.deadline.required')),
         managerId: Yup.string()
-            .required('Manager is required'),
+            .required(t('projects.form.validation.manager.required')),
     });
 
     return(

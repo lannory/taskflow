@@ -70,22 +70,23 @@ const projectsSlice = createSlice({
 
 			if(state.sortType == 'deadline'){
 				if(state.sortDirection == 'increase'){
+					state.projectsList = [...state.projectsList].sort((a, b) => a.deadlineAmount - b.deadlineAmount);
 					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => a.deadlineAmount - b.deadlineAmount)]));
 				}
 				else{
+					state.projectsList = [...state.projectsList].sort((a, b) => b.deadlineAmount - a.deadlineAmount);
 					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => b.deadlineAmount - a.deadlineAmount)]));
 				}
 			}else{
 				if(state.sortDirection == 'increase'){
+					state.projectsList = [...state.projectsList].sort((a, b) => a.progress - b.progress);
 					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => a.progress - b.progress)]));
 				}
 				else{
+					state.projectsList = [...state.projectsList].sort((a, b) => b.progress - a.progress);
 					state.projectsCategories = Object.fromEntries(entries.map(([key, arr]) => [key, [...arr].sort((a, b) => b.progress - a.progress)]));
 				}
 			}
-
-
-			state.projectsList = Object.values(state.projectsCategories).flat();
 			// return state;
 		},
 		deleteProject: (state, action) => {
