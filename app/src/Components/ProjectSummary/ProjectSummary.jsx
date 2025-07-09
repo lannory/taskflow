@@ -159,7 +159,7 @@ function ProjectSummary() {
 								<tr>
 									<td>{project.title}</td>
 									<td>{team.find(member => member.id === project.managerId)?.name || 'Unknown'}</td>
-									<td>{project.deadlineAmount} {project.deadlineUnit}</td>
+									<td>{project.deadlineAmount} {t(`projects.deadline.${project.deadlineUnit}`)}</td>
 									<td>
 										{project.progress}%
 										{/* <Dropdown

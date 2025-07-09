@@ -74,30 +74,57 @@
     }
   },
   "tasks": {
-	"status": {
-    	"Approved": "Схвалено",
-   		"Re work": "Перероблюється",
-    	"Pending": "Очікується",
-		"In progress": "В роботі"
-  	},
-	"search": "Пошук завдання",
-	"table": {
-      "taskName": "Назва завдання",
-      "taskCreated": "Дата створення",
-      "duoDate": "Термін",
-      "project": "Проєкт",
-      "status": "Статус"
+    "status": {
+        "Approved": "Схвалено",
+        "Re work": "Перероблюється",
+        "Pending": "Очікується",
+        "In progress": "В роботі",
+        "Completed": "Виконано"
+      },
+    "search": "Пошук завдання",
+    "table": {
+        "taskName": "Назва завдання",
+        "taskCreated": "Дата створення",
+        "duoDate": "Термін",
+        "project": "Проєкт",
+        "status": "Статус"
+      },
+    "title": "Всі Завдання",
+    "btn": "Нове Завдання",
+    "pendingToday": "Рецензії, що очікують сьогодні",
+    "form": {
+        "createTitle": "Створити завдання",
+        "projectName": "Назва завдання",
+        "descriptionPlaceholder": "Введіть опис...",
+        "deadline": "Дедлайн завдання",
+        "datePlaceholder": "дд.мм.рррр",
+        "managerPlaceholder": "Оберіть менеджера проєкту",
+
+
+        "projectPlaceholder": "Оберіть проєкт",
+        "saveButton": "Зберегти завдання",
+        "createButton": "Створити завдання",
+        "namePlaceholder": "Введіть назву завдання",
+        "selectDev": "Оберіть розробника"
     },
-	"title": "Всі Завдання",
-	"btn": "Нове Завдання",
-	"pendingToday": "Рецензії, що очікують сьогодні",
-	"form": {
-      "createTitle": "Створити завдання",
-      "projectName": "Назва завдання",
-      "descriptionPlaceholder": "Введіть опис...",
-      "deadline": "Дедлайн завдання",
-      "datePlaceholder": "ДД/ММ/РРРР",
-      "managerPlaceholder": "Оберіть менеджера проєкту"
+    "dev": "Розробник",
+    "validation": {
+      "title": {
+        "required": "Назва завдання обов’язкова",
+        "min": "Мінімум 2 символи"
+      },
+      "description": {
+        "max": "Максимум 300 символів"
+      },
+      "duoDate": {
+        "required": "Потрібно вказати дедлайн"
+      },
+      "userId": {
+        "required": "Потрібно обрати розробника"
+      },
+      "projectId": {
+        "required": "Потрібно обрати проєкт"
+      }
     }
   },
   "team":{

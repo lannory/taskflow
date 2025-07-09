@@ -79,7 +79,8 @@
 			"Approved": "Approved",
 			"Re work": "Re work",
 			"Pending": "Pending",
-			"In progress": "In progress"
+			"In progress": "In progress",
+	        "Completed": "Completed"
 		},
 		"search": "Search Task",
 		"table": {
@@ -98,15 +99,34 @@
 			"projectName": "Task Name",
 			"descriptionPlaceholder": "Enter a description...",
 			"deadline": "Task Deadline",
-			"datePlaceholder": "DD/MM/YYYY",
-			"managerPlaceholder": "Select Project Manager",
+			"datePlaceholder": "dd.mm.yyyy",
 
 			"projectPlaceholder": "Select Project",
 			"saveButton": "Save Task",
 			"createButton": "Create Task",
 			"namePlaceholder": "Enter Task name",
-			"manager": "Task Developer"
-    	}
+			"manager": "Task Developer",
+			"selectDev": "Select Developer"
+    	},
+		"dev": "Developer",
+		"validation": {
+			"title": {
+				"required": "Task name is required",
+				"min": "Minimum 2 characters"
+			},
+			"description": {
+				"max": "Maximum 300 characters"
+			},
+			"duoDate": {
+				"required": "Deadline is required"
+			},
+			"userId": {
+				"required": "Developer is required"
+			},
+			"projectId": {
+				"required": "Project is required"
+			}
+   	 	}
 	},
 	"team":{
 		"task": "Task",
