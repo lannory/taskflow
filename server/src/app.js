@@ -54,5 +54,5 @@ app.get('/api/team', authMiddleware, (req, res) => {
   res.json(team);
 });
 
-
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server ready on :${PORT}`));

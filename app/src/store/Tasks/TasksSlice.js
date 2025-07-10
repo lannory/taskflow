@@ -20,7 +20,7 @@ const initialState = {
 export const fetchTasks = createAsyncThunk('tasks/fetch', async (_, { getState, rejectWithValue }) => {
     try {
         const token = getState().auth.token;
-        const res = await fetch('http://localhost:3000/api/tasks', {
+        const res = await fetch('https://api-taskflow-kyqf.onrender.com/api/tasks', {
             headers: { 'Authorization': `Bearer ${token}` }
         });
 
