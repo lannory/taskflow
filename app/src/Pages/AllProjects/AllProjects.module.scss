@@ -2,7 +2,8 @@
 .container{
 	color: var(--Secondary-500);
 	font-family: "Plus Jakarta Sans", sans-serif;
-	width: 1408px;
+	// max-width: 1408px;
+    width: 100%;
 }
 .btn{
 	width: fit-content;
